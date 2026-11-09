@@ -1,0 +1,122 @@
+/* ==========================================================================
+   OFFMENU · Tokens de marca v1.0
+   Importar antes que cualquier otra hoja de estilos.
+   Tipografías: ver <link> de Google Fonts en el manual (sección Tipografía).
+   ========================================================================== */
+:root {
+  /* Color · marca */
+  --om-granate: #42000E;
+  --om-rojo: #F5302A;
+  --om-blanco: #FFFFFF;
+  --om-negro: #141518;
+
+  /* Color · interfaz */
+  --om-papel: #F6F4F1;        /* fondo alterno de secciones */
+  --om-borde: #E2DFDA;        /* bordes suaves, separadores sobre blanco */
+  --om-gris: #5F5B59;         /* texto secundario (6,7:1 sobre blanco) */
+  --om-rojo-texto: #D8241E;   /* rojo para texto pequeño sobre blanco (5:1) */
+  --om-rojo-claro: #FDE3E1;   /* fondo de avisos de error */
+  --om-granate-hover: #5C0A1B;
+  --om-rojo-hover: #D8241E;
+
+  /* Tipografía */
+  --om-font-display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --om-font-texto: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --om-font-datos: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Escala tipográfica (fluida entre 375 px y 1280 px) */
+  --om-fs-display: clamp(3rem, 1.6rem + 6vw, 6.5rem);     /* 48 → 104 px */
+  --om-fs-h1: clamp(2.5rem, 1.6rem + 3.8vw, 4.5rem);      /* 40 → 72 px */
+  --om-fs-h2: clamp(2rem, 1.5rem + 2.2vw, 3rem);          /* 32 → 48 px */
+  --om-fs-h3: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);        /* 24 → 32 px */
+  --om-fs-h4: 1.25rem;                                    /* 20 px */
+  --om-fs-texto-l: 1.25rem;                               /* 20 px */
+  --om-fs-texto: 1.0625rem;                               /* 17 px */
+  --om-fs-pequeno: 0.9375rem;                             /* 15 px */
+  --om-fs-etiqueta: 0.8125rem;                            /* 13 px, mono mayúsculas */
+
+  /* Espaciado (base 4 px) */
+  --om-s-1: 4px;  --om-s-2: 8px;  --om-s-3: 12px; --om-s-4: 16px;
+  --om-s-5: 24px; --om-s-6: 32px; --om-s-7: 48px; --om-s-8: 64px;
+  --om-s-9: 96px; --om-s-10: 128px;
+
+  /* Retícula */
+  --om-max: 1280px;
+  --om-margen: clamp(16px, 4vw, 64px);
+  --om-medianil: clamp(16px, 2vw, 24px);
+
+  /* Forma */
+  --om-radio: 0;              /* esquinas rectas en toda la interfaz */
+  --om-linea: 1px;            /* filetes */
+  --om-foco: 2px solid var(--om-rojo);
+}
+
+/* Base */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--om-blanco);
+  color: var(--om-negro);
+  font-family: var(--om-font-texto);
+  font-size: var(--om-fs-texto);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--om-font-display); margin: 0; text-wrap: balance; color: var(--om-granate); }
+h1 { font-size: var(--om-fs-h1); font-weight: 900; line-height: .92; letter-spacing: -.045em; }
+h2 { font-size: var(--om-fs-h2); font-weight: 800; line-height: 1; letter-spacing: -.035em; }
+h3 { font-size: var(--om-fs-h3); font-weight: 800; line-height: 1.1; letter-spacing: -.025em; }
+h4 { font-size: var(--om-fs-h4); font-weight: 700; line-height: 1.2; letter-spacing: -.01em; }
+p { margin: 0; max-width: 68ch; }
+:focus-visible { outline: var(--om-foco); outline-offset: 2px; }
+.om-etiqueta { font-family: var(--om-font-datos); font-size: var(--om-fs-etiqueta); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+.om-datos, .om-precio { font-family: var(--om-font-datos); font-variant-numeric: tabular-nums; }
+
+/* La tachadura: siempre roja, una por pieza. Se pinta como fondo para que funcione en varias líneas. */
+.om-tachado {
+  color: var(--om-gris);
+  padding: 0 .04em; margin: 0 -.04em;
+  background: linear-gradient(var(--om-rojo), var(--om-rojo)) 0 56% / 100% max(.09em, 2px) no-repeat;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* Botones */
+.om-boton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 48px; padding: 0 24px; border: 1px solid transparent; border-radius: var(--om-radio);
+  font-family: var(--om-font-datos); font-size: 14px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; transition: background-color .15s, color .15s, border-color .15s;
+}
+.om-boton--primario { background: var(--om-granate); color: var(--om-blanco); }
+.om-boton--primario:hover { background: var(--om-granate-hover); }
+.om-boton--secundario { background: transparent; color: var(--om-negro); border-color: var(--om-negro); }
+.om-boton--secundario:hover { background: var(--om-negro); color: var(--om-blanco); }
+.om-boton--claro { background: var(--om-blanco); color: var(--om-granate); }
+.om-boton--claro:hover { background: var(--om-papel); }
+.om-boton:disabled { opacity: .4; cursor: not-allowed; }
+
+/* Enlaces */
+.om-enlace { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.om-enlace:hover { color: var(--om-granate); text-decoration-color: var(--om-rojo); }
+
+/* Formularios */
+.om-campo { display: flex; flex-direction: column; gap: 8px; }
+.om-campo label { font-family: var(--om-font-datos); font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+.om-campo input, .om-campo select, .om-campo textarea {
+  min-height: 48px; padding: 12px 14px; border: 1px solid var(--om-negro); border-radius: var(--om-radio);
+  background: var(--om-blanco); color: var(--om-negro); font: inherit;
+}
+.om-campo input:focus { outline: var(--om-foco); outline-offset: 0; }
+.om-campo--error input { border-color: var(--om-rojo-texto); }
+.om-campo .om-error { color: var(--om-rojo-texto); font-size: var(--om-fs-pequeno); }
+
+/* Estados de carta y panel */
+.om-estado { display: inline-flex; align-items: center; min-height: 24px; padding: 0 8px; font-family: var(--om-font-datos); font-size: 12px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
+.om-estado--agotado { color: var(--om-rojo-texto); border: 1px solid currentColor; }
+.om-estado--nuevo { background: var(--om-granate); color: var(--om-blanco); }
+.om-estado--dia { background: var(--om-negro); color: var(--om-blanco); }
+
+/* Contenedor */
+.om-contenedor { width: 100%; max-width: var(--om-max); margin: 0 auto; padding-left: var(--om-margen); padding-right: var(--om-margen); box-sizing: border-box; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

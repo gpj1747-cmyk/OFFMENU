@@ -14,4 +14,7 @@ Desarrollo por etapas de la identidad visual de OFFMENU.
 - **Etapa 02h** · `etapa-02/offmenu-rojo-granate.html`: paleta rojo y granate (ref. Festival de Lima), símbolos, patrón y aplicaciones.
 - **Etapa 02i** · `etapa-02/offmenu-editorial.html`: rojo y granate con más blanco y negro (tono editorial), corrección de la línea del logotipo.
 - **Etapa 02j** · `etapa-02/offmenu-linea.html`: regla de color de la línea del tachado (siempre roja / tercer color).
-- **Etapa 03** · Desarrollo de la identidad seleccionada (pendiente de feedback).
+- **Etapa 03** · Identidad definitiva:
+  - `manual/offmenu-manual.html`: manual de marca completo (fuente en `manual/manual-src.html`, se genera con `python3 manual/build_manual.py`).
+  - `logo/`: logotipo vectorial construido a partir de los contornos de la tipografía (`python3 logo/build_logo.py`).
+  - `kit/`: tokens CSS/JSON, favicons e imagen para compartir, con instrucciones para desarrollo en `kit/README.md`.

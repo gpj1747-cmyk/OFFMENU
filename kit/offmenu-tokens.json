@@ -1,0 +1,109 @@
+{
+  "color": {
+    "marca": {
+      "granate": "#42000E",
+      "rojo": "#F5302A",
+      "blanco": "#FFFFFF",
+      "negro": "#141518"
+    },
+    "interfaz": {
+      "papel": "#F6F4F1",
+      "borde": "#E2DFDA",
+      "gris": "#5F5B59",
+      "rojo-texto": "#D8241E",
+      "rojo-claro": "#FDE3E1",
+      "granate-hover": "#5C0A1B",
+      "rojo-hover": "#D8241E"
+    }
+  },
+  "tipografia": {
+    "display": "Schibsted Grotesk",
+    "texto": "Schibsted Grotesk",
+    "datos": "IBM Plex Mono",
+    "pesos": {
+      "Schibsted Grotesk": [
+        400,
+        500,
+        700,
+        800,
+        900
+      ],
+      "IBM Plex Mono": [
+        400,
+        500
+      ]
+    },
+    "escala_px": {
+      "display": [
+        48,
+        104
+      ],
+      "h1": [
+        40,
+        72
+      ],
+      "h2": [
+        32,
+        48
+      ],
+      "h3": [
+        24,
+        32
+      ],
+      "h4": [
+        20,
+        20
+      ],
+      "texto-l": [
+        20,
+        20
+      ],
+      "texto": [
+        17,
+        17
+      ],
+      "pequeno": [
+        15,
+        15
+      ],
+      "etiqueta": [
+        13,
+        13
+      ]
+    }
+  },
+  "espaciado_px": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96,
+    128
+  ],
+  "breakpoints_px": {
+    "movil": 0,
+    "tablet": 768,
+    "escritorio": 1024,
+    "ancho": 1280
+  },
+  "forma": {
+    "radio": 0,
+    "filete_px": 1,
+    "sombras": "ninguna",
+    "degradados": "ninguno"
+  },
+  "logotipo": {
+    "brazo_F_unidades": [
+      535,
+      885
+    ],
+    "unidades_por_em": 2048,
+    "altura_mayuscula": 1440,
+    "sobresale_izquierda_em": 0.1,
+    "tracking_em": -0.05
+  }
+}
