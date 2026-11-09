@@ -1,0 +1,172 @@
+<title>OFFMENU · Frío y cálido</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: revisión de color. Lectura de las dos referencias, el principio que comparten
+   y tres combinaciones aplicadas a las mismas piezas de empresa. */
+:root{
+  --bg:#F5F5F2; --fg:#181816; --muted:#6C6B66; --rule:#D9D8D2; --surface:#FFFFFF;
+  --f-ui:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --f-lab:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --f-d:'Schibsted Grotesk',Arial,sans-serif;
+  --f-m:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--f-ui); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0; line-height:1.1; text-wrap:balance}
+p{margin:0}
+.lab{font-family:var(--f-lab); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+header{padding-block:56px 40px; border-bottom:1px solid var(--rule)}
+header h1{font-size:clamp(38px,6.5vw,80px); font-weight:700; letter-spacing:-.035em; line-height:.95; margin-top:18px}
+header .intro{margin-top:24px; max-width:64ch; font-size:18px}
+section{padding-block:56px; border-bottom:1px solid var(--rule)}
+section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px 0 16px}
+.lead{font-size:17px; max-width:66ch}
+.cols2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px}
+.cols3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:24px}
+.cols2>*,.cols3>*{min-width:0}
+.panel{background:var(--surface); border:1px solid var(--rule); padding:22px}
+.panel h3{font-size:18px; margin-bottom:8px}
+.panel p,.panel li{font-size:15px}
+.panel ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px}
+
+.lg{font-family:var(--f-d); font-weight:900; text-transform:uppercase; letter-spacing:-.05em; line-height:.8; white-space:nowrap; display:inline-block}
+.lg .o{position:relative; display:inline-block}
+.lg .o i{position:absolute; left:-.1em; right:0; top:.46em; height:.105em; background:var(--line,currentColor)}
+.x{position:relative; display:inline}
+.x::after{content:""; position:absolute; left:-.04em; right:-.04em; top:54%; height:.09em; background:var(--line,currentColor)}
+.tex{position:absolute; inset:0; background-color:#fff; background-size:cover; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='t' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='0.022' numOctaves='4' seed='7'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='discrete' tableValues='0 0 0 1 1'/><feFuncG type='discrete' tableValues='0 0 0 1 1'/><feFuncB type='discrete' tableValues='0 0 0 1 1'/><feFuncA type='linear' slope='0' intercept='1'/></feComponentTransfer></filter><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' seed='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.4 -0.55'/></filter><rect width='600' height='600' filter='url(%23t)'/><rect width='600' height='600' filter='url(%23g)'/></svg>")}
+.tex.b{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='t' x='0' y='0'><feTurbulence type='turbulence' baseFrequency='0.012 0.05' numOctaves='3' seed='11'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='discrete' tableValues='1 1 0 0'/><feFuncG type='discrete' tableValues='1 1 0 0'/><feFuncB type='discrete' tableValues='1 1 0 0'/><feFuncA type='linear' slope='0' intercept='1'/></feComponentTransfer></filter><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.4 -0.55'/></filter><rect width='600' height='600' filter='url(%23t)'/><rect width='600' height='600' filter='url(%23g)'/></svg>")}
+
+.tex-cap{position:absolute; left:4cqw; top:4cqw; font-family:var(--f-lab); font-size:max(9px,2.4cqw); letter-spacing:.05em; text-transform:uppercase; background:#fff; color:#141518; padding:.3em .5em}
+
+.opt{padding-block:60px}
+.o1{--hi:#9FC2E4; --dk:#3D0C16; --tx:#3D0C16; --ac:#3D0C16; --pp:#FFFFFF}
+.o2{--hi:#9FC2E4; --dk:#4B3428; --tx:#4B3428; --ac:#4B3428; --pp:#FFFFFF}
+.o3{--hi:#9FC2E4; --dk:#141518; --tx:#141518; --ac:#E2621B; --pp:#FFFFFF}
+.head{display:grid; grid-template-columns:1fr 1.4fr; gap:32px; align-items:end}
+.head>*{min-width:0}
+.name{font-family:var(--f-d); font-weight:800; font-size:clamp(36px,5.5vw,64px); letter-spacing:-.04em; line-height:.95; margin-top:10px}
+.why p+p{margin-top:8px}
+.why .num{font-family:var(--f-m); font-size:12.5px; color:var(--muted); display:block; margin-top:10px}
+.strip{display:grid; grid-template-columns:repeat(4,1fr); height:72px; margin-top:24px; border:1px solid var(--rule)}
+.strip div{padding:10px 12px; display:flex; flex-direction:column; justify-content:flex-end; font-family:var(--f-m); font-size:11px; line-height:1.35; min-width:0; overflow:hidden}
+.strip b{font-weight:600}
+.apps{display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:14px}
+.app{container-type:inline-size; min-width:0; display:flex; flex-direction:column; gap:8px}
+.app>.cap{font-family:var(--f-lab); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+.w8{grid-column:span 8} .w4{grid-column:span 4} .w6{grid-column:span 6} .w3{grid-column:span 3}
+.mock{position:relative; overflow:hidden; width:100%; max-width:100%}
+.on-hi{background:var(--hi); color:var(--tx); --line:var(--ac)}
+.on-dk{background:var(--dk); color:var(--hi); --line:var(--hi)}
+.o3 .on-dk{--line:var(--ac)}
+.on-pp{background:var(--pp); color:var(--tx); --line:var(--ac); box-shadow:inset 0 0 0 1px #dedcd6}
+.on-ac{background:var(--ac); color:#141518; --line:#141518}
+
+.m-logo{aspect-ratio:2/1; display:flex; align-items:center; justify-content:center}
+.m-logo .lg{font-size:13cqw}
+.m-web{aspect-ratio:16/10; display:grid; grid-template-columns:1.2fr 1fr}
+.web-l{padding:4.5cqw; display:flex; flex-direction:column; justify-content:space-between}
+.web-r{position:relative; overflow:hidden; container-type:inline-size}
+.nav{display:flex; justify-content:space-between; align-items:center; font-family:var(--f-m); font-size:1.5cqw; letter-spacing:.04em}
+.nav .lg{font-size:3cqw}
+.hero{font-family:var(--f-d); font-weight:900; font-size:6.2cqw; letter-spacing:-.045em; line-height:.92}
+.hero .x{opacity:.5}
+.foot{display:grid; grid-template-columns:repeat(3,1fr); gap:1.6cqw; border-top:1px solid currentColor; padding-top:1.6cqw; font-family:var(--f-m); font-size:1.35cqw; line-height:1.4}
+.foot b{display:block; font-family:var(--f-d); font-weight:800; font-size:2cqw; letter-spacing:-.02em}
+.web-r .cta{position:absolute; right:6cqw; bottom:6cqw; font-family:var(--f-m); font-size:3.4cqw; padding:2cqw 3.6cqw}
+.m-ig{aspect-ratio:4/5; display:grid; grid-template-rows:1fr 1fr}
+.m-ig .top{position:relative; overflow:hidden; container-type:inline-size}
+.m-ig .bot{padding:6cqw 7cqw; display:flex; flex-direction:column; justify-content:space-between}
+.ig-h{font-family:var(--f-d); font-weight:800; font-size:10cqw; letter-spacing:-.04em; line-height:.95}
+.ig-f{display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--f-m); font-size:3.2cqw; line-height:1.4}
+.ig-f .lg{font-size:6.4cqw}
+.m-card{aspect-ratio:85/55; padding:7cqw; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
+.m-card .lg{font-size:10cqw}
+.m-card .sa{font-size:24cqw}
+.row{display:flex; justify-content:space-between; align-items:flex-end; gap:4cqw; width:100%; font-family:var(--f-m); font-size:3cqw; line-height:1.45}
+.cn{font-family:var(--f-d); font-weight:800; font-size:5cqw; letter-spacing:-.02em; line-height:1.1}
+@media (max-width:900px){
+  .cols2,.cols3,.head{grid-template-columns:1fr}
+  .w8,.w4,.w6,.w3{grid-column:1/-1}
+  .w4{max-width:440px; width:100%; margin:0 auto}
+}
+</style>
+
+<header>
+  <div class="wrap">
+    <span class="lab">OFFMENU · Etapa 02e · Color</span>
+    <h1>Frío contra cálido</h1>
+    <p class="intro">Las dos referencias nuevas, Nestra y DVDW, apuntan a lo que le faltaba a la paleta. El contraste que no conseguíamos no era de luminosidad. Era de temperatura. Aquí analizo por qué, y comparo tres combinaciones del hielo con un color cálido, aplicadas a las mismas piezas de empresa.</p>
+  </div>
+</header>
+<section>
+  <div class="wrap">
+    <span class="lab">Refs 12 y 13</span>
+    <h2>Lo que tienen en común</h2>
+    <div class="cols2">
+      <div class="panel"><span class="lab">Ref 12 · Nestra</span><h3>Naranja, chocolate y azul</h3><p>Tres colores de saturación media, todos con el mismo peso y combinados entre sí, con el logotipo en negro o en blanco roto encima. Ningún color es el principal: la personalidad sale del conjunto. Detalle: la s del logotipo está cortada por una diagonal, un gesto parecido a nuestra línea.</p></div>
+      <div class="panel"><span class="lab">Ref 13 · DVDW (bufete de abogados)</span><h3>Granate, cian y gris hielo</h3><p>Un granate tan oscuro que hace de negro, un cian vivo para el texto y un gris azulado pálido, casi nuestro hielo, para el papel. Es serio sin ser corporativo. Que sea un bufete demuestra que la combinación aguanta en un negocio de servicios.</p></div>
+    </div>
+    <div class="panel" style="margin-top:16px"><h3>El principio que comparten</h3><p>Las dos <b>enfrentan un azul frío con un color cálido</b>: naranja o chocolate en Nestra, granate en DVDW. Nuestra paleta era toda fría (hielo, pizarra y negro) y por eso se veía plana, aunque la letra se leyera perfectamente. La pizarra no aportaba tensión porque también es fría. La solución es sustituirla por un color cálido.</p></div>
+    <div class="cols2">
+      <div class="panel"><span class="lab">Lo que trasladaría</span><ul><li>La tensión entre un frío claro y un cálido oscuro.</li><li>Un oscuro cálido en lugar del negro, como hace DVDW.</li><li>Pocos colores con mucho peso cada uno.</li></ul></div>
+      <div class="panel"><span class="lab">Con cuidado</span><ul><li>Granate, chocolate y naranja tienen asociaciones gastronómicas (vino, café, apetito), lo que el brief pide evitar. La justificación aquí es la temperatura, no la comida, pero hay que comprobar que no se lean como tal.</li><li>El naranja recuerda a plataformas de reparto de comida y queda cerca del rojo que descartaste.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="opt o1">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Opción 1 / 3 · recomendada</span><h2 class="name">Hielo y granate</h2></div><div class="why"><p>Inspirada en DVDW. El granate sustituye al negro: es el color oscuro de todo el sistema, incluido el texto sobre hielo. Al ser casi negro, no se lee como vino sino como un negro cálido. Es la opción con más personalidad y la menos vista.</p><span class="num">Granate #3D0C16 · 9:1 con hielo · 16,6:1 con blanco</span></div></div>
+    <div class="strip"><div style="background:#9FC2E4;color:#3D0C16;"><b>Hielo</b>#9FC2E4</div><div style="background:#3D0C16;color:#9FC2E4;"><b>Granate</b>#3D0C16</div><div style="background:#FFFFFF;color:#3D0C16;box-shadow:inset 0 0 0 1px #dedcd6;"><b>Blanco</b>#FFFFFF</div><div style="background:#2B3743;color:#9FC2E4;"><b>Pizarra · fuera</b>#2B3743</div></div>
+    <div class="apps">
+      <div class="app w6"><span class="cap">Logotipo sobre hielo</span><div class="mock m-logo on-hi"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
+      <div class="app w6"><span class="cap">Logotipo sobre oscuro</span><div class="mock m-logo on-dk"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span><div class="mock m-web"><div class="web-l on-hi"><div class="nav"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><div class="foot"><div><b>Carta</b>desde 190 €</div><div><b>Carta Pro</b>desde 390 €</div><div><b>Web + Carta</b>desde 790 €</div></div></div><div class="web-r"><div class="tex b"></div><span class="tex-cap">Foto · trastienda</span><span class="cta on-dk">Pide propuesta</span></div></div></div>
+      <div class="app w4"><span class="cap">Instagram · 4:5</span><div class="mock m-ig"><div class="top"><div class="tex"></div><span class="tex-cap">Foto · trastienda</span></div><div class="bot on-dk"><div class="ig-h"><span class="x" style="opacity:.5">Cuotas.</span><br>Un pago.</div><div class="ig-f"><span>Desde 190 €</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span><div class="mock m-card on-pp"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span><div class="mock m-card on-dk"><span class="lg sa"><span class="o">OFF<i></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="opt o2">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Opción 2 / 3</span><h2 class="name">Hielo y chocolate</h2></div><div class="why"><p>Inspirada en Nestra. Un marrón oscuro como color de texto y fondo oscuro. Más suave y cercana que el granate.</p><p>Riesgo: el marrón se acerca a lo que el brief rechaza (kraft, madera, café) y tiene menos contraste con el hielo.</p><span class="num">Chocolate #4B3428 · 6,2:1 con hielo · 11,5:1 con blanco</span></div></div>
+    <div class="strip"><div style="background:#9FC2E4;color:#4B3428;"><b>Hielo</b>#9FC2E4</div><div style="background:#4B3428;color:#9FC2E4;"><b>Chocolate</b>#4B3428</div><div style="background:#FFFFFF;color:#4B3428;box-shadow:inset 0 0 0 1px #dedcd6;"><b>Blanco</b>#FFFFFF</div><div style="background:#2B3743;color:#9FC2E4;"><b>Pizarra · fuera</b>#2B3743</div></div>
+    <div class="apps">
+      <div class="app w6"><span class="cap">Logotipo sobre hielo</span><div class="mock m-logo on-hi"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
+      <div class="app w6"><span class="cap">Logotipo sobre oscuro</span><div class="mock m-logo on-dk"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span><div class="mock m-web"><div class="web-l on-hi"><div class="nav"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><div class="foot"><div><b>Carta</b>desde 190 €</div><div><b>Carta Pro</b>desde 390 €</div><div><b>Web + Carta</b>desde 790 €</div></div></div><div class="web-r"><div class="tex b"></div><span class="tex-cap">Foto · trastienda</span><span class="cta on-dk">Pide propuesta</span></div></div></div>
+      <div class="app w4"><span class="cap">Instagram · 4:5</span><div class="mock m-ig"><div class="top"><div class="tex"></div><span class="tex-cap">Foto · trastienda</span></div><div class="bot on-dk"><div class="ig-h"><span class="x" style="opacity:.5">Cuotas.</span><br>Un pago.</div><div class="ig-f"><span>Desde 190 €</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span><div class="mock m-card on-pp"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span><div class="mock m-card on-dk"><span class="lg sa"><span class="o">OFF<i></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="opt o3">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Opción 3 / 3</span><h2 class="name">Hielo y naranja</h2></div><div class="why"><p>El naranja de Nestra como acento con hielo y negro: el complementario del azul. Es la más vibrante y la que más llama la atención. La línea del logotipo se vuelve naranja.</p><p>Riesgo: recuerda a plataformas de reparto de comida y funciona como el rojo que descartaste, con otro tono.</p><span class="num">Naranja #E2621B · 5,2:1 con negro · 1,9:1 con hielo (solo grandes superficies)</span></div></div>
+    <div class="strip"><div style="background:#9FC2E4;color:#141518;"><b>Hielo</b>#9FC2E4</div><div style="background:#141518;color:#9FC2E4;"><b>Negro</b>#141518</div><div style="background:#E2621B;color:#141518;"><b>Naranja</b>#E2621B</div><div style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6;"><b>Blanco</b>#FFFFFF</div></div>
+    <div class="apps">
+      <div class="app w6"><span class="cap">Logotipo sobre hielo</span><div class="mock m-logo on-hi"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
+      <div class="app w6"><span class="cap">Logotipo sobre oscuro</span><div class="mock m-logo on-dk"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span><div class="mock m-web"><div class="web-l on-hi"><div class="nav"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><div class="foot"><div><b>Carta</b>desde 190 €</div><div><b>Carta Pro</b>desde 390 €</div><div><b>Web + Carta</b>desde 790 €</div></div></div><div class="web-r"><div class="tex b"></div><span class="tex-cap">Foto · trastienda</span><span class="cta on-dk">Pide propuesta</span></div></div></div>
+      <div class="app w4"><span class="cap">Instagram · 4:5</span><div class="mock m-ig"><div class="top"><div class="tex"></div><span class="tex-cap">Foto · trastienda</span></div><div class="bot on-ac"><div class="ig-h"><span class="x" style="opacity:.5">Cuotas.</span><br>Un pago.</div><div class="ig-f"><span>Desde 190 €</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span><div class="mock m-card on-pp"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span><div class="mock m-card on-dk"><span class="lg sa"><span class="o">OFF<i></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <span class="lab">Recomendación</span>
+    <h2>Hielo y granate</h2>
+    <p class="lead">Es la que da más personalidad sin perder lo que ya habíamos decidido. Mantiene el hielo como color de superficie, recupera el contraste de temperatura que faltaba y sustituye el negro por un oscuro con carácter. Además, no se parece a ninguna marca del sector, ni de hostelería ni de tecnología. El naranja es la más llamativa, pero repite el problema del rojo. El chocolate es la más amable, pero la más cercana a lo rústico.</p>
+  </div>
+</section>
