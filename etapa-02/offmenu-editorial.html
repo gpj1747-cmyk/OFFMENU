@@ -8,7 +8,7 @@
    logotipo y piezas de empresa con más blanco y negro para lectura editorial. */
 :root{
   --bg:#F5F5F2; --fg:#181816; --muted:#6C6B66; --rule:#D9D8D2; --surface:#FFFFFF;
-  --rojo:#FF3B3B; --granate:#42000E; --blanco:#FFFFFF; --negro:#141518; --gris:#6E6A68;
+  --rojo:#F5302A; --granate:#42000E; --blanco:#FFFFFF; --negro:#141518; --gris:#6E6A68;
   --f-ui:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
   --f-lab:'JetBrains Mono',ui-monospace,Menlo,monospace;
   --f-d:'Schibsted Grotesk',Arial,sans-serif;
@@ -49,7 +49,7 @@ section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px
 .x::after{content:""; position:absolute; left:-.04em; right:-.04em; top:52%; height:.11em; background:var(--line,var(--rojo))}
 
 .on-w{background:var(--blanco); color:var(--granate); --line:var(--rojo)}
-.on-g{background:var(--granate); color:var(--rojo); --line:var(--rojo)}
+.on-g{background:var(--granate); color:var(--blanco); --line:var(--rojo)}
 .on-r{background:var(--rojo); color:var(--granate); --line:var(--granate)}
 .on-k{background:var(--negro); color:var(--blanco); --line:var(--rojo)}
 
@@ -75,7 +75,7 @@ section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px
 .app{container-type:inline-size; min-width:0; display:flex; flex-direction:column; gap:8px}
 .w12{grid-column:span 12} .w8{grid-column:span 8} .w4{grid-column:span 4} .w6{grid-column:span 6}
 .mock{position:relative; overflow:hidden; width:100%; max-width:100%; background:#fff; color:var(--negro)}
-.mock.on-g{background:var(--granate); color:var(--rojo)}
+.mock.on-g{background:var(--granate); color:var(--blanco)}
 .mock.on-r{background:var(--rojo); color:var(--granate)}
 .mock.on-k{background:var(--negro); color:var(--blanco)}
 .mock.on-w{background:var(--blanco); color:var(--granate)}
@@ -182,25 +182,28 @@ section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px
   .share{grid-template-columns:1fr 1fr; height:auto}
   .share div{min-height:80px}
 }
+.lgv{line-height:0; vertical-align:baseline}
+.lgv svg{height:.703em; width:auto; display:block; overflow:visible}
+.lgv.stack svg{height:1.523em}
 </style>
 
 <header>
   <div class="wrap">
     <span class="lab">OFFMENU · Etapa 02i · Versión editorial</span>
     <h1>Rojo y granate,<br>con más blanco</h1>
-    <p class="intro">Tomo como modelo el anverso de la tarjeta, que es la pieza que te encantó: fondo blanco, logotipo granate y línea roja. El blanco pasa a ser la base, el negro entra como color de lectura y el rojo y el granate quedan para los momentos de impacto. Así la marca gana un tono editorial y, sobre todo, se lee mejor.</p>
+    <p class="intro">Versión actualizada con el rojo 3, la regla de la línea siempre roja y el logotipo redibujado en vectores. Tomo como modelo el anverso de la tarjeta, que es la pieza que te encantó: fondo blanco, logotipo granate y línea roja. El blanco pasa a ser la base, el negro entra como color de lectura y el rojo y el granate quedan para los momentos de impacto. Así la marca gana un tono editorial y, sobre todo, se lee mejor.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap">
     <span class="lab">Corrección del logotipo</span>
-    <h2>La línea cubre todo el brazo de la F</h2>
-    <p class="lead">La línea ya estaba a la altura y con el grosor del brazo, pero el borde suavizado de la letra asomaba como un hilo fino por encima y por debajo. Ahora la línea sobresale lo justo por cada lado y por el extremo derecho para taparlo. En el logotipo definitivo, dibujado a medida, línea y brazos serán una sola forma y el problema desaparecerá del todo.</p>
+    <h2>La línea sustituye al brazo de la F</h2>
+    <p class="lead">El logotipo ya no es texto con una línea encima. Ahora es un dibujo vectorial construido a partir de los contornos de la tipografía: el brazo central de cada F se recorta y en su lugar va la línea, con la misma altura y el mismo grosor medidos sobre la propia letra. Ya no depende de cómo cada navegador o pantalla coloque el texto, así que se ve igual en todas partes. Los archivos están en la carpeta <code>logo/svg</code> del repositorio.</p>
     <div class="cols2">
       <div class="tile on-w"><span class="t-cap">Principal · granate sobre blanco, línea roja</span><div class="stage"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
       <div class="tile on-w" style="--line:var(--granate)"><span class="t-cap">Una tinta · granate</span><div class="stage"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
-      <div class="tile on-g"><span class="t-cap">Rojo sobre granate</span><div class="stage"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
+      <div class="tile on-g"><span class="t-cap">Principal en fondos oscuros · blanco sobre granate, línea roja</span><div class="stage"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
       <div class="tile on-k"><span class="t-cap">Blanco sobre negro, línea roja</span><div class="stage"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div>
     </div>
   </div>
@@ -212,8 +215,8 @@ section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px
     <h2>El blanco manda, el rojo y el granate se lucen</h2>
     <div class="share">
       <div style="background:#fff;color:#42000E;box-shadow:inset 0 0 0 1px #dedcd6"><b>Blanco · 50 %</b>Base</div>
-      <div style="background:#42000E;color:#FF3B3B"><b>Granate · 20 %</b></div>
-      <div style="background:#FF3B3B;color:#42000E"><b>Rojo · 15 %</b></div>
+      <div style="background:#42000E;color:#F5302A"><b>Granate · 20 %</b></div>
+      <div style="background:#F5302A;color:#42000E"><b>Rojo · 15 %</b></div>
       <div style="background:#141518;color:#fff"><b>Negro · 15 %</b></div>
     </div>
     <div class="roles">
@@ -290,16 +293,13 @@ section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px
 
 <section>
   <div class="wrap">
-    <span class="lab">Elegir el rojo</span>
-    <h2>El 1 o el 3, ahora con más blanco</h2>
-    <p class="lead">Con el blanco como base, el rojo va a aparecer mucho sobre blanco, no solo sobre granate. Eso cambia la elección.</p>
-    <div class="reds">
-      <div><div class="red-pair"><div style="background:#fff;color:#42000E;--line:#FF3B3B;box-shadow:inset 0 0 0 1px #dedcd6"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span class="h" style="color:#FF3B3B">Un pago.</span></div><div style="background:#42000E;color:#FF3B3B;--line:#FF3B3B"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span class="h">Un pago.</span></div></div>
-        <p class="red-meta"><b>1 · #FF3B3B</b><span>3,5:1 sobre blanco · 4,8:1 sobre granate · más luminoso, algo coral</span></p></div>
-      <div><div class="red-pair"><div style="background:#fff;color:#42000E;--line:#F5302A;box-shadow:inset 0 0 0 1px #dedcd6"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span class="h" style="color:#F5302A">Un pago.</span></div><div style="background:#42000E;color:#F5302A;--line:#F5302A"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span class="h">Un pago.</span></div></div>
-        <p class="red-meta"><b>3 · #F5302A</b><span>3,9:1 sobre blanco · 4,3:1 sobre granate · más puro y firme</span></p></div>
+    <span class="lab">Decisiones cerradas</span>
+    <h2>Lo que ya está fijado</h2>
+    <div class="cols3">
+      <div class="panel"><h3>Rojo</h3><p>#F5302A, el rojo puro. Aguanta mejor sobre blanco, que ahora es la base.</p></div>
+      <div class="panel"><h3>La línea siempre es roja</h3><p>Las letras del logotipo nunca van en rojo. Sobre blanco son granate; sobre granate o negro, blancas. Sobre fondo rojo, el logotipo va entero en granate.</p></div>
+      <div class="panel"><h3>Reparto</h3><p>50 % blanco, 20 % granate, 15 % rojo, 15 % negro. Fondo granate con letras blancas y línea roja en las piezas de impacto.</p></div>
     </div>
-    <div class="panel" style="margin-top:16px"><h3>Mi elección: el 3</h3><p>Ahora que el blanco manda, el rojo puro aguanta mejor sobre blanco y se ve más firme en titulares y en la línea del logotipo. El 1 brilla más sobre granate, pero pierde fuerza sobre blanco. En esta página he usado el 1 para que puedas comparar; si eliges el 3, lo aplico a todo.</p></div>
   </div>
 </section>
 
@@ -307,10 +307,21 @@ section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px
   <div class="wrap">
     <span class="lab">Para cerrar</span>
     <h2>Lo que queda por decidir</h2>
-    <div class="cols3">
-      <div class="panel"><h3>1 · El rojo</h3><p>El 1 o el 3. Yo elegiría el 3.</p></div>
-      <div class="panel"><h3>2 · El reparto</h3><p>¿Te convence este equilibrio de blanco, negro, granate y rojo, o quieres todavía más blanco o menos?</p></div>
-      <div class="panel"><h3>3 · Símbolo y patrón</h3><p>Siguen pendientes: OFF tachado, el logotipo en dos líneas o los dos, y si incorporamos el patrón.</p></div>
+    <div class="cols2">
+      <div class="panel"><h3>1 · Símbolo</h3><p>OFF tachado, el logotipo en dos líneas, o los dos con usos distintos: dos líneas para avatar y papelería, OFF tachado para favicon e icono de app (mi recomendación).</p></div>
+      <div class="panel"><h3>2 · Logotipo repetido</h3><p>¿Lo incorporamos como recurso de marca, como en el post granate? Si es que sí, defino cuándo se usa para que no acabe siendo decoración.</p></div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var T={"logotipo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-154 -1440 10060 1440\" role=\"img\" aria-label=\"OFFMENU\"><g transform=\"scale(1,-1)\"><path fill=\"currentColor\" d=\"M3800.800048828125 0.0H4200.7998046875L4260.1357421875 1141.22509765625L4468.7998046875 0.0H4985.7998046875L5195.46142578125 1141.2720947265625L5254.7998046875 0.0H5654.7998046875L5574.7998046875 1440.0H4910.7998046875L4727.2998046875 366.5249938964844L4543.7998046875 1440.0H3880.800048828125ZM6946.0 0.0H7336.0V931.2178344726562L7739.0 0.0H8330.0V1440.0H7940.0V498.8665466308594L7540.0 1440.0H6946.0ZM9135.599609375 -28.0Q9352.599609375 -28.0 9502.599609375 41.5Q9652.599609375 111.0 9731.099609375 244.5Q9809.599609375 378.0 9809.599609375 570.0V1440.0H9399.599609375V604.0Q9399.599609375 456.0 9334.099609375 389.0Q9268.599609375 322.0 9135.599609375 322.0Q9002.599609375 322.0 8937.099609375 385.5Q8871.599609375 449.0 8871.599609375 576.0V1440.0H8461.599609375V570.0Q8461.599609375 378.0 8540.099609375 244.5Q8618.599609375 111.0 8769.099609375 41.5Q8919.599609375 -28.0 9135.599609375 -28.0ZM5762.39990234375 0.0H6845.39990234375V350.0H6172.39990234375V585.0H6715.39990234375V915.0H6172.39990234375V1090.0H6831.39990234375V1440.0H5762.39990234375ZM1506.3746337890625 885.0Q1485.47900390625 1014.0872802734375 1430.0 1118.5Q1341.0 1286.0 1176.5 1377.0Q1012.0 1468.0 785.0 1468.0Q559.0 1468.0 394.0 1377.0Q229.0 1286.0 140.0 1118.5Q84.5210189819336 1014.0873413085938 63.62538146972656 885.0H495.9651184082031Q503.12933349609375 912.234619140625 513.0 936.5Q549.0 1025.0 617.5 1071.5Q686.0 1118.0 785.0 1118.0Q884.0 1118.0 953.0 1071.5Q1022.0 1025.0 1057.5 936.5Q1067.2333984375 912.235107421875 1074.2982177734375 885.0H1506.3746337890625ZM785.0 -28.0Q1012.0 -28.0 1176.5 62.5Q1341.0 153.0 1430.0 321.0Q1481.1685791015625 417.58795166015625 1502.9189453125 535.0H1068.433349609375Q1063.468505859375 518.9632568359375 1057.5 504.0Q1022.0 415.0 953.0 368.5Q884.0 322.0 785.0 322.0Q686.0 322.0 617.5 368.5Q549.0 415.0 513.0 504.0Q506.94757080078125 518.9629516601562 501.9126892089844 535.0H67.08106994628906Q88.83140563964844 417.5879211425781 140.0 321.0Q229.0 153.0 394.0 62.5Q559.0 -28.0 785.0 -28.0ZM1592.5999755859375 885.0H2002.5999755859375V1090.0H2661.60009765625V1440.0H1592.5999755859375V885.0ZM2725.199951171875 885.0H3135.199951171875V1090.0H3794.199951171875V1440.0H2725.199951171875V885.0ZM2725.199951171875 0.0H3135.199951171875V535.0H2725.199951171875ZM1592.5999755859375 0.0H2002.5999755859375V535.0H1592.5999755859375Z\"/><path style=\"fill:var(--line,#F5302A)\" d=\"M-153.8000030517578 527.0H3706.199951171875V893.0H-153.8000030517578Z\"/></g></svg>", "simbolo-off": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-154 -1440 3989 1440\" role=\"img\" aria-label=\"OFFMENU\"><g transform=\"scale(1,-1)\"><path fill=\"currentColor\" d=\"M1506.3746337890625 885.0Q1485.47900390625 1014.0872802734375 1430.0 1118.5Q1341.0 1286.0 1176.5 1377.0Q1012.0 1468.0 785.0 1468.0Q559.0 1468.0 394.0 1377.0Q229.0 1286.0 140.0 1118.5Q84.5210189819336 1014.0873413085938 63.62538146972656 885.0H495.9651184082031Q503.12933349609375 912.234619140625 513.0 936.5Q549.0 1025.0 617.5 1071.5Q686.0 1118.0 785.0 1118.0Q884.0 1118.0 953.0 1071.5Q1022.0 1025.0 1057.5 936.5Q1067.2333984375 912.235107421875 1074.2982177734375 885.0H1506.3746337890625ZM785.0 -28.0Q1012.0 -28.0 1176.5 62.5Q1341.0 153.0 1430.0 321.0Q1481.1685791015625 417.58795166015625 1502.9189453125 535.0H1068.433349609375Q1063.468505859375 518.9632568359375 1057.5 504.0Q1022.0 415.0 953.0 368.5Q884.0 322.0 785.0 322.0Q686.0 322.0 617.5 368.5Q549.0 415.0 513.0 504.0Q506.94757080078125 518.9629516601562 501.9126892089844 535.0H67.08106994628906Q88.83140563964844 417.5879211425781 140.0 321.0Q229.0 153.0 394.0 62.5Q559.0 -28.0 785.0 -28.0ZM1592.5999755859375 885.0H2002.5999755859375V1090.0H2661.60009765625V1440.0H1592.5999755859375V885.0ZM2725.199951171875 885.0H3135.199951171875V1090.0H3794.199951171875V1440.0H2725.199951171875V885.0ZM2725.199951171875 0.0H3135.199951171875V535.0H2725.199951171875ZM1592.5999755859375 0.0H2002.5999755859375V535.0H1592.5999755859375Z\"/><path style=\"fill:var(--line,#F5302A)\" d=\"M-153.8000030517578 527.0H3706.199951171875V893.0H-153.8000030517578Z\"/></g></svg>", "apilado": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-154 -1440 6345 3119\" role=\"img\" aria-label=\"OFFMENU\"><g transform=\"scale(1,-1)\"><path fill=\"currentColor\" d=\"M85.0 -1679.3599853515625H485.0L544.3358154296875 -538.1348876953125L753.0 -1679.3599853515625H1270.0L1479.6617431640625 -538.0879516601562L1539.0 -1679.3599853515625H1939.0L1859.0 -239.36000061035156H1195.0L1011.5 -1312.8349609375L828.0 -239.36000061035156H165.0ZM3230.199951171875 -1679.3599853515625H3620.199951171875V-748.1421508789062L4023.199951171875 -1679.3599853515625H4614.2001953125V-239.36000061035156H4224.2001953125V-1180.49365234375L3824.199951171875 -239.36000061035156H3230.199951171875ZM5419.7998046875 -1707.3599853515625Q5636.7998046875 -1707.3599853515625 5786.7998046875 -1637.8599853515625Q5936.7998046875 -1568.3599853515625 6015.2998046875 -1434.8599853515625Q6093.7998046875 -1301.3599853515625 6093.7998046875 -1109.3599853515625V-239.36000061035156H5683.7998046875V-1075.3599853515625Q5683.7998046875 -1223.3599853515625 5618.2998046875 -1290.3599853515625Q5552.7998046875 -1357.3599853515625 5419.7998046875 -1357.3599853515625Q5286.7998046875 -1357.3599853515625 5221.2998046875 -1293.8599853515625Q5155.7998046875 -1230.3599853515625 5155.7998046875 -1103.3599853515625V-239.36000061035156H4745.7998046875V-1109.3599853515625Q4745.7998046875 -1301.3599853515625 4824.2998046875 -1434.8599853515625Q4902.7998046875 -1568.3599853515625 5053.2998046875 -1637.8599853515625Q5203.7998046875 -1707.3599853515625 5419.7998046875 -1707.3599853515625ZM2046.5999755859375 -1679.3599853515625H3129.60009765625V-1329.3599853515625H2456.60009765625V-1094.3599853515625H2999.60009765625V-764.3599853515625H2456.60009765625V-589.3599853515625H3115.60009765625V-239.36000061035156H2046.5999755859375ZM1506.3746337890625 885.0Q1485.47900390625 1014.0872802734375 1430.0 1118.5Q1341.0 1286.0 1176.5 1377.0Q1012.0 1468.0 785.0 1468.0Q559.0 1468.0 394.0 1377.0Q229.0 1286.0 140.0 1118.5Q84.5210189819336 1014.0873413085938 63.62538146972656 885.0H495.9651184082031Q503.12933349609375 912.234619140625 513.0 936.5Q549.0 1025.0 617.5 1071.5Q686.0 1118.0 785.0 1118.0Q884.0 1118.0 953.0 1071.5Q1022.0 1025.0 1057.5 936.5Q1067.2333984375 912.235107421875 1074.2982177734375 885.0H1506.3746337890625ZM785.0 -28.0Q1012.0 -28.0 1176.5 62.5Q1341.0 153.0 1430.0 321.0Q1481.1685791015625 417.58795166015625 1502.9189453125 535.0H1068.433349609375Q1063.468505859375 518.9632568359375 1057.5 504.0Q1022.0 415.0 953.0 368.5Q884.0 322.0 785.0 322.0Q686.0 322.0 617.5 368.5Q549.0 415.0 513.0 504.0Q506.94757080078125 518.9629516601562 501.9126892089844 535.0H67.08106994628906Q88.83140563964844 417.5879211425781 140.0 321.0Q229.0 153.0 394.0 62.5Q559.0 -28.0 785.0 -28.0ZM1592.5999755859375 885.0H2002.5999755859375V1090.0H2661.60009765625V1440.0H1592.5999755859375V885.0ZM2725.199951171875 885.0H3135.199951171875V1090.0H3794.199951171875V1440.0H2725.199951171875V885.0ZM2725.199951171875 0.0H3135.199951171875V535.0H2725.199951171875ZM1592.5999755859375 0.0H2002.5999755859375V535.0H1592.5999755859375Z\"/><path style=\"fill:var(--line,#F5302A)\" d=\"M-153.8000030517578 527.0H3706.199951171875V893.0H-153.8000030517578Z\"/></g></svg>"};
+  document.querySelectorAll('.lg').forEach(function(el){
+    var t=el.textContent.replace(/\s/g,'');
+    var k=el.classList.contains('stack')?'apilado':(t==='OFFMENU'?'logotipo':(t==='OFF'?'simbolo-off':null));
+    if(!k) return;
+    el.innerHTML=T[k]; el.classList.add('lgv');
+  });
+})();
+</script>
