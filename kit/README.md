@@ -14,7 +14,7 @@ manual de marca (`manual/offmenu-manual.html`).
    ```
 
 2. Importar `offmenu-tokens.css` antes que el resto de estilos. Incluye variables (`--om-*`),
-   estilos base y componentes (`.om-boton`, `.om-campo`, `.om-estado`, `.om-tachado`, `.om-contenedor`).
+   estilos base y componentes (`.om-boton`, `.om-campo`, `.om-tachado`, `.om-contenedor`).
 
 3. Logotipo: pegar en línea `../logo/svg/offmenu-logotipo-plantilla.svg`. Las letras usan
    `currentColor` y la línea `var(--line)`:

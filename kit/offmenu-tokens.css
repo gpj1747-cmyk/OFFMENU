@@ -110,12 +110,6 @@ p { margin: 0; max-width: 68ch; }
 .om-campo--error input { border-color: var(--om-rojo-texto); }
 .om-campo .om-error { color: var(--om-rojo-texto); font-size: var(--om-fs-pequeno); }
 
-/* Estados de carta y panel */
-.om-estado { display: inline-flex; align-items: center; min-height: 24px; padding: 0 8px; font-family: var(--om-font-datos); font-size: 12px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; }
-.om-estado--agotado { color: var(--om-rojo-texto); border: 1px solid currentColor; }
-.om-estado--nuevo { background: var(--om-granate); color: var(--om-blanco); }
-.om-estado--dia { background: var(--om-negro); color: var(--om-blanco); }
-
 /* Contenedor */
 .om-contenedor { width: 100%; max-width: var(--om-max); margin: 0 auto; padding-left: var(--om-margen); padding-right: var(--om-margen); box-sizing: border-box; }
 
