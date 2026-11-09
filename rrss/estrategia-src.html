@@ -1,0 +1,378 @@
+<title>Estrategia de redes OFFMENU</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: documento de estrategia en la identidad de OFFMENU. Una columna de lectura para el
+   razonamiento y rejillas a todo el ancho para enseñar las piezas producidas.
+   Un solo tema claro por decisión: las piezas se ven con sus colores reales. */
+:root{
+  color-scheme:light;
+  --granate:#42000E; --rojo:#F5302A; --blanco:#FFFFFF; --negro:#141518;
+  --papel:#F6F4F1; --borde:#E2DFDA; --gris:#5F5B59; --rojo-texto:#D8241E;
+  --f-d:'Schibsted Grotesk','Helvetica Neue',Arial,sans-serif;
+  --f-m:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--blanco); color:var(--negro); font-family:var(--f-d); font-size:16.5px; line-height:1.6; -webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0; text-wrap:balance; line-height:1.05}
+p{margin:0}
+:focus-visible{outline:2px solid var(--rojo); outline-offset:2px}
+.wrap{max-width:1160px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+.lab{font-family:var(--f-m); font-size:11.5px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--gris)}
+.x{color:var(--gris); padding:0 .04em; margin:0 -.04em; background:linear-gradient(var(--rojo),var(--rojo)) 0 56%/100% max(.09em,2px) no-repeat; -webkit-box-decoration-break:clone; box-decoration-break:clone}
+
+.cover{background:var(--granate); color:var(--blanco); padding-block:64px 52px}
+.cover .lab{color:#FFB9B5}
+.cover h1{font-size:clamp(44px,7.5vw,104px); font-weight:900; letter-spacing:-.05em; line-height:.9; margin-top:20px}
+.cover h1 .x{color:rgba(255,255,255,.55)}
+.cover p{margin-top:28px; max-width:62ch; font-size:19px; color:#FFE3E1}
+.toc{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:32px}
+.toc a{font-family:var(--f-m); font-size:12px; color:#FFB9B5; text-decoration:none; border-bottom:1px solid rgba(255,185,181,.4); padding-bottom:2px; letter-spacing:.04em; text-transform:uppercase}
+.toc a:hover{color:#fff; border-color:#fff}
+
+section.ch{padding-block:64px; border-bottom:1px solid var(--borde)}
+.ch-head{display:grid; grid-template-columns:72px minmax(0,1fr); gap:20px; margin-bottom:32px}
+.ch-num{font-family:var(--f-m); font-size:13px; color:var(--rojo-texto); padding-top:10px}
+.ch-head h2{font-size:clamp(32px,4.4vw,54px); font-weight:900; letter-spacing:-.045em; color:var(--granate); line-height:.95}
+.ch-head p{margin-top:14px; font-size:18.5px; max-width:64ch}
+h3{font-size:23px; font-weight:800; letter-spacing:-.025em; color:var(--granate); margin:40px 0 14px}
+h4{font-size:16.5px; font-weight:700; margin:0 0 6px}
+.prose{max-width:70ch; display:flex; flex-direction:column; gap:12px}
+.prose ul,.prose ol{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px}
+.g2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
+.g3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px}
+.g4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.g2>*,.g3>*,.g4>*{min-width:0}
+.box{border:1px solid var(--borde); padding:20px}
+.box p,.box li{font-size:15px}
+.box ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:5px}
+.note{border-left:3px solid var(--rojo); padding:6px 0 6px 16px; font-size:15.5px; max-width:70ch}
+.mt{margin-top:18px}
+.tw{overflow-x:auto; border:1px solid var(--borde); margin-top:14px}
+table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:680px}
+th,td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--borde); vertical-align:top}
+thead th{font-family:var(--f-m); font-weight:500; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--gris); background:var(--papel)}
+tbody tr:last-child td{border-bottom:0}
+td.m{font-family:var(--f-m); font-size:13px; white-space:nowrap}
+
+/* Pilares */
+.pillars{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0; border-top:1px solid var(--negro)}
+.pillars>div{padding:18px 16px 18px 0; min-width:0}
+.pillars>div+div{padding-left:16px; border-left:1px solid var(--borde)}
+.pillars .pct{font-family:var(--f-m); font-size:13px; color:var(--rojo-texto)}
+.pillars b{display:block; font-size:21px; font-weight:800; letter-spacing:-.025em; color:var(--granate); line-height:1.05; margin:8px 0}
+.pillars p{font-size:14.5px}
+.bar{display:flex; height:14px; margin-top:16px}
+.bar span{display:block; height:100%}
+
+/* Piezas */
+.piece{display:flex; flex-direction:column; gap:10px; min-width:0}
+.piece img,.piece video{width:100%; height:auto; display:block; background:var(--papel)}
+.piece video{aspect-ratio:9/16; object-fit:cover; background:#000}
+.piece .bord{box-shadow:0 0 0 1px var(--borde)}
+.piece .t{font-size:15px; font-weight:700}
+.piece .meta{font-family:var(--f-m); font-size:11.5px; color:var(--gris); letter-spacing:.03em}
+.copy{background:var(--papel); padding:14px 16px; font-size:14px; line-height:1.55; white-space:pre-line}
+.copy b{font-family:var(--f-m); font-weight:500; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--gris); display:block; margin-bottom:6px}
+.carousel{display:flex; gap:10px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory}
+.carousel img{width:min(240px,62vw); flex:none; scroll-snap-align:start; box-shadow:0 0 0 1px var(--borde)}
+
+/* Reel storyboard */
+.reel{display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr); gap:28px; padding-block:24px; border-top:1px solid var(--borde)}
+.reel:first-of-type{border-top:0}
+.beats{list-style:none; margin:0; padding:0; border-top:1px solid var(--negro)}
+.beats li{display:grid; grid-template-columns:86px minmax(0,1fr); gap:14px; padding:9px 0; border-bottom:1px solid var(--borde); font-size:15px}
+.beats li span{font-family:var(--f-m); font-size:12.5px; color:var(--gris); padding-top:2px}
+
+/* Perfil */
+.profile{max-width:420px; border:1px solid var(--borde); padding:18px}
+.prof-h{display:flex; gap:16px; align-items:center; margin-bottom:16px}
+.avatar{width:72px; height:72px; border-radius:50%; background:var(--granate); display:flex; align-items:center; justify-content:center; color:#fff; --line:var(--rojo); flex:none}
+.avatar .lgv svg{height:15px}
+.prof-h b{display:block; font-size:16px}
+.prof-h p{font-size:13.5px; color:var(--gris); line-height:1.4}
+.grid9{display:grid; grid-template-columns:repeat(3,1fr); gap:3px}
+.grid9 img{width:100%; aspect-ratio:3/4; object-fit:cover; display:block}
+.lgv{display:inline-block; line-height:0} .lgv svg{height:1em; width:auto; display:block}
+
+/* Ideas */
+.ideas{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 24px}
+.idea{display:grid; grid-template-columns:44px minmax(0,1fr); gap:10px; padding:12px 0; border-bottom:1px solid var(--borde); min-width:0}
+.idea span{font-family:var(--f-m); font-size:12px; color:var(--rojo-texto); padding-top:3px}
+.idea b{font-weight:700}
+.idea p{font-size:14.5px}
+.idea i{font-style:normal; font-family:var(--f-m); font-size:11px; color:var(--gris); letter-spacing:.04em; text-transform:uppercase}
+
+/* Calendario */
+.cal{display:grid; grid-template-columns:110px repeat(3,minmax(0,1fr)); border-top:1px solid var(--negro)}
+.cal>div{padding:12px; border-bottom:1px solid var(--borde); font-size:14.5px; min-width:0}
+.cal .h{font-family:var(--f-m); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--gris); background:var(--papel)}
+.cal .wk{font-family:var(--f-m); font-size:12px; color:var(--rojo-texto)}
+.cal small{display:block; font-family:var(--f-m); font-size:11px; color:var(--gris); margin-top:3px; letter-spacing:.03em}
+
+@media (max-width:900px){
+  .g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pillars{grid-template-columns:1fr 1fr}
+  .pillars>div{border-left:0!important; padding-left:0!important; border-bottom:1px solid var(--borde)}
+  .reel{grid-template-columns:1fr}
+  .reel .piece{max-width:300px}
+  .ideas{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .ch-head{grid-template-columns:1fr; gap:6px}
+  .ch-num{padding-top:0}
+  .cal{grid-template-columns:80px repeat(3,minmax(0,1fr))}
+  .cal>div{padding:8px; font-size:13px}
+}
+</style>
+
+<header class="cover">
+  <div class="wrap">
+    <span class="lab">OFFMENU · Estrategia de redes sociales · v1</span>
+    <h1>Hablar del problema,<br><span class="x">no del producto.</span></h1>
+    <p>Cómo va a estar OFFMENU en Instagram (y después en TikTok y LinkedIn): de qué hablamos, con qué tono, en qué formatos y con qué frecuencia. Incluye el primer lote de contenido ya producido: tres reels, un carrusel y ocho publicaciones, con sus textos.</p>
+    <nav class="toc" aria-label="Índice">
+      <a href="#base">Punto de partida</a><a href="#tono">Tono</a><a href="#pilares">Pilares</a><a href="#temas">Temas clave</a><a href="#reels">Reels</a><a href="#posts">Publicaciones</a><a href="#perfil">Perfil</a><a href="#ideas">Banco de ideas</a><a href="#calendario">Calendario</a><a href="#medir">Medición</a>
+    </nav>
+  </div>
+</header>
+
+<section class="ch" id="base"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">01</span><div><h2>Punto de partida</h2><p>OFFMENU es nuevo y nadie lo busca todavía. Lo que sí existe es el problema: el hostelero lo vive cada semana. Las redes sirven para que se reconozca en él y nos asocie con la solución sin sentir que le estamos vendiendo nada.</p></div></div>
+  <div class="g3">
+    <div class="box"><h4>Objetivo 1 · Reconocimiento</h4><p>Que el dueño o encargado de un bar piense "eso me pasa a mí" y guarde o comparta la publicación con su socio o su equipo.</p></div>
+    <div class="box"><h4>Objetivo 2 · Confianza</h4><p>Demostrar que entendemos la hostelería por dentro y que lo nuestro es sencillo, honesto y sin cuotas.</p></div>
+    <div class="box"><h4>Objetivo 3 · Conversación</h4><p>Que escriban por mensaje directo o pidan propuesta. Es el único objetivo comercial y llega solo si los dos primeros funcionan.</p></div>
+  </div>
+  <h3>A quién hablamos</h3>
+  <div class="g2">
+    <div class="box"><h4>Dueños y encargados de hostelería independiente</h4><ul><li>Bares, restaurantes y cafeterías de barrio o de zona turística, de 1 a 3 locales.</li><li>Poco tiempo, mucho trabajo y desconfianza hacia "lo digital" y las cuotas mensuales.</li><li>Miran el móvil antes de abrir, en la pausa entre servicios y por la noche.</li></ul></div>
+    <div class="box"><h4>Y a su alrededor</h4><ul><li>El equipo de sala: es quien sufre las preguntas repetidas y comparte el contenido.</li><li>Otros profesionales del sector (distribuidores, gestorías, asociaciones), que recomiendan.</li><li>Clientes finales: no son el objetivo, pero si un contenido les hace gracia, lo difunden.</li></ul></div>
+  </div>
+  <h3>Canales</h3>
+  <div class="tw"><table><thead><tr><th>Canal</th><th>Papel</th><th>Ritmo</th><th>Cuándo</th></tr></thead><tbody>
+    <tr><td><b>Instagram</b></td><td>Canal principal. Reels para llegar a gente nueva; carruseles y publicaciones para que nos guarden; historias para conversar.</td><td class="m">3 publicaciones / semana</td><td>Desde el día 1</td></tr>
+    <tr><td><b>TikTok</b></td><td>Los mismos reels, sin cambios. El público hostelero joven está allí.</td><td class="m">Reutilizar los reels</td><td>Mes 2</td></tr>
+    <tr><td><b>LinkedIn</b></td><td>Carruseles de "carta bien hecha" para asociaciones, distribuidores y grupos de restauración.</td><td class="m">1 / semana</td><td>Mes 3</td></tr>
+  </tbody></table></div>
+</div></section>
+
+<section class="ch" id="tono"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">02</span><div><h2>Cómo no sonar a anuncio</h2><p>La regla central de la estrategia: de cada cinco publicaciones, cuatro no venden nada. Hablan de situaciones que el hostelero reconoce, dan un consejo útil o le sacan una sonrisa. Solo una habla de OFFMENU de forma directa.</p></div></div>
+  <div class="g2">
+    <div class="box"><h4>Sí</h4><ul><li>Contar la escena, no el beneficio: "Mesa 7: ¿queda pulpo?" en lugar de "Gestiona tus agotados en tiempo real".</li><li>Humor seco y observacional. Nos reímos con el hostelero, nunca de él.</li><li>Consejos que sirven aunque nunca nos contraten.</li><li>Terminar con una pregunta o una frase, no con un "¡Contrata ya!".</li><li>El logotipo al final, discreto. El producto aparece como respuesta natural, no como protagonista.</li></ul></div>
+    <div class="box"><h4>No</h4><ul><li>"¡Descubre!", "¡Revoluciona tu negocio!", "la solución definitiva".</li><li>Precios, ofertas o "pide información" en más de una publicación de cada cinco.</li><li>Hablar de tecnología, apps o "transformación digital".</li><li>Fotos de comida, emojis de cubiertos o chistes de chef.</li><li>Responder a un comentario con un enlace de venta.</li></ul></div>
+  </div>
+  <h3>La fórmula de un buen contenido de OFFMENU</h3>
+  <div class="tw"><table><thead><tr><th>Paso</th><th>Qué hace</th><th>Ejemplo (reel del café)</th></tr></thead><tbody>
+    <tr><td class="m">1 · Escena</td><td>Una situación concreta y reconocible, en las primeras 2 líneas o 2 segundos.</td><td>"Subir el café 10 céntimos."</td></tr>
+    <tr><td class="m">2 · Lo que implica</td><td>El problema crece, línea a línea. Aquí está el gancho del vídeo de referencia.</td><td>Llamar a la imprenta. Esperar. Pagar. Recoger. Tirar las viejas.</td></tr>
+    <tr><td class="m">3 · La tachadura</td><td>El gesto de la marca resuelve la escena.</td><td>La lista entera, tachada en rojo.</td></tr>
+    <tr><td class="m">4 · Firma</td><td>Una frase corta y el logotipo. Sin llamada a la venta.</td><td>"Cambia la carta, no el QR."</td></tr>
+  </tbody></table></div>
+  <p class="note mt">Lo que tomamos del vídeo de referencia: pantalla limpia, tipografía enorme alineada arriba a la izquierda, palabras que entran por corte seco cada tercio de segundo y se acumulan en una lista. Lo que no tomamos: el montaje rápido de proyectos de la segunda parte, porque nosotros no tenemos trabajos que enseñar todavía y la idea se explica mejor solo con texto.</p>
+</div></section>
+
+<section class="ch" id="pilares"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">03</span><div><h2>Cinco pilares de contenido</h2><p>Todo lo que publiquemos encaja en uno de estos cinco territorios. El porcentaje es orientativo para cada mes.</p></div></div>
+  <div class="pillars">
+    <div><span class="pct">40 %</span><b>La escena</b><p>Situaciones reales del día a día: precios que suben, platos que se acaban, el menú del día, turistas, alérgenos. El problema contado desde dentro.</p></div>
+    <div><span class="pct">25 %</span><b>Carta bien hecha</b><p>Consejos útiles para cualquier carta: cómo escribir descripciones, ordenar secciones, mostrar precios y alérgenos. Contenido para guardar.</p></div>
+    <div><span class="pct">15 %</span><b>Así funciona</b><p>El producto en acción, en 10 segundos: tachar un agotado, cambiar un precio, el mismo QR. Demostración, no discurso.</p></div>
+    <div><span class="pct">10 %</span><b>Detrás de OFFMENU</b><p>Quiénes somos, cómo digitalizamos una carta, clientes reales cuando los haya. Personas, no logotipos.</p></div>
+    <div><span class="pct">10 %</span><b>El modelo</b><p>Pago único, planes y precios, pide propuesta. El único pilar que vende de forma directa.</p></div>
+  </div>
+  <div class="bar"><span style="width:40%;background:var(--granate)"></span><span style="width:25%;background:var(--negro)"></span><span style="width:15%;background:var(--rojo)"></span><span style="width:10%;background:var(--gris)"></span><span style="width:10%;background:var(--borde)"></span></div>
+</div></section>
+
+<section class="ch" id="temas"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">04</span><div><h2>Temas que conviene tocar</h2><p>Además del problema principal (cambiar la carta sin reimprimir), hay temas con mucho recorrido. Algunos son objeciones que conviene desmontar antes de que aparezcan en una venta.</p></div></div>
+  <div class="tw"><table><thead><tr><th>Tema</th><th>Por qué importa</th><th>Cómo lo contamos</th></tr></thead><tbody>
+    <tr><td><b>El QR tiene mala fama</b></td><td>Mucha gente asocia la carta QR con el PDF ilegible de la pandemia. Es la objeción número uno.</td><td>"Una carta digital no es un PDF." Comparativas de zoom frente a una carta pensada para el móvil.</td></tr>
+    <tr><td><b>Los precios suben</b></td><td>Cada subida de proveedores obliga a tocar la carta. Problema frecuente y caro en papel.</td><td>El reel del café. Pegatinas encima del precio. "Ese precio es antiguo."</td></tr>
+    <tr><td><b>Lo que se acaba</b></td><td>Decir "no queda" una y otra vez desgasta al equipo y decepciona al cliente.</td><td>El reel del pulpo. Contenido pensado para que lo comparta el personal de sala.</td></tr>
+    <tr><td><b>Alérgenos</b></td><td>Es una obligación legal (Reglamento UE 1169/2011) y una fuente de nervios en sala.</td><td>Carruseles prácticos: los 14 alérgenos, cómo indicarlos. Tono de ayuda, nunca de miedo.</td></tr>
+    <tr><td><b>Turistas e idiomas</b></td><td>En zonas turísticas, traducir la carta es una necesidad diaria.</td><td>"¿Do you have the menu in English?" Platos locales que no se explican solos.</td></tr>
+    <tr><td><b>El menú del día</b></td><td>Cambia cada día y suele vivir en una pizarra que no llega a todas las mesas.</td><td>Series semanales: "lunes, pizarra; martes, pizarra…".</td></tr>
+    <tr><td><b>Hartazgo de cuotas</b></td><td>Los hosteleros pagan suscripciones por todo. El pago único nos diferencia.</td><td>"Un pago. <span class="x">Cuotas.</span>" Una sola vez al mes, en el pilar del modelo.</td></tr>
+    <tr><td><b>"No tengo tiempo para esto"</b></td><td>El miedo a tener que aprender una herramienta o pasar la carta a mano.</td><td>Enseñar que la digitalización la hacemos nosotros. Detrás de cámaras del proceso.</td></tr>
+    <tr><td><b>El equipo de sala</b></td><td>Quien más sufre una carta desactualizada y quien más comparte contenido.</td><td>Escenas desde el punto de vista del camarero. Humor de oficio.</td></tr>
+  </tbody></table></div>
+</div></section>
+
+<section class="ch" id="reels"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">05</span><div><h2>Reels producidos</h2><p>Tres reels de tipografía cinética a partir del arranque del vídeo de referencia: corte seco, listas que crecen y la tachadura como desenlace. Formato 9:16, 1080 × 1920, 30 fps, sin voz. El texto está dentro de las zonas seguras de Instagram.</p></div></div>
+
+  <div class="reel">
+    <div class="piece"><video src="reels/reel-cafe.mp4" poster="reels/reel-cafe-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="meta">15 s · pilar La escena</span></div>
+    <div>
+      <h3 style="margin-top:0">Subir el café 10 céntimos</h3>
+      <ol class="beats">
+        <li><span>0,0 – 2,3</span>"Subir el café" · "10 céntimos." La escena en dos golpes.</li>
+        <li><span>2,3 – 6,0</span>"En papel:" y la lista crece: llamar a la imprenta, esperar, pagar, recoger, tirar las viejas, repetir en tres meses.</li>
+        <li><span>6,0 – 7,9</span>La línea roja tacha la lista entera, línea a línea.</li>
+        <li><span>7,9 – 11,4</span>"Con OFFMENU:" · "Abrir el móvil." · 1,50 tachado → 1,60.</li>
+        <li><span>11,4 – 15,0</span>Firma en granate: logotipo y "Cambia la carta, no el QR."</li>
+      </ol>
+      <div class="copy mt"><b>Texto de la publicación</b>Diez céntimos no deberían costar una tirada nueva de cartas.
+¿Cuántas veces has cambiado precios este año?</div>
+    </div>
+  </div>
+
+  <div class="reel">
+    <div class="piece"><video src="reels/reel-pulpo.mp4" poster="reels/reel-pulpo-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="meta">15,5 s · pilar La escena</span></div>
+    <div>
+      <h3 style="margin-top:0">¿Queda pulpo?</h3>
+      <ol class="beats">
+        <li><span>0,0 – 3,1</span>"Mesa 4 · ¿Queda pulpo? · Se acabó." Se repite con la mesa 7.</li>
+        <li><span>3,1 – 5,8</span>La lista se acelera: mesa 2, 9, 11, 3, 12, 6, 1, 8… "¿Pulpo? · No."</li>
+        <li><span>5,8 – 8,3</span>"Y la carta, sin enterarse."</li>
+        <li><span>8,3 – 12,3</span>El panel: "Pulpo á feira" se tacha · "Agotado" · "Un toque."</li>
+        <li><span>12,3 – 15,5</span>"Se acaba. Se tacha. Listo." y logotipo.</li>
+      </ol>
+      <div class="copy mt"><b>Texto de la publicación</b>Para quien ha dicho "se acabó" ocho veces en un servicio.
+Etiqueta a tu compañero de sala.</div>
+    </div>
+  </div>
+
+  <div class="reel">
+    <div class="piece"><video src="reels/reel-presentacion.mp4" poster="reels/reel-presentacion-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="meta">10,5 s · pilar Detrás de OFFMENU</span></div>
+    <div>
+      <h3 style="margin-top:0">Presentación</h3>
+      <ol class="beats">
+        <li><span>0,0 – 1,6</span>Símbolo OFF arriba y "Cartas digitales" abajo, como el asterisco y el nombre del vídeo de referencia.</li>
+        <li><span>1,6 – 7,0</span>Lista que se acumula cada 0,33 s: precios, platos, menú del día, alérgenos, idiomas, agotados, fotos · "Todo cambia."</li>
+        <li><span>7,0 – 10,5</span>"Tu carta, también." · logotipo · offmenu.es</li>
+      </ol>
+      <div class="copy mt"><b>Texto de la publicación</b>Hola. Somos OFFMENU.
+Hacemos cartas digitales que el propio bar cambia desde el móvil. Sin cuotas.
+Te lo iremos contando por aquí.</div>
+    </div>
+  </div>
+  <p class="note mt">Audio: ninguno de los reels lleva voz. Al publicar, añadir en Instagram un audio en tendencia o un ritmo seco y sincronizar los cortes. Los vídeos funcionan también sin sonido.</p>
+</div></section>
+
+<section class="ch" id="posts"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">06</span><div><h2>Publicaciones producidas</h2><p>Formato 4:5, 1080 × 1350. Fondo blanco para la mayoría; granate para lanzamiento, carrusel y modelo; negro para mitos; rojo para preguntas.</p></div></div>
+  <h3 style="margin-top:0">Carrusel · 5 cosas que tu carta debería decir sin que nadie pregunte</h3>
+  <div class="carousel" tabindex="0" aria-label="Carrusel de 7 imágenes">
+    <img src="posts/c01-portada.jpg" alt="Portada: 5 cosas que tu carta debería decir sin que nadie pregunte">
+    <img src="posts/c02-agotado.jpg" alt="01 Qué se ha acabado">
+    <img src="posts/c03-alergenos.jpg" alt="02 Qué alérgenos lleva cada plato">
+    <img src="posts/c04-menu.jpg" alt="03 El menú de hoy, no el de ayer">
+    <img src="posts/c05-idiomas.jpg" alt="04 En el idioma de quien la lee">
+    <img src="posts/c06-precio.jpg" alt="05 El precio de verdad">
+    <img src="posts/c07-cierre.jpg" alt="Si tu carta lo dice, tu equipo no tiene que repetirlo">
+  </div>
+  <div class="copy mt" style="max-width:70ch"><b>Texto · pilar Carta bien hecha</b>Una buena carta responde antes de que nadie pregunte.
+Guárdalo para la próxima vez que toques la tuya. ¿Cuál de las cinco te falta?</div>
+
+  <h3>Publicaciones sueltas</h3>
+  <div class="g4">
+    <div class="piece"><img class="bord" src="posts/p01-lanzamiento.jpg" alt="Lanzamiento: logotipo y Cambia la carta, no el QR"><span class="t">Lanzamiento</span><span class="meta">Detrás de OFFMENU</span><div class="copy">Cartas digitales que el bar cambia desde el móvil. El QR no cambia nunca.</div></div>
+    <div class="piece"><img class="bord" src="posts/p02-imprimir.jpg" alt="Imprimir otra carta, tachado. Cambiarla desde el móvil"><span class="t">Imprimir otra carta</span><span class="meta">La escena</span><div class="copy">¿Cuántas cartas has tirado este año porque había cambiado un precio?</div></div>
+    <div class="piece"><img class="bord" src="posts/p03-cafe.jpg" alt="Café con leche: 1,50 tachado, 1,60"><span class="t">1,50 → 1,60</span><span class="meta">La escena</span><div class="copy">El gesto de siempre, sin bolígrafo ni pegatinas.</div></div>
+    <div class="piece"><img class="bord" src="posts/p05-pdf.jpg" alt="Una carta digital no es un PDF"><span class="t">No es un PDF</span><span class="meta">Mito</span><div class="copy">Si tu cliente tiene que hacer zoom, no es una carta digital. Es un papel escaneado.</div></div>
+    <div class="piece"><img class="bord" src="posts/p06-pago.jpg" alt="Un pago. Cuotas, tachado"><span class="t">Un pago</span><span class="meta">El modelo</span><div class="copy">Pagas una vez y la carta es tuya. Desde 190 €. Dominio y hosting, anuales. Escríbenos y te preparamos una propuesta.</div></div>
+    <div class="piece"><img class="bord" src="posts/p07-agotado.jpg" alt="Se acaba. Se tacha. Listo."><span class="t">Se acaba. Se tacha.</span><span class="meta">Así funciona</span><div class="copy">Marcar un plato como agotado es tacharlo. Desde el móvil, en un toque.</div></div>
+    <div class="piece"><img class="bord" src="posts/p08-pregunta.jpg" alt="¿Qué es lo que más te cuesta actualizar de tu carta?"><span class="t">Pregunta</span><span class="meta">Conversación</span><div class="copy">Precios, menú del día, alérgenos, idiomas… Te leemos.</div></div>
+    <div class="piece"><img class="bord" src="posts/p09-patron.jpg" alt="Logotipo repetido sobre granate"><span class="t">Logotipo repetido</span><span class="meta">Marca · 1 de cada 6</span><div class="copy">Para separar bloques en el perfil o acompañar anuncios de novedades.</div></div>
+  </div>
+</div></section>
+
+<section class="ch" id="perfil"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">07</span><div><h2>Así se verá el perfil</h2><p>Las nueve primeras publicaciones en orden (la más reciente arriba a la izquierda). El blanco domina y los bloques de color marcan el ritmo.</p></div></div>
+  <div class="g2" style="align-items:start">
+    <div class="profile">
+      <div class="prof-h"><div class="avatar"><span class="lg" data-k="apilado"></span></div><div><b>offmenu.es</b><p>Cartas digitales para bares y restaurantes. Cambia la carta, no el QR. Pago único, sin cuotas.</p></div></div>
+      <div class="grid9">
+        <img src="posts/p06-pago.jpg" alt=""><img src="posts/p08-pregunta.jpg" alt=""><img src="reels/reel-pulpo-portada.jpg" alt="">
+        <img src="posts/p05-pdf.jpg" alt=""><img src="posts/c01-portada.jpg" alt=""><img src="reels/reel-cafe-portada.jpg" alt="">
+        <img src="posts/p02-imprimir.jpg" alt=""><img src="reels/reel-presentacion-portada.jpg" alt=""><img src="posts/p01-lanzamiento.jpg" alt="">
+      </div>
+    </div>
+    <div class="prose">
+      <h4>Biografía</h4>
+      <p>Cartas digitales para bares y restaurantes.<br>Cambia la carta, no el QR.<br>Pago único, sin cuotas.<br>offmenu.es</p>
+      <h4 style="margin-top:12px">Historias destacadas</h4>
+      <ul><li><b>Cómo funciona:</b> el panel en 4 historias.</li><li><b>Planes:</b> los tres planes con precios.</li><li><b>Preguntas:</b> dominio, hosting, soporte, QR.</li><li><b>Clientes:</b> cuando haya los primeros.</li></ul>
+      <p>Portadas: fondo granate con una palabra en blanco (Cómo, Planes, Dudas, Clientes), sin iconos.</p>
+      <h4 style="margin-top:12px">Historias del día a día</h4>
+      <ul><li>Encuestas rápidas: "¿Has subido precios este año? Sí / Sí, dos veces".</li><li>Cajas de preguntas sobre cartas, alérgenos o QR.</li><li>Compartir cada reel con un sticker de pregunta.</li><li>Detrás de cámaras cuando digitalicemos una carta.</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="ch" id="ideas"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">08</span><div><h2>Banco de ideas</h2><p>Veinticuatro ideas listas para producir con las mismas plantillas. Reel = tipografía cinética como los tres anteriores.</p></div></div>
+  <div class="ideas" id="ideas-list"></div>
+</div></section>
+
+<section class="ch" id="calendario"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">09</span><div><h2>Calendario del primer mes</h2><p>Tres publicaciones por semana (lunes, miércoles y viernes, a primera hora de la tarde, después del servicio de mediodía) e historias de lunes a viernes.</p></div></div>
+  <div class="cal">
+    <div class="h"></div><div class="h">Lunes · reel</div><div class="h">Miércoles</div><div class="h">Viernes</div>
+    <div class="wk">Semana 1</div><div>Presentación<small>Reel · producido</small></div><div>Lanzamiento<small>Post · producido</small></div><div>Imprimir otra carta<small>Post · producido</small></div>
+    <div class="wk">Semana 2</div><div>Subir el café<small>Reel · producido</small></div><div>5 cosas que tu carta debería decir<small>Carrusel · producido</small></div><div>No es un PDF<small>Post · producido</small></div>
+    <div class="wk">Semana 3</div><div>¿Queda pulpo?<small>Reel · producido</small></div><div>¿Qué te cuesta actualizar?<small>Post · producido</small></div><div>Un pago<small>Post · producido</small></div>
+    <div class="wk">Semana 4</div><div>Menú del día: lunes, pizarra…<small>Reel · por producir (idea 01)</small></div><div>Los 14 alérgenos, sin miedo<small>Carrusel · por producir (idea 09)</small></div><div>Se acaba. Se tacha. Listo.<small>Post · producido</small></div>
+  </div>
+  <p class="note mt">El mes 1 tiene doce publicaciones y diez ya están producidas. En la semana 4 hay que producir dos piezas nuevas del banco de ideas.</p>
+</div></section>
+
+<section class="ch" id="medir"><div class="wrap">
+  <div class="ch-head"><span class="ch-num">10</span><div><h2>Qué medimos</h2><p>Al principio no importan los seguidores. Importa si el contenido conecta con quien tiene un bar.</p></div></div>
+  <div class="tw"><table><thead><tr><th>Métrica</th><th>Por qué</th><th>Cómo leerla</th></tr></thead><tbody>
+    <tr><td><b>Guardados</b></td><td>Señal de contenido útil (pilar Carta bien hecha).</td><td>Comparar entre carruseles para saber qué temas interesan.</td></tr>
+    <tr><td><b>Compartidos y etiquetas</b></td><td>Señal de reconocimiento (pilar La escena).</td><td>Si se comparte, la escena es real. Repetir el formato.</td></tr>
+    <tr><td><b>Mensajes directos</b></td><td>La conversación es el paso previo a la propuesta.</td><td>Anotar de qué publicación viene cada mensaje.</td></tr>
+    <tr><td><b>Visitas al perfil y clics a la web</b></td><td>Interés por saber quiénes somos.</td><td>Ver qué publicaciones las disparan.</td></tr>
+    <tr><td><b>Propuestas pedidas</b></td><td>El resultado final.</td><td>Mensual. Preguntar siempre "¿cómo nos conociste?".</td></tr>
+    <tr><td><b>Retención en reels</b></td><td>Si se ven hasta el final, el gancho funciona.</td><td>Si cae antes de la tachadura, acortar la lista o adelantar el golpe.</td></tr>
+  </tbody></table></div>
+  <h3>Revisión mensual</h3>
+  <div class="prose"><ol><li>Las tres publicaciones con más guardados y compartidos marcan los temas del mes siguiente.</li><li>Si un pilar no funciona en dos meses, se reduce su peso.</li><li>Se revisa la regla 4 de cada 5: si los mensajes no llegan, se prueba un post más del pilar El modelo, nunca más de dos al mes.</li></ol></div>
+  <h3>Siguientes pasos</h3>
+  <div class="g3">
+    <div class="box"><h4>Validar</h4><p>Que revises el tono, los tres reels y las publicaciones. Cualquier ajuste se aplica en las plantillas y afecta a todo lo demás.</p></div>
+    <div class="box"><h4>Producir el mes 2</h4><p>Elegir del banco de ideas las doce piezas siguientes. Las plantillas permiten producir cada pieza en minutos.</p></div>
+    <div class="box"><h4>Contenido real</h4><p>Cuando haya clientes, grabar detrás de cámaras y casos reales: es lo que más confianza da.</p></div>
+  </div>
+</div></section>
+
+<script>
+(function(){
+  var T=__LOGOS__;
+  document.querySelectorAll('.lg[data-k]').forEach(function(el){ el.innerHTML=T[el.dataset.k]; el.classList.add('lgv'); });
+  var I=[
+    ['Reel','La escena','Menú del día','"Lunes: pizarra. Martes: pizarra. Miércoles: pizarra…" y la mesa 12 que nunca la ve. Tachadura: "El menú de hoy, en la carta de hoy."'],
+    ['Reel','La escena','"Ese precio es antiguo"','Las frases que se dicen cuando la carta no está al día, acumulándose en lista. Final: se tachan todas.'],
+    ['Reel','La escena','Do you have the menu in English?','La pregunta en cinco idiomas, cada vez más rápido. Final: selector de idiomas en la carta.'],
+    ['Reel','La escena','¿Esto lleva frutos secos?','Las preguntas de alérgenos de un servicio, en lista. Final: los alérgenos escritos en cada plato.'],
+    ['Reel','Mito','Zoom. Zoom. Zoom.','El PDF de la pandemia que obliga a ampliar con dos dedos. Tachado: "Una carta pensada para el móvil."'],
+    ['Reel','La escena','Las pegatinas','"Precio nuevo encima del viejo" capa a capa, hasta que la lista no cabe. Final: el precio, cambiado.'],
+    ['Reel','Así funciona','Tres toques','Cambiar un precio en tiempo real, contado en tres pasos con texto: abrir, tocar, guardar.'],
+    ['Reel','El modelo','Las cuotas','"9,99 €/mes × 12 × 3 años" que va sumando en pantalla. Tachado: "Un pago."'],
+    ['Carrusel','Carta bien hecha','Los 14 alérgenos, sin miedo','Cuáles son, cómo indicarlos con número y nombre, y por qué no basta con un icono.'],
+    ['Carrusel','Carta bien hecha','Cómo escribir la descripción de un plato','Qué decir (ingredientes, origen, cómo se prepara) y qué evitar (adjetivos vacíos).'],
+    ['Carrusel','Carta bien hecha','Ordenar la carta','Cuántas secciones, en qué orden y dónde va lo que más quieres vender.'],
+    ['Carrusel','Carta bien hecha','Precios que se leen bien','Sin columnas de puntos, sin el símbolo € en cada línea, cifras alineadas.'],
+    ['Carrusel','Mito','Carta QR frente a PDF','Comparativa lado a lado de lo que ve el cliente en el móvil.'],
+    ['Carrusel','Detrás de OFFMENU','Así digitalizamos una carta','Del papel con manchas de aceite a la carta en el móvil, en cinco pasos.'],
+    ['Post','La escena','"Se acabó" × 8','Un número enorme: cuántas veces se dice en un servicio. Pregunta en el texto.'],
+    ['Post','La escena','La carta plastificada','"Plastificada en 2019. Precios de 2019." Tachado.'],
+    ['Post','Así funciona','El QR no caduca','"Cambia todo. El QR, no." Con un QR de muestra.'],
+    ['Post','El modelo','Tres planes','Carta, Carta Pro y Web + Carta con sus precios desde. Formato tabla.'],
+    ['Post','Conversación','Elige','"¿Qué es peor: reimprimir la carta o decir \'se acabó\' toda la noche?" Encuesta en historias.'],
+    ['Historias','Conversación','Encuesta semanal','"¿Has subido precios este año?" · "¿Tu carta está traducida?" · "¿Tienes menú del día?"'],
+    ['Historias','Detrás de OFFMENU','El primer cliente','Antes y después de su carta, con su permiso. Repetir con cada cliente nuevo.'],
+    ['Reel','Detrás de OFFMENU','Quiénes somos','Las personas detrás de OFFMENU, en el mismo estilo de lista: nombre, de dónde venimos, por qué esto.'],
+    ['Reel','La escena','Visto desde la sala','El servicio contado por un camarero: lo que tiene que repetir porque la carta no lo dice.'],
+    ['Post','Carta bien hecha','Una regla al mes','Formato fijo mensual con una regla para mejorar la carta. Serie para guardar.']
+  ];
+  document.getElementById('ideas-list').innerHTML=I.map(function(x,i){return '<div class="idea"><span>'+String(i+1).padStart(2,'0')+'</span><div><i>'+x[0]+' · '+x[1]+'</i><p><b>'+x[2]+'.</b> '+x[3]+'</p></div></div>';}).join('');
+})();
+</script>

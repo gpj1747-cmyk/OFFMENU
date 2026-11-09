@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>OFFMENU · Posts</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--granate:#42000E; --rojo:#F5302A; --blanco:#FFFFFF; --negro:#141518; --gris:#5F5B59; --borde:#E2DFDA;
+ --f-d:'Schibsted Grotesk',Arial,sans-serif; --f-m:'IBM Plex Mono',monospace}
+*{box-sizing:border-box}
+body{margin:0; background:#888; font-family:var(--f-d); -webkit-font-smoothing:antialiased}
+.post{width:1080px; height:1350px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; padding:84px 84px 76px; margin:20px}
+.w{background:var(--blanco); color:var(--negro)}
+.g{background:var(--granate); color:var(--blanco); --line:var(--rojo)}
+.k{background:var(--negro); color:var(--blanco); --line:var(--rojo)}
+.r{background:var(--rojo); color:var(--granate); --line:var(--granate)}
+.lgv{display:inline-block; line-height:0} .lgv svg{height:1em; width:auto; display:block}
+.top{display:flex; justify-content:space-between; font-family:var(--f-m); font-size:30px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; border-bottom:2px solid currentColor; padding-bottom:22px}
+.foot{display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--f-m); font-size:30px; line-height:1.45}
+.foot .lg{font-size:46px}
+.w .foot .lg{color:var(--granate); --line:var(--rojo)}
+.h{font-weight:900; letter-spacing:-.05em; line-height:.9; margin:0}
+.x{color:var(--gris); padding:0 .04em; margin:0 -.04em; background:linear-gradient(var(--rojo),var(--rojo)) 0 56%/100% .09em no-repeat; -webkit-box-decoration-break:clone; box-decoration-break:clone}
+.g .x,.k .x{color:rgba(255,255,255,.55)}
+.gr{color:var(--granate)}
+.m{font-family:var(--f-m)}
+.list{list-style:none; margin:0; padding:0; font-family:var(--f-m); font-size:40px}
+.list li{display:flex; justify-content:space-between; border-bottom:2px solid currentColor; padding:26px 0}
+.num{font-family:var(--f-m); font-size:34px; color:var(--rojo)}
+.pattern{display:grid; grid-template-columns:repeat(3,1fr); gap:0 30px; align-content:start; padding:70px 50px}
+.pattern .col{display:flex; flex-direction:column; gap:84px}
+.pattern .col:nth-child(2){margin-top:110px} .pattern .col:nth-child(3){margin-top:40px}
+.pattern .lg{font-size:36px}
+</style>
+</head>
+<body>
+
+<!-- 01 Lanzamiento -->
+<section class="post g" id="p01-lanzamiento">
+  <div class="top" style="border-color:rgba(255,255,255,.4);color:#FFB9B5"><span>Hola</span><span>offmenu.es</span></div>
+  <span class="lg" data-k="logotipo" style="font-size:126px"></span>
+  <div><p class="h" style="font-size:96px">Cambia la carta,<br>no el QR.</p><p class="m" style="font-size:30px;margin-top:40px;color:#FFB9B5;line-height:1.5">Cartas digitales para bares y restaurantes.<br>Pago único, sin cuotas.</p></div>
+</section>
+
+<!-- 02 Imprimir otra carta -->
+<section class="post w" id="p02-imprimir">
+  <div class="top"><span>El problema</span><span>01</span></div>
+  <p class="h" style="font-size:132px"><span class="x">Imprimir otra carta.</span><br><span class="gr">Cambiarla desde el móvil.</span></p>
+  <div class="foot"><span>Cada cambio de precio<br>no debería costar una imprenta.</span><span class="lg" data-k="logotipo"></span></div>
+</section>
+
+<!-- 03 Café -->
+<section class="post w" id="p03-cafe">
+  <div class="top"><span>Café con leche</span><span>Barra</span></div>
+  <div><p class="h" style="font-size:330px;line-height:.85"><span class="x">1,50</span></p><p class="h gr" style="font-size:330px;line-height:.85">1,60</p></div>
+  <div class="foot"><span>Diez céntimos.<br>Una carta nueva. O un toque.</span><span class="lg" data-k="logotipo"></span></div>
+</section>
+
+<!-- 04 Carrusel portada -->
+<section class="post g" id="c01-portada">
+  <div class="top" style="border-color:rgba(255,255,255,.4);color:#FFB9B5"><span>Carta bien hecha</span><span>1 / 7</span></div>
+  <p class="h" style="font-size:118px">5 cosas que tu carta debería decir sin que nadie pregunte.</p>
+  <div class="foot" style="color:#FFB9B5"><span>Desliza →</span><span class="lg" data-k="logotipo" style="color:#fff"></span></div>
+</section>
+<section class="post w" id="c02-agotado">
+  <div class="top"><span>Carta bien hecha</span><span>2 / 7</span></div>
+  <div><span class="num">01</span><p class="h gr" style="font-size:120px;margin-top:20px">Qué se ha acabado.</p><p style="font-size:40px;line-height:1.4;margin-top:44px;max-width:800px">Antes de que el cliente lo pida y el camarero tenga que decir que no. Cuatro veces por servicio.</p></div>
+  <ul class="list"><li><span>Croquetas</span><span>9,50</span></li><li><span><span class="x">Pulpo á feira</span></span><span style="color:#D8241E">agotado</span></li></ul>
+</section>
+<section class="post w" id="c03-alergenos">
+  <div class="top"><span>Carta bien hecha</span><span>3 / 7</span></div>
+  <div><span class="num">02</span><p class="h gr" style="font-size:120px;margin-top:20px">Qué alérgenos lleva cada plato.</p><p style="font-size:40px;line-height:1.4;margin-top:44px;max-width:820px">Son 14 y la normativa europea obliga a informarlos. Mejor escritos en la carta que de memoria en la cocina.</p></div>
+  <div class="m" style="display:flex;flex-wrap:wrap;gap:16px;font-size:30px"><span style="border:2px solid #141518;padding:8px 16px">1 Gluten</span><span style="border:2px solid #141518;padding:8px 16px">3 Huevo</span><span style="border:2px solid #141518;padding:8px 16px">7 Lácteos</span><span style="border:2px solid #141518;padding:8px 16px">8 Frutos de cáscara</span></div>
+</section>
+<section class="post w" id="c04-menu">
+  <div class="top"><span>Carta bien hecha</span><span>4 / 7</span></div>
+  <div><span class="num">03</span><p class="h gr" style="font-size:120px;margin-top:20px">El menú de hoy, no el de ayer.</p><p style="font-size:40px;line-height:1.4;margin-top:44px;max-width:800px">Si el menú cambia cada día, la carta también. La pizarra de la entrada no llega a la mesa 12.</p></div>
+  <ul class="list"><li><span><span class="x">Lunes · lentejas</span></span><span></span></li><li><span>Martes · fabada</span><span>14,50</span></li></ul>
+</section>
+<section class="post w" id="c05-idiomas">
+  <div class="top"><span>Carta bien hecha</span><span>5 / 7</span></div>
+  <div><span class="num">04</span><p class="h gr" style="font-size:120px;margin-top:20px">En el idioma de quien la lee.</p><p style="font-size:40px;line-height:1.4;margin-top:44px;max-width:800px">"Pulpo á feira" no se explica solo. Ni en castellano, ni en inglés, ni en alemán.</p></div>
+  <p class="m" style="font-size:44px;letter-spacing:.06em">ES · EN · FR · DE · GL</p>
+</section>
+<section class="post w" id="c06-precio">
+  <div class="top"><span>Carta bien hecha</span><span>6 / 7</span></div>
+  <div><span class="num">05</span><p class="h gr" style="font-size:120px;margin-top:20px">El precio de verdad.</p><p style="font-size:40px;line-height:1.4;margin-top:44px;max-width:800px">Sin pegatinas encima ni "ese precio es antiguo". Lo que pone es lo que se cobra.</p></div>
+  <p class="h" style="font-size:150px"><span class="x">8,00</span> <span class="gr">8,50</span></p>
+</section>
+<section class="post g" id="c07-cierre">
+  <div class="top" style="border-color:rgba(255,255,255,.4);color:#FFB9B5"><span>Carta bien hecha</span><span>7 / 7</span></div>
+  <p class="h" style="font-size:112px">Si tu carta lo dice, tu equipo no tiene que repetirlo.</p>
+  <div class="foot" style="color:#FFB9B5"><span>Guárdalo para la próxima<br>vez que toques la carta.</span><span class="lg" data-k="logotipo" style="color:#fff"></span></div>
+</section>
+
+<!-- 05 No es un PDF -->
+<section class="post k" id="p05-pdf">
+  <div class="top" style="border-color:rgba(255,255,255,.35);color:#bdbdbd"><span>Mito</span><span>02</span></div>
+  <div><p class="m" style="font-size:44px;color:#bdbdbd;line-height:1.6">Zoom.<br>Zoom.<br>Zoom.</p><p class="h" style="font-size:132px;margin-top:40px">Una carta digital no es un PDF.</p></div>
+  <div class="foot" style="color:#bdbdbd"><span>Si hay que hacer zoom,<br>no es una carta digital.</span><span class="lg" data-k="logotipo" style="color:#fff"></span></div>
+</section>
+
+<!-- 06 Pago único -->
+<section class="post g" id="p06-pago">
+  <div class="top" style="border-color:rgba(255,255,255,.4);color:#FFB9B5"><span>El modelo</span><span>Desde 190 €</span></div>
+  <p class="h" style="font-size:205px">Un pago.<br><span class="x">Cuotas.</span></p>
+  <div class="foot" style="color:#FFB9B5"><span>Pagas una vez.<br>La carta es tuya.</span><span class="lg" data-k="logotipo" style="color:#fff"></span></div>
+</section>
+
+<!-- 07 Se acaba -->
+<section class="post w" id="p07-agotado">
+  <div class="top"><span>Así funciona</span><span>03</span></div>
+  <ul class="list"><li><span>Croquetas de jamón</span><span>9,50</span></li><li><span><span class="x">Tarta de queso</span></span><span style="color:#D8241E">agotado</span></li><li><span>Menú del día</span><span>14,50</span></li></ul>
+  <div><p class="h gr" style="font-size:150px">Se acaba.<br>Se tacha.<br>Listo.</p></div>
+</section>
+
+<!-- 08 Pregunta -->
+<section class="post r" id="p08-pregunta">
+  <div class="top"><span>Pregunta</span><span>04</span></div>
+  <p class="h" style="font-size:120px">¿Qué es lo que más te cuesta actualizar de tu carta?</p>
+  <div class="foot"><span>Te leemos en comentarios.</span><span class="lg" data-k="logotipo"></span></div>
+</section>
+
+<!-- 09 Patrón -->
+<section class="post g pattern" id="p09-patron">
+  <div class="col"><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span></div>
+  <div class="col"><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span></div>
+  <div class="col"><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span><span class="lg" data-k="logotipo"></span></div>
+</section>
+
+<script>
+var T={"logotipo": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-154 -1440 10060 1440\" role=\"img\" aria-label=\"OFFMENU\"><g transform=\"scale(1,-1)\"><path fill=\"currentColor\" d=\"M3800.800048828125 0.0H4200.7998046875L4260.1357421875 1141.22509765625L4468.7998046875 0.0H4985.7998046875L5195.46142578125 1141.2720947265625L5254.7998046875 0.0H5654.7998046875L5574.7998046875 1440.0H4910.7998046875L4727.2998046875 366.5249938964844L4543.7998046875 1440.0H3880.800048828125ZM6946.0 0.0H7336.0V931.2178344726562L7739.0 0.0H8330.0V1440.0H7940.0V498.8665466308594L7540.0 1440.0H6946.0ZM9135.599609375 -28.0Q9352.599609375 -28.0 9502.599609375 41.5Q9652.599609375 111.0 9731.099609375 244.5Q9809.599609375 378.0 9809.599609375 570.0V1440.0H9399.599609375V604.0Q9399.599609375 456.0 9334.099609375 389.0Q9268.599609375 322.0 9135.599609375 322.0Q9002.599609375 322.0 8937.099609375 385.5Q8871.599609375 449.0 8871.599609375 576.0V1440.0H8461.599609375V570.0Q8461.599609375 378.0 8540.099609375 244.5Q8618.599609375 111.0 8769.099609375 41.5Q8919.599609375 -28.0 9135.599609375 -28.0ZM5762.39990234375 0.0H6845.39990234375V350.0H6172.39990234375V585.0H6715.39990234375V915.0H6172.39990234375V1090.0H6831.39990234375V1440.0H5762.39990234375ZM1506.3746337890625 885.0Q1485.47900390625 1014.0872802734375 1430.0 1118.5Q1341.0 1286.0 1176.5 1377.0Q1012.0 1468.0 785.0 1468.0Q559.0 1468.0 394.0 1377.0Q229.0 1286.0 140.0 1118.5Q84.5210189819336 1014.0873413085938 63.62538146972656 885.0H495.9651184082031Q503.12933349609375 912.234619140625 513.0 936.5Q549.0 1025.0 617.5 1071.5Q686.0 1118.0 785.0 1118.0Q884.0 1118.0 953.0 1071.5Q1022.0 1025.0 1057.5 936.5Q1067.2333984375 912.235107421875 1074.2982177734375 885.0H1506.3746337890625ZM785.0 -28.0Q1012.0 -28.0 1176.5 62.5Q1341.0 153.0 1430.0 321.0Q1481.1685791015625 417.58795166015625 1502.9189453125 535.0H1068.433349609375Q1063.468505859375 518.9632568359375 1057.5 504.0Q1022.0 415.0 953.0 368.5Q884.0 322.0 785.0 322.0Q686.0 322.0 617.5 368.5Q549.0 415.0 513.0 504.0Q506.94757080078125 518.9629516601562 501.9126892089844 535.0H67.08106994628906Q88.83140563964844 417.5879211425781 140.0 321.0Q229.0 153.0 394.0 62.5Q559.0 -28.0 785.0 -28.0ZM1592.5999755859375 885.0H2002.5999755859375V1090.0H2661.60009765625V1440.0H1592.5999755859375V885.0ZM2725.199951171875 885.0H3135.199951171875V1090.0H3794.199951171875V1440.0H2725.199951171875V885.0ZM2725.199951171875 0.0H3135.199951171875V535.0H2725.199951171875ZM1592.5999755859375 0.0H2002.5999755859375V535.0H1592.5999755859375Z\"/><path style=\"fill:var(--line,#F5302A)\" d=\"M-153.8000030517578 527.0H3706.199951171875V893.0H-153.8000030517578Z\"/></g></svg>", "apilado": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-154 -1440 6345 3119\" role=\"img\" aria-label=\"OFFMENU\"><g transform=\"scale(1,-1)\"><path fill=\"currentColor\" d=\"M85.0 -1679.3599853515625H485.0L544.3358154296875 -538.1348876953125L753.0 -1679.3599853515625H1270.0L1479.6617431640625 -538.0879516601562L1539.0 -1679.3599853515625H1939.0L1859.0 -239.36000061035156H1195.0L1011.5 -1312.8349609375L828.0 -239.36000061035156H165.0ZM3230.199951171875 -1679.3599853515625H3620.199951171875V-748.1421508789062L4023.199951171875 -1679.3599853515625H4614.2001953125V-239.36000061035156H4224.2001953125V-1180.49365234375L3824.199951171875 -239.36000061035156H3230.199951171875ZM5419.7998046875 -1707.3599853515625Q5636.7998046875 -1707.3599853515625 5786.7998046875 -1637.8599853515625Q5936.7998046875 -1568.3599853515625 6015.2998046875 -1434.8599853515625Q6093.7998046875 -1301.3599853515625 6093.7998046875 -1109.3599853515625V-239.36000061035156H5683.7998046875V-1075.3599853515625Q5683.7998046875 -1223.3599853515625 5618.2998046875 -1290.3599853515625Q5552.7998046875 -1357.3599853515625 5419.7998046875 -1357.3599853515625Q5286.7998046875 -1357.3599853515625 5221.2998046875 -1293.8599853515625Q5155.7998046875 -1230.3599853515625 5155.7998046875 -1103.3599853515625V-239.36000061035156H4745.7998046875V-1109.3599853515625Q4745.7998046875 -1301.3599853515625 4824.2998046875 -1434.8599853515625Q4902.7998046875 -1568.3599853515625 5053.2998046875 -1637.8599853515625Q5203.7998046875 -1707.3599853515625 5419.7998046875 -1707.3599853515625ZM2046.5999755859375 -1679.3599853515625H3129.60009765625V-1329.3599853515625H2456.60009765625V-1094.3599853515625H2999.60009765625V-764.3599853515625H2456.60009765625V-589.3599853515625H3115.60009765625V-239.36000061035156H2046.5999755859375ZM1506.3746337890625 885.0Q1485.47900390625 1014.0872802734375 1430.0 1118.5Q1341.0 1286.0 1176.5 1377.0Q1012.0 1468.0 785.0 1468.0Q559.0 1468.0 394.0 1377.0Q229.0 1286.0 140.0 1118.5Q84.5210189819336 1014.0873413085938 63.62538146972656 885.0H495.9651184082031Q503.12933349609375 912.234619140625 513.0 936.5Q549.0 1025.0 617.5 1071.5Q686.0 1118.0 785.0 1118.0Q884.0 1118.0 953.0 1071.5Q1022.0 1025.0 1057.5 936.5Q1067.2333984375 912.235107421875 1074.2982177734375 885.0H1506.3746337890625ZM785.0 -28.0Q1012.0 -28.0 1176.5 62.5Q1341.0 153.0 1430.0 321.0Q1481.1685791015625 417.58795166015625 1502.9189453125 535.0H1068.433349609375Q1063.468505859375 518.9632568359375 1057.5 504.0Q1022.0 415.0 953.0 368.5Q884.0 322.0 785.0 322.0Q686.0 322.0 617.5 368.5Q549.0 415.0 513.0 504.0Q506.94757080078125 518.9629516601562 501.9126892089844 535.0H67.08106994628906Q88.83140563964844 417.5879211425781 140.0 321.0Q229.0 153.0 394.0 62.5Q559.0 -28.0 785.0 -28.0ZM1592.5999755859375 885.0H2002.5999755859375V1090.0H2661.60009765625V1440.0H1592.5999755859375V885.0ZM2725.199951171875 885.0H3135.199951171875V1090.0H3794.199951171875V1440.0H2725.199951171875V885.0ZM2725.199951171875 0.0H3135.199951171875V535.0H2725.199951171875ZM1592.5999755859375 0.0H2002.5999755859375V535.0H1592.5999755859375Z\"/><path style=\"fill:var(--line,#F5302A)\" d=\"M-153.8000030517578 527.0H3706.199951171875V893.0H-153.8000030517578Z\"/></g></svg>", "simbolo-off": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-154 -1440 3989 1440\" role=\"img\" aria-label=\"OFFMENU\"><g transform=\"scale(1,-1)\"><path fill=\"currentColor\" d=\"M1506.3746337890625 885.0Q1485.47900390625 1014.0872802734375 1430.0 1118.5Q1341.0 1286.0 1176.5 1377.0Q1012.0 1468.0 785.0 1468.0Q559.0 1468.0 394.0 1377.0Q229.0 1286.0 140.0 1118.5Q84.5210189819336 1014.0873413085938 63.62538146972656 885.0H495.9651184082031Q503.12933349609375 912.234619140625 513.0 936.5Q549.0 1025.0 617.5 1071.5Q686.0 1118.0 785.0 1118.0Q884.0 1118.0 953.0 1071.5Q1022.0 1025.0 1057.5 936.5Q1067.2333984375 912.235107421875 1074.2982177734375 885.0H1506.3746337890625ZM785.0 -28.0Q1012.0 -28.0 1176.5 62.5Q1341.0 153.0 1430.0 321.0Q1481.1685791015625 417.58795166015625 1502.9189453125 535.0H1068.433349609375Q1063.468505859375 518.9632568359375 1057.5 504.0Q1022.0 415.0 953.0 368.5Q884.0 322.0 785.0 322.0Q686.0 322.0 617.5 368.5Q549.0 415.0 513.0 504.0Q506.94757080078125 518.9629516601562 501.9126892089844 535.0H67.08106994628906Q88.83140563964844 417.5879211425781 140.0 321.0Q229.0 153.0 394.0 62.5Q559.0 -28.0 785.0 -28.0ZM1592.5999755859375 885.0H2002.5999755859375V1090.0H2661.60009765625V1440.0H1592.5999755859375V885.0ZM2725.199951171875 885.0H3135.199951171875V1090.0H3794.199951171875V1440.0H2725.199951171875V885.0ZM2725.199951171875 0.0H3135.199951171875V535.0H2725.199951171875ZM1592.5999755859375 0.0H2002.5999755859375V535.0H1592.5999755859375Z\"/><path style=\"fill:var(--line,#F5302A)\" d=\"M-153.8000030517578 527.0H3706.199951171875V893.0H-153.8000030517578Z\"/></g></svg>"};
+document.querySelectorAll('.lg[data-k]').forEach(function(el){ el.innerHTML=T[el.dataset.k]; el.classList.add('lgv'); });
+document.fonts.ready.then(function(){ document.body.setAttribute('data-ready','1'); });
+</script>
+</body>
+</html>

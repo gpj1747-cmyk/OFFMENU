@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>OFFMENU · Reels</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Lienzo 1080 × 1920. Tipografía cinética: líneas que entran por corte seco, sin fundidos,
+   y la tachadura roja que se dibuja de izquierda a derecha en 0,25 s. */
+:root{--granate:#42000E; --rojo:#F5302A; --blanco:#FFFFFF; --negro:#141518; --gris:#5F5B59;
+ --f-d:'Schibsted Grotesk',Arial,sans-serif; --f-m:'IBM Plex Mono',monospace}
+*{box-sizing:border-box}
+html,body{margin:0; background:#000}
+#stage{width:1080px; height:1920px; position:relative; overflow:hidden; font-family:var(--f-d); -webkit-font-smoothing:antialiased}
+.scene{position:absolute; inset:0; padding:230px 170px 420px 90px; display:none; flex-direction:column}
+.scene.on{display:flex}
+.stack{display:flex; flex-direction:column; gap:14px}
+.bottom{margin-top:auto}
+.it{visibility:hidden}
+.it.on{visibility:visible}
+.xl{font-weight:900; font-size:160px; letter-spacing:-.05em; line-height:.9}
+.l{font-weight:900; font-size:108px; letter-spacing:-.05em; line-height:.92}
+.xlm{font-weight:900; font-size:132px; letter-spacing:-.05em; line-height:.92}
+.m{font-weight:800; font-size:72px; letter-spacing:-.035em; line-height:1}
+.mono{font-family:var(--f-m); font-weight:500; font-size:44px; letter-spacing:.06em; text-transform:uppercase}
+.monol{font-family:var(--f-m); font-weight:400; font-size:54px; line-height:1.3}
+.dim{opacity:.5}
+.gr{color:var(--granate)} .rj{color:var(--rojo)} .rt{color:#D8241E}
+.s{padding:0 .04em; margin:0 -.04em; background-image:linear-gradient(var(--rojo),var(--rojo)); background-repeat:no-repeat; background-position:0 56%; background-size:0% .09em; -webkit-box-decoration-break:clone; box-decoration-break:clone}
+.lgv{display:inline-block; line-height:0} .lgv svg{height:1em; width:auto; display:block}
+.bw{background:var(--blanco); color:var(--negro)}
+.bg{background:var(--granate); color:var(--blanco); --line:var(--rojo)}
+.bk{background:var(--negro); color:var(--blanco); --line:var(--rojo)}
+.bw .lg{color:var(--granate); --line:var(--rojo)}
+.rule{height:3px; background:currentColor; opacity:.35; margin:26px 0}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+var T=__LOGOS__;
+/* Cada reel: escenas con inicio y fin (s), fondo y elementos.
+   Elemento: [aparece (s desde el inicio de la escena), clase, html, tachar (s) opcional, zona 'top'|'bottom'] */
+var REELS={
+  presentacion:{dur:10.5, scenes:[
+    {t0:0, t1:0.3, bg:'bg', items:[]},
+    {t0:0.3, t1:1.35, bg:'bg', items:[[0,'lgx','<span class="lg" data-k="simbolo-off" style="font-size:150px"></span>'],[0,'l','Cartas<br>digitales',null,'bottom']]},
+    {t0:1.35, t1:1.6, bg:'bg', items:[]},
+    {t0:1.6, t1:7.0, bg:'bg', items:[[0,'xlm','Precios'],[0.33,'xlm','Platos'],[0.66,'xlm','Menú del día'],[1.0,'xlm','Alérgenos'],[1.33,'xlm','Idiomas'],[1.66,'xlm','Agotados'],[2.0,'xlm','Fotos'],[3.0,'mono','Todo cambia.',null,'bottom']]},
+    {t0:7.0, t1:10.5, bg:'bg', items:[[0,'xl','Tu carta,<br>también.'],[0.7,'lgx','<span class="lg" data-k="logotipo" style="font-size:120px"></span>',null,'bottom'],[0.7,'mono','offmenu.es',null,'bottom']]}
+  ]},
+  cafe:{dur:15, scenes:[
+    {t0:0, t1:2.3, bg:'bw', items:[[0.15,'xl','Subir<br>el café'],[0.85,'xl gr','10 céntimos.']]},
+    {t0:2.3, t1:7.9, bg:'bw', items:[[0,'mono','En papel:'],[0.4,'l','<span class="s" data-s="3.6">Llamar a la imprenta.</span>'],[0.9,'l','<span class="s" data-s="3.78">Esperar.</span>'],[1.3,'l','<span class="s" data-s="3.96">Pagar.</span>'],[1.7,'l','<span class="s" data-s="4.14">Recoger.</span>'],[2.1,'l','<span class="s" data-s="4.32">Tirar las viejas.</span>'],[2.6,'l','<span class="s" data-s="4.5">Repetir en tres meses.</span>']]},
+    {t0:7.9, t1:11.4, bg:'bw', items:[[0,'mono','Con OFFMENU:'],[0.35,'l','Abrir el móvil.'],[1.1,'xl','<span class="s" data-s="1.6">1,50</span>'],[2.0,'xl gr','1,60'],[2.6,'mono dim','Un toque. Mismo QR.',null,'bottom']]},
+    {t0:11.4, t1:15, bg:'bg', items:[[0,'lgx','<span class="lg" data-k="logotipo" style="font-size:120px"></span>'],[0.5,'xl','Cambia<br>la carta,<br>no el QR.',null,'bottom'],[0.5,'mono','offmenu.es',null,'bottom']]}
+  ]},
+  pulpo:{dur:15.5, scenes:[
+    {t0:0, t1:1.7, bg:'bk', items:[[0.1,'mono dim','Mesa 4'],[0.3,'l','¿Queda pulpo?'],[0.95,'l dim','Se acabó.']]},
+    {t0:1.7, t1:3.1, bg:'bk', items:[[0,'mono dim','Mesa 7'],[0.2,'l','¿Queda pulpo?'],[0.8,'l dim','Se acabó.']]},
+    {t0:3.1, t1:5.8, bg:'bk', items:[[0,'monol','Mesa 2 · ¿Pulpo? · No.'],[0.35,'monol','Mesa 9 · ¿Pulpo? · No.'],[0.65,'monol','Mesa 11 · ¿Pulpo? · No.'],[0.9,'monol','Mesa 3 · ¿Pulpo? · No.'],[1.1,'monol','Mesa 12 · ¿Pulpo? · No.'],[1.28,'monol','Mesa 6 · ¿Pulpo? · No.'],[1.44,'monol','Mesa 1 · ¿Pulpo? · No.'],[1.58,'monol','Mesa 8 · ¿Pulpo? · No.']]},
+    {t0:5.8, t1:8.3, bg:'bk', items:[[0,'xl','Y la carta,'],[0.7,'xl dim','sin<br>enterarse.']]},
+    {t0:8.3, t1:12.3, bg:'bw', items:[[0,'mono','Panel · Para picar'],[0.3,'rule',''],[0.3,'m','Croquetas de jamón'],[0.3,'rule',''],[0.3,'l','<span class="s" data-s="1.1">Pulpo á feira</span>'],[1.5,'mono rt','Agotado'],[0.3,'rule',''],[2.3,'xl gr','Un toque.',null,'bottom']]},
+    {t0:12.3, t1:15.5, bg:'bg', items:[[0,'xl','Se acaba.'],[0.4,'xl','Se tacha.'],[0.8,'xl','Listo.'],[1.3,'lgx','<span class="lg" data-k="logotipo" style="font-size:110px"></span>',null,'bottom'],[1.3,'mono','offmenu.es',null,'bottom']]}
+  ]}
+};
+var stage=document.getElementById('stage'), cur=null, built=[];
+function build(name){
+  cur=REELS[name]; stage.innerHTML=''; built=[];
+  cur.scenes.forEach(function(sc){
+    var el=document.createElement('div'); el.className='scene '+sc.bg;
+    var top=document.createElement('div'); top.className='stack';
+    var bot=document.createElement('div'); bot.className='stack bottom';
+    el.appendChild(top); el.appendChild(bot);
+    var its=sc.items.map(function(it){
+      var d=document.createElement('div'); d.className='it '+it[1]; d.innerHTML=it[2];
+      (it[4]==='bottom'?bot:top).appendChild(d); return {el:d,t:it[0]};
+    });
+    stage.appendChild(el); built.push({sc:sc,el:el,its:its,strikes:[].slice.call(el.querySelectorAll('.s'))});
+  });
+  stage.querySelectorAll('.lg[data-k]').forEach(function(e){ e.innerHTML=T[e.dataset.k]; e.classList.add('lgv'); });
+}
+function render(t){
+  built.forEach(function(b){
+    var on=t>=b.sc.t0 && t<b.sc.t1; b.el.classList.toggle('on',on); if(!on) return;
+    var lt=t-b.sc.t0;
+    b.its.forEach(function(i){ i.el.classList.toggle('on', lt>=i.t); });
+    b.strikes.forEach(function(s){ var p=Math.max(0,Math.min(1,(lt-parseFloat(s.dataset.s))/0.25)); s.style.backgroundSize=(p*100)+'% .09em'; });
+  });
+}
+window.__build=build; window.__render=render; window.__dur=function(n){return REELS[n].dur;};
+document.fonts.ready.then(function(){ document.body.setAttribute('data-ready','1'); });
+</script>
+</body>
+</html>
