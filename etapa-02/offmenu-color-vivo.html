@@ -1,0 +1,150 @@
+<title>OFFMENU · Color vivo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: muestrario rápido. Ocho combinaciones con la misma pieza, en rejilla, para elegir a primera vista. */
+:root{--bg:#F5F5F2; --fg:#181816; --muted:#6C6B66; --rule:#D9D8D2; --surface:#FFFFFF;
+ --f-ui:'Instrument Sans',Arial,sans-serif; --f-lab:'JetBrains Mono',monospace; --f-d:'Schibsted Grotesk',Arial,sans-serif; --f-m:'IBM Plex Mono',monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--f-ui); line-height:1.5; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+header{padding-block:48px 28px}
+.lab{font-family:var(--f-lab); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+h1{font-size:clamp(36px,6vw,72px); letter-spacing:-.035em; line-height:.95; margin:14px 0 0; text-wrap:balance}
+.intro{margin-top:18px; max-width:64ch; font-size:17px}
+.grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding-block:12px 56px}
+.t{min-width:0; display:flex; flex-direction:column; gap:10px}
+.pc{container-type:inline-size; aspect-ratio:4/5; display:grid; grid-template-rows:3fr 1fr .55fr; overflow:hidden}
+.p1{padding:7cqw; display:flex; flex-direction:column; justify-content:space-between}
+.k{font-family:var(--f-m); font-size:4cqw}
+.lg{font-family:var(--f-d); font-weight:900; text-transform:uppercase; letter-spacing:-.05em; line-height:.8; white-space:nowrap; font-size:13cqw}
+.lg .o{position:relative; display:inline-block}
+.lg .o i{position:absolute; left:-.1em; right:0; top:.46em; height:.105em}
+.h{font-family:var(--f-d); font-weight:800; font-size:10.5cqw; letter-spacing:-.04em; line-height:.95}
+.x{position:relative; opacity:.55}
+.x::after{content:""; position:absolute; left:-.04em; right:-.04em; top:54%; height:.09em; background:currentColor}
+.p2{padding:0 7cqw; display:flex; justify-content:space-between; align-items:center; font-family:var(--f-m); font-size:4cqw}
+.sm{font-family:var(--f-d); font-weight:900; font-size:8cqw; letter-spacing:-.05em}
+.p3{padding:0 7cqw; display:flex; align-items:center; font-family:var(--f-m); font-size:3.6cqw}
+.meta{display:flex; flex-direction:column; gap:2px; font-size:14px}
+.meta b{font-weight:600}
+.meta span{color:var(--muted)}
+.hx{font-family:var(--f-m); font-size:11.5px}
+.ask{border-top:1px solid var(--rule); padding-block:36px 64px}
+.ask h2{font-size:clamp(24px,3vw,34px); letter-spacing:-.025em; margin:8px 0 12px}
+.ask p{max-width:66ch; font-size:16px}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.grid{grid-template-columns:1fr} .t{max-width:420px}}
+</style>
+<header><div class="wrap">
+  <span class="lab">OFFMENU · Etapa 02f · Color vivo</span>
+  <h1>Ocho combinaciones<br>con más vida</h1>
+  <p class="intro">Todas usan la misma pieza: logotipo, mensaje, precio y web. El color ocupa planos enteros, como en Nestra y DVDW, y no aparece como un acento pequeño. Mira la rejilla de un vistazo y quédate con las que te hagan reaccionar. Los nombres de color son provisionales.</p>
+</div></header>
+<div class="wrap"><div class="grid">
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#1FA2F0;color:#141518;--line:#FFFFFF">
+        <span class="k">A</span>
+        <span class="lg"><span class="o">OFF<i style="background:#141518"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#141518;color:#FFFFFF"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#FFFFFF;color:#141518"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>A · Cian y negro</b><span>El cian de DVDW con negro. Directo y luminoso.</span><span class="hx">#1FA2F0 · #141518 · #FFFFFF</span></div>
+  </article>
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#1FA2F0;color:#141518;--line:#FFFFFF">
+        <span class="k">B</span>
+        <span class="lg"><span class="o">OFF<i style="background:#3D0C16"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#3D0C16;color:#FFFFFF"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#FFFFFF;color:#141518"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>B · Cian y granate</b><span>La pareja de DVDW: el frío vivo con el cálido oscuro.</span><span class="hx">#1FA2F0 · #3D0C16 · #FFFFFF</span></div>
+  </article>
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#1FA2F0;color:#141518;--line:#141518">
+        <span class="k">C</span>
+        <span class="lg"><span class="o">OFF<i style="background:#141518"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#F26A1F;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#141518;color:#FFFFFF"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>C · Cian y naranja</b><span>Complementarios: la máxima vibración.</span><span class="hx">#1FA2F0 · #F26A1F · #141518</span></div>
+  </article>
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#2C7FC0;color:#141518;--line:#141518">
+        <span class="k">D</span>
+        <span class="lg"><span class="o">OFF<i style="background:#F26A1F"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#F26A1F;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#4B3428;color:#FFFFFF"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>D · Cerúleo, naranja y chocolate</b><span>El trío de Nestra: tres colores con el mismo peso.</span><span class="hx">#2C7FC0 · #F26A1F · #4B3428</span></div>
+  </article>
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#F26A1F;color:#141518;--line:#141518">
+        <span class="k">E</span>
+        <span class="lg"><span class="o">OFF<i style="background:#9FC2E4"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#9FC2E4;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#141518;color:#FFFFFF"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>E · Naranja y hielo</b><span>Nuestro hielo, con el naranja como protagonista.</span><span class="hx">#F26A1F · #9FC2E4 · #141518</span></div>
+  </article>
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#1FA2F0;color:#141518;--line:#141518">
+        <span class="k">F</span>
+        <span class="lg"><span class="o">OFF<i style="background:#FF8FB8"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#FF8FB8;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#141518;color:#FFFFFF"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>F · Cian y rosa</b><span>Inesperada y fresca, lejos de cualquier sector.</span><span class="hx">#1FA2F0 · #FF8FB8 · #141518</span></div>
+  </article>
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#9FC2E4;color:#141518;--line:#141518">
+        <span class="k">G</span>
+        <span class="lg"><span class="o">OFF<i style="background:#1FA2F0"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#1FA2F0;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#141518;color:#FFFFFF"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>G · Hielo, cian y negro</b><span>Una sola familia de azules, del pálido al vivo.</span><span class="hx">#9FC2E4 · #1FA2F0 · #141518</span></div>
+  </article>
+  <article class="t">
+    <div class="pc">
+      <div class="p1" style="background:#F26A1F;color:#141518;--line:#FFFFFF">
+        <span class="k">H</span>
+        <span class="lg"><span class="o">OFF<i style="background:#3D0C16"></i></span>MENU</span>
+        <span class="h">Un pago.<br><span class="x">Cuotas.</span></span>
+      </div>
+      <div class="p2" style="background:#3D0C16;color:#FFFFFF"><span>Desde 190 €</span><span class="sm">OFF</span></div>
+      <div class="p3" style="background:#FFFFFF;color:#141518"><span>offmenu.es</span></div>
+    </div>
+    <div class="meta"><b>H · Naranja y granate</b><span>Todo cálido: energía sin azul.</span><span class="hx">#F26A1F · #3D0C16 · #FFFFFF</span></div>
+  </article>
+</div></div>
+<section class="ask"><div class="wrap">
+  <span class="lab">Siguiente paso</span>
+  <h2>Señala una o dos</h2>
+  <p>No hace falta que una sea perfecta. Dime cuáles te atraen y qué les falta o les sobra: más o menos saturación, más claro, más oscuro, otro tono. Con eso afino la paleta sobre las piezas completas. Si te tuviera que adelantar mi favorita: la <b>B</b>, porque conserva la idea de frío contra cálido y añade la vivacidad que faltaba. La <b>C</b> es la más enérgica.</p>
+</div></section>
