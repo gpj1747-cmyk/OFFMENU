@@ -11,4 +11,5 @@ Desarrollo por etapas de la identidad visual de OFFMENU.
 - **Etapa 02e** · `etapa-02/offmenu-frio-calido.html`: contraste de temperatura (hielo + granate / chocolate / naranja) a partir de Nestra y DVDW.
 - **Etapa 02f** · `etapa-02/offmenu-color-vivo.html`: muestrario de ocho combinaciones vivas.
 - **Etapa 02g** · `etapa-02/offmenu-paleta-nueva.html`: familia cromática nueva (fucsia, violeta, ciruela, albaricoque, ocre, lavanda) y rojo/amarillo recombinados.
+- **Etapa 02h** · `etapa-02/offmenu-rojo-granate.html`: paleta rojo y granate (ref. Festival de Lima), símbolos, patrón y aplicaciones.
 - **Etapa 03** · Desarrollo de la identidad seleccionada (pendiente de feedback).
