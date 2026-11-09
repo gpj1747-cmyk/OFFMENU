@@ -1,0 +1,1244 @@
+<title>OFFMENU · Direcciones creativas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Courier+Prime:wght@400;700&family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;700;800;900&display=swap">
+<style>
+/* Layout: documento de estudio. Una columna de lectura (~68ch) para el análisis,
+   bandas a todo ancho para cada dirección con sus propios tokens fijos. */
+:root{
+  --bg:#F5F5F2; --fg:#181816; --muted:#6C6B66; --rule:#D9D8D2; --surface:#FFFFFF; --mark:#181816;
+  --f-ui:'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --f-lab:'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; --mark:#ECEBE6; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; --mark:#ECEBE6; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--f-ui); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+.read{max-width:72ch}
+h1,h2,h3,h4{text-wrap:balance; margin:0; line-height:1.1}
+p{margin:0}
+.lab{font-family:var(--f-lab); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.stack{display:flex; flex-direction:column; gap:14px}
+a{color:inherit}
+:focus-visible{outline:2px solid currentColor; outline-offset:3px}
+
+/* ---------- Cabecera del documento ---------- */
+.doc-head{padding-block:56px 40px; border-bottom:1px solid var(--rule)}
+.doc-head .row{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; align-items:flex-end}
+.doc-head h1{font-size:clamp(40px,7vw,88px); font-weight:700; letter-spacing:-.035em; line-height:.95; margin-top:18px}
+.doc-head .intro{margin-top:28px; max-width:64ch; font-size:18px; color:var(--fg)}
+.toc{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:28px}
+.toc a{font-family:var(--f-lab); font-size:12px; text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:2px}
+.toc a:hover{border-color:var(--fg)}
+
+section.block{padding-block:64px; border-bottom:1px solid var(--rule)}
+section.block > .wrap > h2{font-size:clamp(28px,4vw,44px); letter-spacing:-.025em; font-weight:700; margin:10px 0 18px}
+.lead{font-size:18px; max-width:66ch}
+
+/* Fichas de referencia */
+.refs{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; margin-top:36px}
+.ref{background:var(--surface); border:1px solid var(--rule); padding:22px; display:flex; flex-direction:column; gap:12px; min-width:0}
+.ref h3{font-size:20px; letter-spacing:-.01em}
+.ref dl{margin:0; display:grid; grid-template-columns:96px 1fr; gap:6px 12px; font-size:14px}
+.ref dt{font-family:var(--f-lab); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); padding-top:3px}
+.ref dd{margin:0}
+.ref .verdict{font-size:14px; border-top:1px solid var(--rule); padding-top:12px}
+.ref .verdict b{font-weight:600}
+
+/* Tablas */
+.tbl-wrap{overflow-x:auto; margin-top:28px; border:1px solid var(--rule); background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:720px}
+th,td{padding:10px 12px; border-bottom:1px solid var(--rule); text-align:left; vertical-align:top}
+thead th{font-family:var(--f-lab); font-weight:500; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); background:var(--bg)}
+td.c{text-align:center; font-family:var(--f-lab)}
+tbody tr:last-child td{border-bottom:0}
+.dot{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--mark)}
+.half{display:inline-block; width:9px; height:9px; border-radius:50%; border:1.5px solid var(--mark); background:linear-gradient(90deg,var(--mark) 50%,transparent 50%)}
+.none{color:var(--muted)}
+
+.cols2{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:28px}
+.cols3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:28px}
+.cols2>*,.cols3>*{min-width:0}
+.panel{background:var(--surface); border:1px solid var(--rule); padding:22px}
+.panel h3{font-size:18px; margin-bottom:10px}
+.panel ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px; font-size:15px}
+.callout{margin-top:36px; padding:28px; border:1.5px solid var(--fg)}
+.callout h3{font-size:24px; letter-spacing:-.02em; margin-bottom:12px}
+.callout p + p{margin-top:10px}
+
+/* ---------- Direcciones (bandas con tokens propios) ---------- */
+.dir{background:var(--p); color:var(--i); padding-block:72px; border-bottom:1px solid rgba(0,0,0,.12)}
+.dir .lab{color:var(--m)}
+.d1{--p:#F4F2EE; --i:#121212; --a:#E23B2E; --m:#77746E; --s:#FFFFFF; --fd:'Schibsted Grotesk',Arial,sans-serif; --fm:'IBM Plex Mono',ui-monospace,monospace; --fb:'Schibsted Grotesk',Arial,sans-serif}
+.d2{--p:#FAF8F2; --i:#1C1C1C; --a:#F3B7C5; --a2:#F1DE73; --m:#7D7A73; --s:#FFFFFF; --fd:'Courier Prime','Courier New',monospace; --fm:'Courier Prime','Courier New',monospace; --fb:'Instrument Sans',Arial,sans-serif}
+.d3{--p:#ECE7DC; --i:#111111; --a:#111111; --m:#6E685D; --s:#F7F4EE; --st:#B8B1A3; --fd:'Archivo',Arial,sans-serif; --fm:'Archivo',Arial,sans-serif; --fb:'Archivo',Arial,sans-serif}
+.d4{--p:#EFEBE2; --i:#1A1A1A; --a:#2338C4; --a2:#CDD3F0; --m:#6F6C66; --s:#F8F6F1; --fd:'Bricolage Grotesque',Arial,sans-serif; --fm:'DM Mono',ui-monospace,monospace; --fb:'Bricolage Grotesque',Arial,sans-serif}
+
+.dir-head{display:grid; grid-template-columns:1fr 1.2fr; gap:40px; align-items:end}
+.dir-head>*{min-width:0}
+.dir-num{font-family:var(--fm); font-size:13px; letter-spacing:.06em}
+.dir-name{font-family:var(--fd); font-size:clamp(46px,8vw,104px); line-height:.88; letter-spacing:-.04em; margin-top:14px; font-weight:800}
+.d2 .dir-name{font-weight:700; letter-spacing:-.03em}
+.d3 .dir-name{font-variation-settings:'wdth' 125; font-weight:900; letter-spacing:-.02em}
+.d4 .dir-name{font-weight:700; font-variation-settings:'opsz' 96}
+.dir-idea{font-family:var(--fb); font-size:clamp(19px,2.2vw,24px); line-height:1.35; letter-spacing:-.01em}
+.dir-quote{font-family:var(--fm); font-size:13px; margin-top:14px; color:var(--m)}
+
+.spec{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:48px; border-top:1px solid color-mix(in srgb,var(--i) 25%,transparent)}
+.spec>div{padding:20px 22px 22px 0; border-bottom:1px solid color-mix(in srgb,var(--i) 25%,transparent); min-width:0}
+.spec>div+div{padding-left:22px; border-left:1px solid color-mix(in srgb,var(--i) 25%,transparent)}
+.spec>div:nth-child(3n+1){padding-left:0; border-left:0}
+.spec h4{font-family:var(--fm); font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:500; margin-bottom:10px; color:var(--m)}
+.spec p, .spec li{font-family:var(--fb); font-size:14.5px; line-height:1.5}
+.spec ul{margin:0; padding-left:16px; display:flex; flex-direction:column; gap:4px}
+.spec p+p{margin-top:8px}
+
+/* Muestrario de logo */
+.logo-board{display:grid; grid-template-columns:2fr 1fr 1fr; gap:14px; margin-top:44px}
+.logo-board>div{min-height:200px; display:flex; flex-direction:column; justify-content:space-between; padding:18px; min-width:0; container-type:inline-size}
+.lb-main{background:var(--s)}
+.lb-neg{background:var(--i); color:var(--p)}
+.lb-acc{background:var(--a); color:var(--i)}
+.lb-cap{font-family:var(--fm); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; opacity:.7}
+.lb-stage{flex:1; display:flex; align-items:center; justify-content:center; padding-block:18px}
+
+/* Tipo + color */
+.tc{display:grid; grid-template-columns:1.25fr 1fr; gap:14px; margin-top:14px}
+.tc>div{min-width:0}
+.type-card{background:var(--s); padding:22px; display:flex; flex-direction:column; gap:14px}
+.type-card .big{font-family:var(--fd); font-size:clamp(40px,6vw,72px); line-height:.9; letter-spacing:-.03em; font-weight:800}
+.d2 .type-card .big{font-weight:700}
+.d3 .type-card .big{font-variation-settings:'wdth' 125; font-weight:900}
+.d4 .type-card .big{font-variation-settings:'opsz' 96; font-weight:700}
+.type-row{display:flex; justify-content:space-between; gap:12px; border-top:1px solid color-mix(in srgb,var(--i) 18%,transparent); padding-top:10px; flex-wrap:wrap}
+.type-row .n{font-family:var(--fm); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--m)}
+.swatches{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+.sw{min-height:96px; padding:12px; display:flex; flex-direction:column; justify-content:flex-end; font-family:var(--fm); font-size:11px; letter-spacing:.04em; border:1px solid color-mix(in srgb,var(--i) 15%,transparent)}
+.sw b{font-weight:600; font-size:12px; display:block}
+
+/* Aplicaciones */
+.apps{display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:44px}
+.app{min-width:0; display:flex; flex-direction:column; gap:8px; container-type:inline-size}
+.app .cap{font-family:var(--fm); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--m)}
+.a-web{grid-column:span 8} .a-ig{grid-column:span 4}
+.a-slide{grid-column:span 6} .a-menu{grid-column:span 3} .a-qr{grid-column:span 3}
+.mock{position:relative; overflow:hidden; max-width:100%; width:100%}
+.m-menu{container-type:inline-size}
+.m-web{aspect-ratio:16/10; background:var(--p); border:1px solid color-mix(in srgb,var(--i) 20%,transparent)}
+.m-ig{aspect-ratio:4/5}
+.m-slide{aspect-ratio:16/9}
+.m-menu{aspect-ratio:9/18.5; border-radius:28px; border:7px solid #161616; background:#fff; max-width:270px; width:100%; margin:0 auto}
+.m-qr{aspect-ratio:3/4}
+.bar{height:6cqw; max-height:26px; display:flex; align-items:center; gap:1.2cqw; padding:0 2cqw; border-bottom:1px solid color-mix(in srgb,var(--i) 15%,transparent); background:color-mix(in srgb,var(--p) 80%,#fff)}
+.bar i{width:1.1cqw; height:1.1cqw; border-radius:50%; background:color-mix(in srgb,var(--i) 25%,transparent)}
+.bar span{margin-left:2cqw; font-family:var(--f-lab); font-size:1.4cqw; color:var(--m)}
+
+/* QR generado */
+.qr svg{display:block; width:100%; height:auto}
+
+/* Placeholder fotográfico (grano) */
+.photo{position:absolute; inset:0; background:
+ url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+ radial-gradient(120% 90% at 78% 18%, #F2EEE6 0%, #CFC8BB 32%, #8F887C 62%, #3D3A35 100%)}
+.photo.dark{background:
+ url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+ linear-gradient(160deg,#6E6A63 0%,#2B2925 55%,#141311 100%)}
+.photo-cap{position:absolute; font-family:var(--f-lab); font-size:max(9px,1.6cqw); letter-spacing:.05em; text-transform:uppercase; color:#fff; opacity:.85}
+
+/* ======== LOGOS ======== */
+/* D1 · la línea atraviesa OFF */
+.lg1{font-family:'Schibsted Grotesk',Arial,sans-serif; font-weight:900; text-transform:uppercase; letter-spacing:-.05em; line-height:.8; white-space:nowrap; display:inline-block}
+.lg1 .o{position:relative; display:inline-block}
+.lg1 .o i{position:absolute; left:-.1em; right:.03em; top:50%; height:.105em; transform:translateY(-55%); background:var(--strike,currentColor)}
+.sym1{font-family:'Schibsted Grotesk',Arial,sans-serif; font-weight:900; line-height:.8; position:relative; display:inline-block}
+.sym1 i{position:absolute; left:-.12em; right:-.12em; top:50%; height:.11em; transform:translateY(-55%); background:var(--strike,currentColor)}
+/* D2 · OFF en papel de copia */
+.lg2{font-family:'Courier Prime','Courier New',monospace; font-weight:700; text-transform:uppercase; letter-spacing:0; line-height:1; white-space:nowrap; display:inline-block}
+.lg2 b{background:var(--copy,#F3B7C5); color:#1C1C1C; padding:0 .06em; font-weight:700}
+.lg2-perf{display:block; border-top:.06em dashed currentColor; margin-top:.18em; padding-top:.14em; font-size:.28em; letter-spacing:.12em; font-weight:400}
+.stub{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; font-family:'Courier Prime',monospace; font-weight:700; padding:.5em .8em; background:var(--copy,#F3B7C5); color:#1C1C1C;
+ -webkit-mask:radial-gradient(circle .32em at 0 50%,transparent 98%,#000) left/51% 100% no-repeat, radial-gradient(circle .32em at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+ mask:radial-gradient(circle .32em at 0 50%,transparent 98%,#000) left/51% 100% no-repeat, radial-gradient(circle .32em at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+.stub small{font-size:.32em; letter-spacing:.14em; font-weight:400; border-top:1px dashed #1C1C1C; margin-top:.3em; padding-top:.3em}
+/* D3 · dos caras */
+.lg3{font-family:'Archivo',Arial,sans-serif; font-variation-settings:'wdth' 125; font-weight:900; text-transform:uppercase; letter-spacing:-.02em; line-height:1; display:inline-flex; white-space:nowrap}
+.lg3 span{padding:.13em .16em .11em}
+.lg3 .a{background:#111; color:#ECE7DC}
+.lg3 .b{background:#ECE7DC; color:#111}
+.lg3.line .b{box-shadow:inset 0 0 0 .045em #111}
+.sym3{display:inline-grid; grid-template-columns:1fr 1fr; width:1em; height:1em}
+.sym3 i:first-child{background:#111} .sym3 i:last-child{background:#ECE7DC; box-shadow:inset 0 0 0 .04em #111}
+/* D4 · la o es un marco */
+.lg4{font-family:'Bricolage Grotesque',Arial,sans-serif; font-variation-settings:'opsz' 96; font-weight:700; letter-spacing:-.035em; line-height:1; white-space:nowrap; display:inline-flex; align-items:baseline}
+.lg4 .o{display:inline-block; width:.82em; height:.5em; border:.105em solid currentColor; border-radius:50%; margin-right:.03em; transform:translateY(-.005em)}
+
+/* ======== MOCKS: D1 ======== */
+.d1 .m-web .in{padding:5cqw 6cqw; display:flex; flex-direction:column; height:calc(100% - 6cqw); justify-content:space-between}
+.d1 .nav{display:flex; justify-content:space-between; align-items:center; font-family:var(--fm); font-size:1.5cqw; text-transform:uppercase; letter-spacing:.06em}
+.d1 .nav .lg1{font-size:3cqw}
+.d1 .nav ul{display:flex; gap:3cqw; list-style:none; margin:0; padding:0}
+.d1 .hero-h{font-family:var(--fd); font-weight:900; font-size:8.6cqw; line-height:.9; letter-spacing:-.045em}
+.d1 .hero-h .x{color:var(--m); position:relative; display:inline}
+.d1 .hero-h .x::after{content:""; position:absolute; left:-.05em; right:-.05em; top:52%; height:.09em; background:var(--a)}
+.d1 .price-line{display:flex; flex-wrap:wrap; gap:1cqw 4cqw; border-top:1px solid var(--i); padding-top:1.6cqw; font-family:var(--fm); font-size:1.6cqw; text-transform:uppercase; letter-spacing:.04em}
+.d1 .price-line b{font-weight:600}
+
+.d1 .m-ig{background:var(--i); color:var(--p); padding:7cqw; display:flex; flex-direction:column; justify-content:space-between}
+.d1 .ig-list{font-family:var(--fd); font-weight:800; font-size:9cqw; line-height:1.02; letter-spacing:-.035em}
+.d1 .ig-list div{display:flex; justify-content:space-between; border-bottom:1px solid #444; padding-block:1.6cqw}
+.d1 .ig-list span:last-child{font-family:var(--fm); font-weight:500; font-size:5cqw; letter-spacing:0; align-self:center}
+.d1 .ig-list .gone span:first-child{position:relative; color:#8E8A84}
+.d1 .ig-list .gone span:first-child::after{content:""; position:absolute; left:-.05em; right:-.05em; top:52%; height:.1em; background:var(--a)}
+.d1 .ig-foot{display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--fm); font-size:3.4cqw; line-height:1.35}
+.d1 .ig-foot .lg1{font-size:7cqw}
+
+.d1 .m-slide{background:var(--s); border:1px solid color-mix(in srgb,var(--i) 15%,transparent); padding:5cqw; display:grid; grid-template-columns:1.3fr 1fr; gap:5cqw}
+.d1 .sl-k{font-family:var(--fm); font-size:1.5cqw; letter-spacing:.07em; text-transform:uppercase; color:var(--m); margin-bottom:3cqw}
+.d1 .sl-h{font-family:var(--fd); font-weight:800; font-size:5cqw; line-height:.98; letter-spacing:-.035em}
+.d1 .sl-r{display:flex; flex-direction:column; justify-content:flex-end; gap:1.4cqw; font-family:var(--fm); font-size:1.75cqw}
+.d1 .sl-r div{display:flex; justify-content:space-between; border-bottom:1px dotted var(--i); padding-bottom:.8cqw}
+.d1 .sl-r s{text-decoration-color:var(--a); text-decoration-thickness:.2cqw; color:var(--m)}
+.d1 .sl-foot{grid-column:1/-1; display:flex; justify-content:space-between; align-items:center; font-family:var(--fm); font-size:1.3cqw; color:var(--m); align-self:end}
+.d1 .sl-foot .lg1{font-size:2.4cqw; color:var(--i)}
+
+/* Carta digital (base común a todas: legibilidad primero) */
+.menu-in{height:100%; overflow:hidden; display:flex; flex-direction:column; font-size:5.4cqw}
+.menu-head{padding:10cqw 7cqw 5cqw}
+.menu-tabs{display:flex; gap:4cqw; padding:0 7cqw 3cqw; font-size:4.2cqw; white-space:nowrap; overflow:hidden}
+.menu-list{padding:0 7cqw; flex:1}
+.mi{display:grid; grid-template-columns:1fr auto; gap:.5cqw 3cqw; padding-block:3.6cqw; border-bottom:1px solid #e3e0da}
+.mi .nm{font-weight:600; font-size:5.4cqw; line-height:1.2}
+.mi .pr{font-variant-numeric:tabular-nums; font-size:5.2cqw}
+.mi .ds{grid-column:1/-1; font-size:4.1cqw; color:#6a6762; line-height:1.35}
+.mi .al{grid-column:1/-1; display:flex; gap:1.5cqw; font-size:3.4cqw}
+.mi .al span{border:1px solid #c9c5be; border-radius:99px; padding:.2cqw 1.8cqw; color:#55524d}
+.menu-foot{padding:4cqw 7cqw 6cqw; font-size:3.4cqw; color:#8a877f; display:flex; align-items:center; gap:2cqw}
+
+.d1 .m-menu .menu-head h5{font-family:'Schibsted Grotesk',sans-serif; font-weight:800; font-size:9cqw; letter-spacing:-.03em; margin:0}
+.d1 .m-menu .menu-head p{font-family:var(--fm); font-size:3.4cqw; letter-spacing:.06em; text-transform:uppercase; color:#7a776f; margin-top:1.5cqw}
+.d1 .m-menu .menu-tabs{font-family:'Schibsted Grotesk',sans-serif}
+.d1 .m-menu .menu-tabs b{border-bottom:.6cqw solid #121212}
+.d1 .m-menu .mi .nm{font-family:'Schibsted Grotesk',sans-serif}
+.d1 .m-menu .mi .pr{font-family:var(--fm)}
+.d1 .m-menu .mi.out .nm{color:#8a877f; position:relative; justify-self:start}
+.d1 .m-menu .mi.out .nm::after{content:""; position:absolute; left:-.04em; right:-.04em; top:55%; height:.09em; background:#E23B2E}
+.d1 .m-menu .mi.out .pr{font-family:var(--fm); font-size:3.3cqw; letter-spacing:.06em; color:#E23B2E; align-self:center}
+.d1 .m-menu .menu-foot .sym1{font-size:4.4cqw; color:#121212; --strike:#E23B2E}
+
+.d1 .m-qr{background:var(--s); border:1px solid color-mix(in srgb,var(--i) 15%,transparent); padding:9cqw; display:flex; flex-direction:column; gap:6cqw}
+.d1 .qr-top{display:flex; justify-content:space-between; font-family:var(--fm); font-size:4cqw; text-transform:uppercase; letter-spacing:.06em}
+.d1 .qr-h{font-family:var(--fd); font-weight:800; font-size:10cqw; line-height:.95; letter-spacing:-.04em}
+.d1 .qr-h .x{position:relative; color:var(--m)}
+.d1 .qr-h .x::after{content:""; position:absolute; left:-.04em; right:-.04em; top:54%; height:.1em; background:var(--a)}
+.d1 .qr-box{width:52%}
+.d1 .qr-foot{margin-top:auto; display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--fm); font-size:3.6cqw}
+.d1 .qr-foot .lg1{font-size:7cqw}
+
+/* ======== MOCKS: D2 ======== */
+.d2 .m-web{background:var(--p)}
+.d2 .web2{padding:4cqw 5cqw; display:flex; flex-direction:column; gap:3cqw; height:calc(100% - 6cqw); font-family:var(--fm)}
+.d2 .tick-head{display:flex; justify-content:space-between; font-size:1.6cqw; text-transform:uppercase; letter-spacing:.06em; border-bottom:1px dashed var(--i); padding-bottom:1.6cqw}
+.d2 .tick-head .lg2{font-size:2.6cqw}
+.d2 .h2w{font-size:6.4cqw; font-weight:700; line-height:1; letter-spacing:-.03em}
+.d2 .h2w mark{background:var(--a); color:inherit; padding:0 .08em}
+.d2 .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:2cqw; margin-top:auto}
+.d2 .plan{background:var(--s); border:1px solid var(--i); padding:2cqw; font-size:1.5cqw; line-height:1.4; position:relative}
+.d2 .plan .no{font-size:1.3cqw; letter-spacing:.08em; border-bottom:1px dashed var(--i); padding-bottom:1cqw; margin-bottom:1cqw; display:flex; justify-content:space-between}
+.d2 .plan b{display:block; font-size:2.6cqw; letter-spacing:-.02em}
+.d2 .plan.on{background:var(--a)}
+.d2 .m-ig{background:var(--a); padding:6cqw; font-family:var(--fm); display:flex; flex-direction:column;
+ background-image:repeating-linear-gradient(to bottom, transparent 0 calc(9cqw - 1px), rgba(28,28,28,.22) calc(9cqw - 1px) 9cqw); background-position:0 4cqw}
+.d2 .ig2-top{display:flex; justify-content:space-between; font-size:3.4cqw; letter-spacing:.06em; text-transform:uppercase; border-bottom:1.5px solid #1c1c1c; padding-bottom:2cqw}
+.d2 .ig2-rows{margin-top:6cqw; display:flex; flex-direction:column; font-size:5.4cqw; line-height:9cqw; text-transform:uppercase}
+.d2 .ig2-rows span{color:#5a5650}
+.d2 .ig2-big{font-size:14cqw; font-weight:700; line-height:.95; margin-top:auto; letter-spacing:-.04em}
+.d2 .ig2-foot{display:flex; justify-content:space-between; align-items:flex-end; margin-top:4cqw; font-size:3.2cqw}
+.d2 .ig2-foot .lg2{font-size:6cqw; --copy:#FAF8F2}
+.d2 .m-slide{background:var(--s); border:1px solid color-mix(in srgb,var(--i) 20%,transparent); padding:4.5cqw 5cqw; font-family:var(--fm); display:flex; flex-direction:column; gap:2.4cqw}
+.d2 .sl2-h{font-size:4.2cqw; font-weight:700; letter-spacing:-.02em; line-height:1.05}
+.d2 .sl2-t{width:100%; border-collapse:collapse; font-size:1.7cqw; min-width:0}
+.d2 .sl2-t th,.d2 .sl2-t td{border-bottom:1px dashed #1c1c1c; padding:1cqw .8cqw; text-align:left; font-weight:400}
+.d2 .sl2-t th{font-size:1.3cqw; letter-spacing:.08em; text-transform:uppercase; color:#7d7a73; background:none; font-family:var(--fm)}
+.d2 .sl2-t td:last-child,.d2 .sl2-t th:last-child{text-align:right}
+.d2 .sl2-t .x{text-align:center}
+.d2 .sl2-foot{margin-top:auto; display:flex; justify-content:space-between; font-size:1.3cqw; color:#7d7a73; align-items:center}
+.d2 .sl2-foot .lg2{font-size:2.2cqw; color:#1c1c1c}
+.d2 .m-menu .menu-in{background:#FAF8F2}
+.d2 .m-menu .menu-head{border-bottom:1px dashed #1c1c1c; margin:0 7cqw; padding:10cqw 0 4cqw}
+.d2 .m-menu .menu-head h5{font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:8.6cqw; margin:0; letter-spacing:-.02em}
+.d2 .m-menu .menu-head p{font-family:'Courier Prime',monospace; font-size:3.6cqw; margin-top:1cqw; display:flex; justify-content:space-between}
+.d2 .m-menu .menu-tabs{font-family:'Courier Prime',monospace; text-transform:uppercase; padding-top:3cqw}
+.d2 .m-menu .menu-tabs b{background:#1c1c1c; color:#FAF8F2; padding:0 1.2cqw}
+.d2 .m-menu .mi{border-bottom:1px dashed #cfcac0; font-family:'Instrument Sans',sans-serif}
+.d2 .m-menu .mi .pr{font-family:'Courier Prime',monospace; font-weight:700}
+.d2 .m-menu .mi.out .nm{color:#9a978f}
+.d2 .m-menu .mi.out .pr{font-family:'Courier Prime',monospace; font-size:3.2cqw; background:#F3B7C5; color:#1c1c1c; padding:.4cqw 1.4cqw; align-self:center; transform:rotate(-3deg); font-weight:700}
+.d2 .m-menu .menu-foot{font-family:'Courier Prime',monospace}
+.d2 .m-menu .menu-foot .lg2{font-size:3.6cqw; color:#1c1c1c}
+.d2 .m-qr{background:var(--s); border:1px solid color-mix(in srgb,var(--i) 20%,transparent); padding:8cqw; font-family:var(--fm); display:flex; flex-direction:column; gap:5cqw}
+.d2 .qr2-top{border-bottom:1.5px dashed #1c1c1c; padding-bottom:4cqw; display:flex; justify-content:space-between; align-items:flex-end}
+.d2 .qr2-top .lg2{font-size:7.5cqw}
+.d2 .qr2-top span{font-size:3.6cqw}
+.d2 .qr2-mid{display:flex; gap:5cqw; align-items:center}
+.d2 .qr2-mid .qr{width:50%; flex:none}
+.d2 .qr2-mid p{font-size:4.4cqw; line-height:1.35; text-transform:uppercase}
+.d2 .qr2-foot{margin-top:auto; font-size:3.6cqw; border-top:1.5px dashed #1c1c1c; padding-top:3cqw; display:flex; justify-content:space-between}
+
+/* ======== MOCKS: D3 ======== */
+.d3 .m-web{border:0}
+.d3 .web3{position:absolute; inset:6cqw 0 0 0}
+.d3 .web3 .nav3{position:absolute; top:3cqw; left:4cqw; right:4cqw; display:flex; justify-content:space-between; align-items:center; z-index:2; font-family:'Archivo',sans-serif; font-size:1.5cqw; text-transform:uppercase; letter-spacing:.06em; color:#fff}
+.d3 .web3 .nav3 .lg3{font-size:2.2cqw}
+.d3 .pan{position:absolute; z-index:2; padding:3cqw}
+.d3 .pan.k{background:#111; color:#ECE7DC; left:6cqw; top:34%; width:40%}
+.d3 .pan.c{background:#ECE7DC; color:#111; left:46%; top:50%; width:44%}
+.d3 .pan .t{font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 125; font-weight:900; font-size:4.8cqw; line-height:.95; letter-spacing:-.02em; text-transform:uppercase}
+.d3 .pan .s{font-family:'Archivo',sans-serif; font-size:1.5cqw; margin-top:1.6cqw; line-height:1.4}
+.d3 .m-ig{display:grid; grid-template-rows:1fr 1fr}
+.d3 .ig3a{background:#111; color:#ECE7DC; padding:6cqw; display:flex; flex-direction:column; justify-content:space-between}
+.d3 .ig3b{background:#ECE7DC; color:#111; padding:6cqw; display:flex; flex-direction:column; justify-content:space-between}
+.d3 .ig3 .k{font-family:'Archivo',sans-serif; font-size:3.2cqw; letter-spacing:.08em; text-transform:uppercase; opacity:.7}
+.d3 .ig3 .t{font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 125; font-weight:900; font-size:9.4cqw; line-height:.92; letter-spacing:-.02em; text-transform:uppercase}
+.d3 .m-slide{background:#ECE7DC; display:grid; grid-template-columns:1fr 1fr}
+.d3 .sl3-l{position:relative}
+.d3 .sl3-r{padding:5cqw; display:flex; flex-direction:column; justify-content:space-between}
+.d3 .sl3-r .k{font-family:'Archivo',sans-serif; font-size:1.4cqw; letter-spacing:.08em; text-transform:uppercase; color:#6E685D}
+.d3 .sl3-r .t{font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 125; font-weight:900; font-size:4cqw; line-height:.95; text-transform:uppercase; letter-spacing:-.02em}
+.d3 .sl3-r .p{font-family:'Archivo',sans-serif; font-size:1.6cqw; line-height:1.45}
+.d3 .sl3-r .lg3{font-size:1.8cqw}
+.d3 .m-menu .menu-in{background:#F7F4EE}
+.d3 .m-menu .menu-head{background:#111; color:#ECE7DC; padding:12cqw 7cqw 6cqw}
+.d3 .m-menu .menu-head h5{font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 125; font-weight:900; font-size:8.4cqw; text-transform:uppercase; margin:0; letter-spacing:-.02em}
+.d3 .m-menu .menu-head p{font-family:'Archivo',sans-serif; font-size:3.6cqw; opacity:.7; margin-top:1cqw}
+.d3 .m-menu .menu-tabs{font-family:'Archivo',sans-serif; padding-top:4cqw; text-transform:uppercase; font-size:3.6cqw; letter-spacing:.04em}
+.d3 .m-menu .menu-tabs b{background:#111; color:#ECE7DC; padding:.4cqw 1.6cqw}
+.d3 .m-menu .mi{font-family:'Archivo',sans-serif}
+.d3 .m-menu .mi.out{opacity:.45}
+.d3 .m-menu .mi.out .pr{font-size:3.2cqw; background:#111; color:#ECE7DC; padding:.4cqw 1.4cqw; align-self:center; text-transform:uppercase; letter-spacing:.05em}
+.d3 .m-menu .menu-foot .sym3{font-size:3.6cqw}
+.d3 .m-qr{display:grid; grid-template-rows:auto 1fr}
+.d3 .qr3a{background:#111; color:#ECE7DC; padding:7cqw}
+.d3 .qr3a .k{font-family:'Archivo',sans-serif; font-size:3.6cqw; letter-spacing:.08em; text-transform:uppercase; opacity:.7}
+.d3 .qr3a .t{font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 125; font-weight:900; font-size:10cqw; line-height:.95; text-transform:uppercase; margin-top:2cqw}
+.d3 .qr3b{background:#ECE7DC; padding:7cqw; display:flex; flex-direction:column; justify-content:space-between; gap:4cqw}
+.d3 .qr3b .qr{width:46%}
+.d3 .qr3b .row{display:flex; justify-content:space-between; align-items:flex-end; font-family:'Archivo',sans-serif; font-size:3.4cqw}
+.d3 .qr3b .lg3{font-size:4.6cqw}
+
+/* ======== MOCKS: D4 ======== */
+.d4 .web4{padding:4cqw 5cqw; height:calc(100% - 6cqw); display:grid; grid-template-columns:1.1fr 1fr; grid-template-rows:auto 1fr auto; gap:2cqw 4cqw}
+.d4 .nav4{grid-column:1/-1; display:flex; justify-content:space-between; align-items:center; font-family:var(--fm); font-size:1.5cqw; letter-spacing:.04em}
+.d4 .nav4 .lg4{font-size:3cqw}
+.d4 .h4w{font-family:var(--fd); font-variation-settings:'opsz' 96; font-weight:700; font-size:6cqw; line-height:.98; letter-spacing:-.035em; align-self:center}
+.d4 .h4w em{font-style:normal; color:var(--a)}
+.d4 .seal-w{align-self:center; justify-self:center; width:100%}
+.d4 .foot4{grid-column:1/-1; display:flex; gap:4cqw; font-family:var(--fm); font-size:1.5cqw; border-top:1px solid #1a1a1a; padding-top:1.6cqw}
+.d4 .m-ig{background:var(--a); color:var(--p); padding:6cqw; display:flex; flex-direction:column; justify-content:space-between; align-items:center}
+.d4 .ig4-k{font-family:var(--fm); font-size:3.4cqw; letter-spacing:.06em; text-transform:uppercase; align-self:stretch; display:flex; justify-content:space-between}
+.d4 .ig4-oval{width:82%; aspect-ratio:1/1.25; border-radius:50%; position:relative; overflow:hidden}
+.d4 .ig4-oval .photo-cap{left:50%; bottom:16%; transform:translateX(-50%); white-space:nowrap}
+.d4 .ig4-h{font-family:var(--fd); font-variation-settings:'opsz' 96; font-weight:700; font-size:8cqw; letter-spacing:-.03em; line-height:1; text-align:center}
+.d4 .m-slide{background:var(--s); border:1px solid color-mix(in srgb,var(--i) 15%,transparent); padding:4.5cqw 5cqw; display:flex; flex-direction:column; gap:3cqw}
+.d4 .sl4-h{font-family:var(--fd); font-variation-settings:'opsz' 96; font-weight:700; font-size:4cqw; letter-spacing:-.03em; line-height:1}
+.d4 .sl4-o{display:grid; grid-template-columns:repeat(3,1fr); gap:3cqw; flex:1; align-items:center}
+.d4 .ov{aspect-ratio:1.45/1; border:.35cqw solid #2338C4; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:.6cqw}
+.d4 .ov.f{background:#2338C4; color:#F8F6F1}
+.d4 .ov b{font-family:var(--fd); font-weight:700; font-size:2.4cqw; letter-spacing:-.02em}
+.d4 .ov span{font-family:var(--fm); font-size:1.4cqw}
+.d4 .sl4-foot{display:flex; justify-content:space-between; font-family:var(--fm); font-size:1.3cqw; color:#6f6c66; align-items:center}
+.d4 .sl4-foot .lg4{font-size:2.4cqw; color:#1a1a1a}
+.d4 .m-menu .menu-in{background:#F8F6F1}
+.d4 .m-menu .menu-head{text-align:center; padding-top:9cqw}
+.d4 .m-menu .menu-head h5{display:inline-block; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:7.6cqw; margin:0; border:.8cqw solid #1a1a1a; border-radius:50%; padding:3cqw 7cqw; letter-spacing:-.02em}
+.d4 .m-menu .menu-head p{font-family:'DM Mono',monospace; font-size:3.4cqw; margin-top:2.4cqw; color:#6f6c66}
+.d4 .m-menu .menu-tabs{justify-content:center; font-family:'DM Mono',monospace; font-size:3.6cqw}
+.d4 .m-menu .menu-tabs b{border:1px solid #1a1a1a; border-radius:99px; padding:.2cqw 2cqw; font-weight:500}
+.d4 .m-menu .mi{font-family:'Bricolage Grotesque',sans-serif}
+.d4 .m-menu .mi .pr{font-family:'DM Mono',monospace}
+.d4 .m-menu .mi.out .nm{color:#9a968e}
+.d4 .m-menu .mi.out .pr{font-size:3.2cqw; border:1px solid #2338C4; color:#2338C4; border-radius:99px; padding:.2cqw 1.8cqw; align-self:center}
+.d4 .m-menu .menu-foot{font-family:'DM Mono',monospace}
+.d4 .m-menu .menu-foot .lg4{font-size:4cqw; color:#1a1a1a}
+.d4 .m-qr{background:var(--s); border:1px solid color-mix(in srgb,var(--i) 15%,transparent); padding:7cqw; display:flex; flex-direction:column; align-items:center; justify-content:space-between}
+.d4 .qr4{position:relative; width:92%}
+.d4 .qr4 .qr{position:absolute; left:50%; top:50%; width:33%; transform:translate(-50%,-50%)}
+.d4 .qr4-t{font-family:var(--fd); font-variation-settings:'opsz' 96; font-weight:700; font-size:7cqw; letter-spacing:-.03em; text-align:center; line-height:1.05}
+.d4 .qr4-f{font-family:var(--fm); font-size:3.4cqw; color:#6f6c66}
+
+/* Sección producto: pieles */
+.skins{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:32px}
+.skins>div{min-width:0; display:flex; flex-direction:column; gap:10px; align-items:center}
+.skin-cap{font-size:14px; text-align:center; max-width:30ch}
+.sk-lua .menu-in{background:#F3EFE6}
+.sk-lua .menu-head h5{font-family:'Courier Prime',monospace; font-weight:700; font-size:9cqw; margin:0; text-transform:uppercase}
+.sk-lua .menu-head p{font-size:3.6cqw; color:#6a6762; margin-top:1cqw}
+.sk-lua .mi .nm{font-family:'Courier Prime',monospace; font-weight:700}
+.sk-ferro .menu-in{background:#1C1A17; color:#EDE6D8}
+.sk-ferro .menu-head h5{font-family:'Archivo',sans-serif; font-variation-settings:'wdth' 62; font-weight:800; font-size:13cqw; margin:0; text-transform:uppercase; line-height:.9; color:#D9A35B}
+.sk-ferro .menu-head p{font-size:3.6cqw; color:#a69f91; margin-top:2cqw}
+.sk-ferro .mi{border-bottom-color:#3a3631}
+.sk-ferro .mi .nm{font-family:'Archivo',sans-serif; font-weight:600}
+.sk-ferro .mi .ds{color:#a69f91}
+.sk-ferro .mi .al span{border-color:#5a554d; color:#cfc7b8}
+.sk-ferro .menu-tabs b{color:#D9A35B}
+.sk-ferro .menu-foot{color:#8a8376}
+.sk-nomada .menu-in{background:#FFFFFF}
+.sk-nomada .menu-head h5{font-family:'Bricolage Grotesque',sans-serif; font-weight:500; font-size:10cqw; margin:0; letter-spacing:-.04em; color:#3A6B4E}
+.sk-nomada .menu-head p{font-size:3.6cqw; color:#6a6762; margin-top:1cqw}
+.sk-nomada .mi .nm{font-family:'Bricolage Grotesque',sans-serif; font-weight:600}
+.sk-nomada .menu-tabs b{color:#3A6B4E}
+.skins .mi .pr{font-family:'IBM Plex Mono',monospace}
+.skins .mi.out .nm{color:#9a968e; position:relative; justify-self:start}
+.skins .mi.out .nm::after{content:""; position:absolute; left:-.04em; right:-.04em; top:55%; height:.09em; background:currentColor}
+.skins .mi.out .pr{font-size:3.2cqw; letter-spacing:.06em; align-self:center}
+.skins .menu-foot .sym1{font-size:4.2cqw}
+
+/* Evaluación */
+.score{display:inline-flex; gap:3px}
+.score i{width:9px; height:9px; border-radius:2px; background:var(--rule)}
+.score i.f{background:var(--mark)}
+.reco{margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.reco>div{min-width:0}
+.keep li::marker{content:"+  "} .drop li::marker{content:"–  "}
+.q ol{margin:16px 0 0; padding-left:22px; display:flex; flex-direction:column; gap:12px; max-width:72ch}
+
+.doc-foot{padding-block:40px 64px; color:var(--muted); font-size:14px}
+
+@media (max-width:900px){
+  .dir-head,.cols2,.reco{grid-template-columns:1fr}
+  .cols3,.skins{grid-template-columns:1fr}
+  .spec{grid-template-columns:1fr}
+  .spec>div,.spec>div+div{padding-left:0; border-left:0}
+  .logo-board{grid-template-columns:1fr 1fr}
+  .lb-main{grid-column:1/-1}
+  .tc{grid-template-columns:1fr}
+  .a-web,.a-ig,.a-slide,.a-menu,.a-qr{grid-column:1/-1}
+  .a-ig,.a-qr{max-width:420px; width:100%; margin:0 auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+
+<header class="doc-head">
+  <div class="wrap">
+    <div class="row">
+      <span class="lab">OFFMENU · Identidad de marca · Etapa 02 de 03</span>
+      <span class="lab">Análisis de referencias y cuatro direcciones creativas</span>
+    </div>
+    <h1>Cuatro maneras<br>de entender OFFMENU</h1>
+    <p class="intro">Este documento cierra la fase de análisis: las referencias 06 a 10, la comparativa completa de las diez y lo que deduzco de ellas. Después presenta cuatro direcciones creativas, cada una construida desde una idea distinta del negocio y aplicada a web, Instagram, presentación, carta digital y soporte QR. Termina con una evaluación, una recomendación preliminar y las preguntas que necesito que respondas antes de desarrollar la identidad definitiva.</p>
+    <nav class="toc" aria-label="Índice">
+      <a href="#refs">Referencias 06–10</a>
+      <a href="#comparativa">Comparativa</a>
+      <a href="#hallazgo">Hallazgo estratégico</a>
+      <a href="#d1">A · Tachado</a>
+      <a href="#d2">B · Comanda</a>
+      <a href="#d3">C · Dos caras</a>
+      <a href="#d4">D · Marco</a>
+      <a href="#producto">Producto</a>
+      <a href="#evaluacion">Evaluación</a>
+      <a href="#feedback">Tu feedback</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= REFERENCIAS 06–10 ================= -->
+<section class="block" id="refs">
+  <div class="wrap">
+    <span class="lab">Análisis individual · segunda tanda</span>
+    <h2>Referencias 06 a 10</h2>
+    <p class="lead">Las referencias 01 a 05 (Somma, Artica, Aspect, Paper Still Matters y Bar Bauma) quedaron analizadas en la conversación y entran en la comparativa de abajo. Esta segunda tanda cambia bastante el panorama: tres de las cinco son marcas de hostelería con mucho color y material, y dos son sellos o monogramas.</p>
+
+    <div class="refs">
+      <article class="ref">
+        <span class="lab">Ref 06</span>
+        <h3>Aēsop · sello de evento</h3>
+        <dl>
+          <dt>Identidad</dt><dd>Marca culta y sobria que usa el sello como pieza efímera de un evento cultural. Lujo sin ostentación.</dd>
+          <dt>Logotipo</dt><dd>El wordmark de la casa, de palo seco humanista con el macrón sobre la ē como único gesto propio. Un detalle diminuto que basta para reconocerlo.</dd>
+          <dt>Tipografía</dt><dd>Mecanográfica en mayúsculas sobre trazado circular, con una mono más pequeña para el lugar. Jerarquía de tres niveles.</dd>
+          <dt>Color</dt><dd>Tinta negra de tampón sobre papel gris cálido. Nada más.</dd>
+          <dt>Composición</dt><dd>Centro fijo (la marca) y anillo variable (evento, fechas). El borde punteado cierra el contenedor.</dd>
+          <dt>Sistema</dt><dd>Es una plantilla: cambia el texto del anillo y sirve para cualquier tienda o evento.</dd>
+          <dt>Diferencial</dt><dd>El macrón y la lógica de lo fijo frente a lo variable.</dd>
+        </dl>
+        <p class="verdict"><b>Para OFFMENU:</b> la estructura de centro fijo y anillo variable describe nuestro negocio: el QR no cambia, el contenido sí. <b>Ojo:</b> el brief rechaza los "sellos vintage". Lo útil es la lógica, no la estética de tampón envejecido.</p>
+      </article>
+
+      <article class="ref">
+        <span class="lab">Ref 07</span>
+        <h3>BARI · Berlín</h3>
+        <dl>
+          <dt>Identidad</dt><dd>Restaurante con aire de entreguerras, sofisticado y algo teatral.</dd>
+          <dt>Logotipo</dt><dd>Mayúsculas geométricas condensadas de inspiración déco. La A tiene el travesaño bajo, la R es de ojo pequeño y las anchuras varían entre letras. Es personal sin ser decorativo.</dd>
+          <dt>Tipografía</dt><dd>El wordmark más una Courier centrada para la dirección. Dos voces, como Bauma.</dd>
+          <dt>Color</dt><dd>Gris cálido piedra, negro, plata de la bandeja y fondo óxido.</dd>
+          <dt>Composición</dt><dd>La tarjeta troquelada en onda, como un sello postal o un blonda, se cruza sobre una bandeja ovalada. Simetría total.</dd>
+          <dt>Sistema</dt><dd>El troquel del soporte es la identidad. La forma del papel ya comunica.</dd>
+          <dt>Fotografía</dt><dd>Objeto de servicio (bandeja de plata) en cenital sobre tela, con luz suave.</dd>
+        </dl>
+        <p class="verdict"><b>Para OFFMENU:</b> la idea de que el contorno del soporte sea reconocible es aprovechable en soportes QR. <b>Descartado:</b> la bandeja es literalmente un plato, el cliché del brief, y el déco nos ata a un estilo de restaurante.</p>
+      </article>
+
+      <article class="ref">
+        <span class="lab">Ref 08</span>
+        <h3>SMOKE BBQ · cartas</h3>
+        <dl>
+          <dt>Identidad</dt><dd>Barbacoa americana, popular y desenfadada.</dd>
+          <dt>Logotipo</dt><dd>Rombo con letras con relieve y un rótulo vertical de slab con filete interior. Vernáculo de carretera.</dd>
+          <dt>Tipografía</dt><dd>Slab para títulos y grotesca condensada en las cartas. Etiquetas de sección encajadas en cajas.</dd>
+          <dt>Color</dt><dd>Cada carta tiene un color (naranja, mantequilla, azul pálido, granate). El color identifica el tipo de carta.</dd>
+          <dt>Composición</dt><dd>Arquitectura de información muy trabajada: secciones, cajas, columnas de precio alineadas y precios por tamaño.</dd>
+          <dt>Fotografía</dt><dd>Fotos de comida y personas convertidas en trama de semitono a dos tintas. La trama unifica imágenes de calidad desigual.</dd>
+        </dl>
+        <p class="verdict"><b>Para OFFMENU:</b> dos lecciones muy útiles. Una carta es diseño de información, y el color puede ser un código (planes, tipos de carta). El semitono resuelve fotos de clientes de calidad irregular. <b>Descartado:</b> todo el imaginario americana, la madera y la paleta de "comida".</p>
+      </article>
+
+      <article class="ref">
+        <span class="lab">Ref 09</span>
+        <h3>Gaya Athens · City Break</h3>
+        <dl>
+          <dt>Identidad</dt><dd>Coctelería de autor, nocturna y de lujo.</dd>
+          <dt>Logotipo</dt><dd>Display déco ultracondensada con trazos de pelo, más un script manuscrito para City Break.</dd>
+          <dt>Tipografía</dt><dd>Mono para las descripciones de cócteles: largas y legibles a duras penas.</dd>
+          <dt>Color</dt><dd>Naranja, verde botella, burdeos y terracota. Paleta rica y nocturna.</dd>
+          <dt>Composición</dt><dd>Líneas verticales de alturas distintas que se rematan en arco, ventanas troqueladas, goma elástica y textiles.</dd>
+          <dt>Sistema</dt><dd>Ilustración de jigger, rayado lineal y materiales táctiles.</dd>
+        </dl>
+        <p class="verdict"><b>Es la referencia más contradictoria con el brief:</b> ornamental, con ilustración de utensilio, script y color gastronómico. Me quedo con una sola idea: las líneas verticales de alturas diferentes funcionan como un gráfico de barras silencioso, y con el troquel como ventana. Lo demás no se traslada.</p>
+      </article>
+
+      <article class="ref">
+        <span class="lab">Ref 10</span>
+        <h3>A24 Books</h3>
+        <dl>
+          <dt>Identidad</dt><dd>Sub-marca editorial de una productora de cine. Culta y literaria.</dd>
+          <dt>Logotipo</dt><dd>Monograma: A, 2 y 4 entrelazados en serif de alto contraste con la cola del 2 en lazo, dentro de un óvalo con filetes. Wordmark apilado en serif decimonónica.</dd>
+          <dt>Tipografía</dt><dd>La marca madre es una sans dura. La rama editorial cambia a serif clásica: la voz se adapta a la división.</dd>
+          <dt>Color</dt><dd>Negro puro.</dd>
+          <dt>Composición</dt><dd>Lockup horizontal: monograma a la izquierda y wordmark a la derecha, a la misma altura.</dd>
+          <dt>Diferencial</dt><dd>Un monograma compacto que funciona en espacios mínimos.</dd>
+        </dl>
+        <p class="verdict"><b>Para OFFMENU:</b> necesitamos una marca compacta para favicon, avatar e icono de app, y un sistema que admita submarcas (Carta, Carta Pro, Web) sin romperse. <b>Descartado:</b> la serif decimonónica, que suena a librería antigua.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARATIVA ================= -->
+<section class="block" id="comparativa">
+  <div class="wrap">
+    <span class="lab">Análisis comparativo · 10 referencias</span>
+    <h2>Lo que se repite y lo que no</h2>
+    <p class="lead">Tabla de presencia de cada recurso. <span class="dot" aria-hidden="true"></span> presente · <span class="half" aria-hidden="true"></span> parcial · <span class="none">–</span> ausente.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr>
+          <th>Recurso</th><th>01 Somma</th><th>02 Artica</th><th>03 Aspect</th><th>04 PSM</th><th>05 Bauma</th><th>06 Aēsop</th><th>07 Bari</th><th>08 Smoke</th><th>09 Gaya</th><th>10 A24</th><th>Total</th>
+        </tr></thead>
+        <tbody id="cmp"></tbody>
+      </table>
+    </div>
+
+    <div class="cols3">
+      <div class="panel">
+        <span class="lab">Familia 1 · 01 02 03 04</span>
+        <h3>Estudio contemporáneo</h3>
+        <ul>
+          <li>Sans geométrica o grotesca, negro y crudo.</li>
+          <li>Letras intervenidas como firma.</li>
+          <li>Tarjetas y paneles, mucho vacío.</li>
+          <li>Hablan de criterio, no de sector.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="lab">Familia 2 · 05 07 08 09</span>
+        <h3>Hostelería con criterio</h3>
+        <ul>
+          <li>Serif, déco o slab, vernáculo local.</li>
+          <li>Color, materiales, troqueles y objetos.</li>
+          <li>La carta como pieza de diseño.</li>
+          <li>Son, literalmente, restaurantes.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="lab">Familia 3 · 06 10</span>
+        <h3>Sello y monograma</h3>
+        <ul>
+          <li>Contenedor cerrado (círculo, óvalo).</li>
+          <li>Centro fijo y texto variable.</li>
+          <li>Marca compacta para espacios pequeños.</li>
+          <li>Funciona como firma sobre otras cosas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cols2">
+      <div class="panel">
+        <h3>Recurrencias con más peso</h3>
+        <ul>
+          <li><b>El wordmark es la marca</b> en 8 de 10. Ninguna depende de un icono, como pide el brief.</li>
+          <li><b>La mecanográfica o mono</b> aparece en 5 de 10 como voz de datos (direcciones, fechas, descripciones). Es el recurso más repetido después del negro y crudo.</li>
+          <li><b>La información como material gráfico</b>: contactos, fechas y precios componen la pieza en casi todas.</li>
+          <li><b>Dos voces tipográficas</b>: una display con carácter y una voz utilitaria.</li>
+          <li><b>El contenedor o la forma del soporte</b> (visor, sello, óvalo, troquel, arco) en 6 de 10, contando los parciales.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Contradicciones que no voy a unificar</h3>
+        <ul>
+          <li><b>Contención frente a riqueza.</b> La familia 1 es casi monocroma. Gaya y Smoke son color y material. No son compatibles en una misma marca.</li>
+          <li><b>Lo que pide el brief frente a lo que muestran.</b> Cuatro referencias son restaurantes con serif de bar, bandeja o madera, justo lo que el brief rechaza.</li>
+          <li><b>Lo decorativo.</b> La microtipografía de Artica y la ilustración de Gaya chocan con "ningún recurso sin función".</li>
+          <li><b>Lo táctil frente a la pantalla.</b> Casi todas brillan en papel. OFFMENU vive en pantalla.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th style="width:26%">Recurso</th><th>Lo trasladaría a OFFMENU</th><th>No lo trasladaría</th></tr></thead>
+        <tbody>
+          <tr><td>Paleta</td><td>Base acromática con criterio y <b>un único acento que signifique algo</b> (Artica, Bauma).</td><td>Paletas ricas o gastronómicas (Gaya, Smoke). Kraft, madera y óxido.</td></tr>
+          <tr><td>Logotipo</td><td>Wordmark con <b>una intervención concreta y justificada</b> (macrón de Aēsop, © de Aspect, "still" de PSM).</td><td>Letras alteradas por estilo (la C rota de Artica). Serif decimonónica o déco.</td></tr>
+          <tr><td>Tipografía</td><td>Dos voces: display con carácter y <b>mono para datos</b> (precios, alérgenos, horarios).</td><td>Mono en textos largos (Somma, Gaya). Scripts manuscritos.</td></tr>
+          <tr><td>Símbolo</td><td>Derivado de la <b>herramienta o la interfaz</b> (visor de Aspect), compacto como A24.</td><td>Utensilios (jigger de Gaya), bandejas o estallidos sin significado.</td></tr>
+          <tr><td>Sistema</td><td><b>Lo fijo frente a lo variable</b> (Aēsop). <b>Color como código</b> (Smoke). La carta como diseño de información.</td><td>Microcopy falso, códigos de barras y sellos CE.</td></tr>
+          <tr><td>Fotografía</td><td><b>Backstage</b> (el estudio de Aspect), luz natural. Semitono para unificar fotos de clientes.</td><td>Retrato de moda con grano (Artica). Bodegón de producto con platos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HALLAZGO ================= -->
+<section class="block" id="hallazgo">
+  <div class="wrap">
+    <span class="lab">Hallazgo estratégico</span>
+    <h2>Tus referencias hablan de dos cosas distintas</h2>
+    <div class="read stack">
+      <p class="lead">La mitad de las referencias son restaurantes. Si OFFMENU no debe parecer un restaurante, ¿por qué te atraen? Mi lectura es que <b>no son referencias para la marca OFFMENU. Son referencias para lo que OFFMENU debe permitir que hagan sus clientes.</b></p>
+      <p>Bauma, Bari, Smoke y Gaya son hostelería con criterio: lo mejor que puede llegar a ser un cliente de OFFMENU. Ninguno de ellos aceptaría una carta digital que les impusiera la estética de otro. Por eso las referencias se separan en dos destinos:</p>
+    </div>
+    <div class="cols2">
+      <div class="panel">
+        <span class="lab">Familias 1 y 3 → la marca</span>
+        <h3>OFFMENU como empresa</h3>
+        <p>Contención, wordmark intervenido, dos voces tipográficas y un acento. Habla con criterio al hostelero sin disfrazarse de restaurante.</p>
+      </div>
+      <div class="panel">
+        <span class="lab">Familia 2 → el producto</span>
+        <h3>La carta de cada restaurante</h3>
+        <p>Un sistema capaz de vestir cartas tan distintas como Bauma, Smoke o Gaya sin perder legibilidad. OFFMENU pone el esqueleto y el restaurante pone la piel.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <h3>Consecuencia para el diseño</h3>
+      <p>La marca no tiene que ser neutra para que el producto lo sea. Puede tener carácter en la web y en Instagram, y en la carta reducirse a dos cosas: <b>un comportamiento</b> (cómo se marca un agotado, cómo se leen precios y alérgenos) y <b>una firma discreta</b> en el pie. Las cuatro direcciones que siguen se evalúan también por lo bien que resuelven esa reducción.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= D1 TACHADO ================= -->
+<section class="dir d1" id="d1">
+  <div class="wrap">
+    <div class="dir-head">
+      <div>
+        <span class="dir-num">DIRECCIÓN A / 04</span>
+        <h2 class="dir-name">Tachado</h2>
+      </div>
+      <div>
+        <p class="dir-idea">En una carta de papel, cuando algo se acaba, se tacha. Cuando sube un precio, se tacha y se reescribe. Tachar es el gesto más antiguo de gestionar una carta, y es lo que OFFMENU permite hacer desde el móvil.</p>
+        <p class="dir-quote">“Tacha y listo.” · “Cambia la carta, no el QR.”</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div><h4>Concepto</h4><p>La línea horizontal es el gesto de control del hostelero. OFFMENU no se presenta como tecnología. Se presenta como la forma más rápida de corregir.</p><p>Doble lectura del nombre: OFF tachado, es decir, nada se queda fuera de fecha.</p></div>
+      <div><h4>Por qué funciona</h4><p>Habla del beneficio (cambiar al instante) y no del medio. La línea es neutra: no es comida ni circuito. Y pasa al producto con función real, porque el plato agotado aparece tachado en la carta.</p></div>
+      <div><h4>Dirección visual</h4><p>Editorial y suiza. Grotesca muy negra, retícula de 12 columnas, mucho papel. Las líneas son el único recurso gráfico. El rojo solo aparece en lo que cambia.</p><p>Influencias: Artica (acento único), Aspect (símbolo desde la herramienta), Somma (vacío), Smoke (líneas guía de precio).</p></div>
+      <div><h4>Logotipo</h4><p>Schibsted Grotesk Black en caja alta con tracking −5 %. Una barra del grosor de los travesaños de la E atraviesa OFF y sobresale a la izquierda, como si se hubiera trazado de un golpe.</p><p>Símbolo secundario: la O tachada, para favicon, avatar e icono.</p></div>
+      <div><h4>Tipografía</h4><ul><li>Principal: Schibsted Grotesk (900 display, 700 titulares, 400 texto).</li><li>Secundaria: IBM Plex Mono para precios, datos, etiquetas y anotaciones.</li><li>La mono solo en líneas cortas, nunca en párrafos.</li></ul></div>
+      <div><h4>Sistema gráfico</h4><ul><li>Tachaduras sobre lo que no somos: <s>cuota mensual</s>.</li><li>Líneas guía punteadas entre concepto y precio.</li><li>Anotaciones al margen en mono.</li><li>Fotografía: manos, móvil, pizarras borradas. Encuadre cerrado y color natural desaturado.</li></ul></div>
+    </div>
+
+    <div class="logo-board">
+      <div class="lb-main"><span class="lb-cap">Logotipo principal</span><div class="lb-stage"><span class="lg1" style="font-size:12cqw">OFF MENU</span></div><span class="lb-cap">Positivo · línea en tinta</span></div>
+      <div class="lb-neg"><span class="lb-cap">Negativo</span><div class="lb-stage"><span class="lg1" style="font-size:16cqw;--strike:#E23B2E">OFF MENU</span></div><span class="lb-cap">Línea en rojo · uso expresivo</span></div>
+      <div class="lb-acc" style="background:#F4F2EE;border:1px solid rgba(0,0,0,.12)"><span class="lb-cap">Símbolo</span><div class="lb-stage"><span class="sym1" style="font-size:44cqw;--strike:#E23B2E">O<i></i></span></div><span class="lb-cap">La O tachada · favicon</span></div>
+    </div>
+
+    <div class="tc">
+      <div class="type-card">
+        <span class="lab">Tipografía</span>
+        <div class="big">Croquetas 9,50</div>
+        <div class="type-row"><span style="font-family:var(--fd);font-weight:700;font-size:20px">Schibsted Grotesk · 900 / 700 / 400</span><span class="n">Display y texto</span></div>
+        <div class="type-row"><span style="font-family:var(--fm);font-size:15px">PRECIO 9,50 € · ALÉRGENOS 1 3 7</span><span class="n">IBM Plex Mono · datos</span></div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#F4F2EE"><b>Papel</b>#F4F2EE · fondo</div>
+        <div class="sw" style="background:#121212;color:#F4F2EE"><b>Tinta</b>#121212 · texto, logo</div>
+        <div class="sw" style="background:#E23B2E;color:#121212"><b>Lápiz rojo</b>#E23B2E · solo lo que cambia</div>
+        <div class="sw" style="background:#8A8782;color:#121212"><b>Grafito</b>#8A8782 · lo tachado</div>
+      </div>
+    </div>
+    <p class="lab" style="margin-top:12px">Justificación del color: el rojo es el del lápiz de corrector, no el de la comida. Se usa para marcar cambios y nunca como fondo grande, salvo en campañas.</p>
+
+    <div class="apps">
+      <div class="app a-web"><span class="cap">Web corporativa</span>
+        <div class="mock m-web"><div class="bar"><i></i><i></i><i></i><span>offmenu.es</span></div>
+          <div class="in">
+            <div class="nav"><span class="lg1" data-l1>OFF MENU</span><ul><li>Cómo funciona</li><li>Planes</li><li>Contacto</li></ul></div>
+            <h3 class="hero-h"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde<br>el móvil.</h3>
+            <div class="price-line"><span><b>Carta</b> 190 €</span><span><b>Carta Pro</b> 390 €</span><span><b>Web + Carta</b> 790 €</span><span>Pago único · sin cuotas</span></div>
+          </div>
+        </div></div>
+      <div class="app a-ig"><span class="cap">Instagram · 4:5</span>
+        <div class="mock m-ig">
+          <div class="ig-list">
+            <div><span>Croquetas</span><span>9,50</span></div>
+            <div class="gone"><span>Pulpo</span><span>16,00</span></div>
+            <div><span>Tortilla</span><span>8,00</span></div>
+          </div>
+          <div class="ig-foot"><span>Se acabó el pulpo.<br>Tachado en dos toques.</span><span class="lg1" style="--strike:#E23B2E">OFF MENU</span></div>
+        </div></div>
+      <div class="app a-slide"><span class="cap">Presentación comercial</span>
+        <div class="mock m-slide">
+          <div><div class="sl-k">02 · El problema</div><div class="sl-h">Una carta impresa se queda vieja el día que sube un precio.</div></div>
+          <div class="sl-r">
+            <div><s>Reimprimir cartas</s><span>—</span></div>
+            <div><s>Pegatinas encima del precio</s><span>—</span></div>
+            <div><s>Pizarra del menú del día</s><span>—</span></div>
+            <div><b>Cambiarlo desde el móvil</b><span>2 toques</span></div>
+          </div>
+          <div class="sl-foot"><span class="lg1">OFF MENU</span><span>Propuesta · Bar Lúa · 02 / 12</span></div>
+        </div></div>
+      <div class="app a-menu"><span class="cap">Carta digital</span>
+        <div class="mock m-menu"><div class="menu-in">
+          <div class="menu-head"><h5>Bar Lúa</h5><p>Carta · ES · EN · GL</p></div>
+          <div class="menu-tabs"><b>Para picar</b><span>Raciones</span><span>Postres</span></div>
+          <div class="menu-list">
+            <div class="mi"><span class="nm">Croquetas de jamón</span><span class="pr">9,50</span><span class="ds">8 unidades, bechamel de leche fresca.</span><span class="al"><span>1 Gluten</span><span>7 Lácteos</span></span></div>
+            <div class="mi out"><span class="nm">Pulpo á feira</span><span class="pr">AGOTADO</span></div>
+            <div class="mi"><span class="nm">Tortilla de Betanzos</span><span class="pr">8,00</span><span class="al"><span>3 Huevo</span></span></div>
+            <div class="mi"><span class="nm">Pimientos de Padrón</span><span class="pr">6,50</span></div>
+          </div>
+          <div class="menu-foot"><span class="sym1">O<i></i></span>Carta hecha con OFFMENU</div>
+        </div></div></div>
+      <div class="app a-qr"><span class="cap">Soporte QR de mesa</span>
+        <div class="mock m-qr">
+          <div class="qr-top"><span>Bar Lúa</span><span>Mesa 04</span></div>
+          <div class="qr-h"><span class="x">Carta de papel.</span><br>Carta al día.</div>
+          <div class="qr qr-box" data-seed="11"></div>
+          <div class="qr-foot"><span>Escanea.<br>ES · EN · GL</span><span class="lg1">OFF MENU</span></div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= D2 COMANDA ================= -->
+<section class="dir d2" id="d2">
+  <div class="wrap">
+    <div class="dir-head">
+      <div>
+        <span class="dir-num">DIRECCIÓN B / 04</span>
+        <h2 class="dir-name">Comanda</h2>
+      </div>
+      <div>
+        <p class="dir-idea">OFFMENU habla el idioma de la trastienda: la comanda, el ticket de cocina, el libro de pedidos. Es el lenguaje operativo que cualquier hostelero reconoce sin explicación, y no tiene cubiertos ni gorros.</p>
+        <p class="dir-quote">“Marchando.” · “Pedido: una carta que se actualiza sola. Mesa: todas.”</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div><h4>Concepto</h4><p>La marca se presenta como un documento de trabajo: numerado, fechado y preciso. OFF se lee como off-stage, lo que el cliente no ve. La comanda es el documento de esa parte del negocio.</p></div>
+      <div><h4>Por qué funciona</h4><p>Genera complicidad inmediata con el hostelero ("estos saben cómo funciona un bar"). Es honesta y directa, como el modelo de pago único. Y los planes se pueden numerar como comandas: Nº 190, Nº 390, Nº 790.</p></div>
+      <div><h4>Dirección visual</h4><p>Documental y utilitaria. Mecanográfica, líneas perforadas, muescas, rayado de libreta y numeración.</p><p>Influencias: Bauma (rayado y mono), Aēsop (máquina de escribir), Somma (mono), Smoke (cajas de sección), Bari (dirección en Courier).</p></div>
+      <div><h4>Logotipo</h4><p>Courier Prime Bold en caja alta. OFF va sobre papel de copia rosa, como el duplicado de un comandero. Bajo el wordmark, una línea perforada con un número variable por aplicación.</p><p>Símbolo secundario: un taco de ticket con muescas laterales.</p></div>
+      <div><h4>Tipografía</h4><ul><li>Principal: Courier Prime (titulares, datos, precios).</li><li>Secundaria: Instrument Sans para todo texto de más de dos líneas.</li><li>Regla aprendida de Somma: la mono no se usa para leer párrafos.</li></ul></div>
+      <div><h4>Sistema gráfico</h4><ul><li>Perforados, muescas, rayado y casillas de verificación.</li><li>Horas y números como cabecera de cada pieza.</li><li>Color por plan, como copias de distinto color.</li><li>Fotografía documental con flash directo: el pase, la libreta, el móvil junto a la caja.</li></ul></div>
+    </div>
+
+    <div class="logo-board">
+      <div class="lb-main"><span class="lb-cap">Logotipo principal</span><div class="lb-stage"><span class="lg2" style="font-size:11cqw"><b>OFF</b>MENU<span class="lg2-perf">Nº 0001 · CARTA DIGITAL</span></span></div><span class="lb-cap">Con línea perforada y número variable</span></div>
+      <div class="lb-neg"><span class="lb-cap">Negativo</span><div class="lb-stage"><span class="lg2" style="font-size:15cqw"><b>OFF</b>MENU</span></div><span class="lb-cap">Sin perforado · uso reducido</span></div>
+      <div class="lb-acc" style="background:#FAF8F2;border:1px solid rgba(0,0,0,.12)"><span class="lb-cap">Símbolo</span><div class="lb-stage"><span class="stub" style="font-size:20cqw">OM<small>Nº 190</small></span></div><span class="lb-cap">Taco de ticket</span></div>
+    </div>
+
+    <div class="tc">
+      <div class="type-card">
+        <span class="lab">Tipografía</span>
+        <div class="big">MESA 04 · 12:34</div>
+        <div class="type-row"><span style="font-family:var(--fd);font-weight:700;font-size:20px">Courier Prime · 700 / 400</span><span class="n">Display y datos</span></div>
+        <div class="type-row"><span style="font-family:var(--fb);font-size:16px">Instrument Sans para textos que se leen de corrido.</span><span class="n">Lectura</span></div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#FAF8F2"><b>Papel térmico</b>#FAF8F2 · fondo</div>
+        <div class="sw" style="background:#1C1C1C;color:#FAF8F2"><b>Carbón</b>#1C1C1C · texto</div>
+        <div class="sw" style="background:#F3B7C5"><b>Copia rosa</b>#F3B7C5 · acento</div>
+        <div class="sw" style="background:#F1DE73"><b>Copia amarilla</b>#F1DE73 · secundario</div>
+      </div>
+    </div>
+    <p class="lab" style="margin-top:12px">Justificación del color: los comanderos de duplicado tienen original blanco y copias rosa y amarilla. Es un color de oficio, ni gastronómico ni tecnológico.</p>
+
+    <div class="apps">
+      <div class="app a-web"><span class="cap">Web corporativa</span>
+        <div class="mock m-web"><div class="bar"><i></i><i></i><i></i><span>offmenu.es</span></div>
+          <div class="web2">
+            <div class="tick-head"><span class="lg2"><b>OFF</b>MENU</span><span>Planes · Cómo funciona · Contacto</span><span>Nº 0001 · 12:34</span></div>
+            <div class="h2w">Marchando:<br><mark>una carta</mark> que<br>cambias tú.</div>
+            <div class="plans">
+              <div class="plan"><div class="no"><span>Nº 190</span><span>□</span></div><b>Carta</b>Carta digital con QR.<br>Desde 190 €</div>
+              <div class="plan on"><div class="no"><span>Nº 390</span><span>■</span></div><b>Carta Pro</b>Idiomas, fotos, filtros, dominio.<br>Desde 390 €</div>
+              <div class="plan"><div class="no"><span>Nº 790</span><span>□</span></div><b>Web + Carta</b>Carta y web del negocio.<br>Desde 790 €</div>
+            </div>
+          </div>
+        </div></div>
+      <div class="app a-ig"><span class="cap">Instagram · 4:5</span>
+        <div class="mock m-ig">
+          <div class="ig2-top"><span>Comanda Nº 0042</span><span>13:05</span></div>
+          <div class="ig2-rows">
+            <div><span>Mesa:</span> todas</div>
+            <div><span>Pedido:</span> 1 carta al día</div>
+            <div><span>Cuota:</span> ninguna</div>
+          </div>
+          <div class="ig2-big">Pago<br>único.</div>
+          <div class="ig2-foot"><span>Desde 190 €</span><span class="lg2"><b>OFF</b>MENU</span></div>
+        </div></div>
+      <div class="app a-slide"><span class="cap">Presentación comercial</span>
+        <div class="mock m-slide">
+          <div class="sl2-h">Qué incluye cada comanda</div>
+          <table class="sl2-t">
+            <thead><tr><th>Concepto</th><th class="x">Nº 190</th><th class="x">Nº 390</th><th class="x">Nº 790</th><th>Desde</th></tr></thead>
+            <tbody>
+              <tr><td>Carta con QR + panel</td><td class="x">×</td><td class="x">×</td><td class="x">×</td><td>190 €</td></tr>
+              <tr><td>Idiomas, fotos, filtros</td><td class="x">–</td><td class="x">×</td><td class="x">×</td><td>390 €</td></tr>
+              <tr><td>Web del negocio</td><td class="x">–</td><td class="x">–</td><td class="x">×</td><td>790 €</td></tr>
+              <tr><td>Soporte de errores</td><td class="x">6 m</td><td class="x">6 m</td><td class="x">6 m</td><td>incl.</td></tr>
+            </tbody>
+          </table>
+          <div class="sl2-foot"><span class="lg2"><b>OFF</b>MENU</span><span>Hoja 03 / 12</span></div>
+        </div></div>
+      <div class="app a-menu"><span class="cap">Carta digital</span>
+        <div class="mock m-menu"><div class="menu-in">
+          <div class="menu-head"><h5>Bar Lúa</h5><p><span>Carta</span><span>ES · EN · GL</span></p></div>
+          <div class="menu-tabs"><b>Picar</b><span>Raciones</span><span>Postres</span></div>
+          <div class="menu-list">
+            <div class="mi"><span class="nm">Croquetas de jamón</span><span class="pr">9,50</span><span class="ds">8 unidades, bechamel de leche fresca.</span><span class="al"><span>1 Gluten</span><span>7 Lácteos</span></span></div>
+            <div class="mi out"><span class="nm">Pulpo á feira</span><span class="pr">AGOTADO</span></div>
+            <div class="mi"><span class="nm">Tortilla de Betanzos</span><span class="pr">8,00</span><span class="al"><span>3 Huevo</span></span></div>
+            <div class="mi"><span class="nm">Pimientos de Padrón</span><span class="pr">6,50</span></div>
+          </div>
+          <div class="menu-foot"><span class="lg2"><b>OFF</b>MENU</span></div>
+        </div></div></div>
+      <div class="app a-qr"><span class="cap">Soporte QR de mesa</span>
+        <div class="mock m-qr">
+          <div class="qr2-top"><span class="lg2"><b>OFF</b>MENU</span><span>Nº 0042</span></div>
+          <div class="qr2-mid"><div class="qr" data-seed="23"></div><p>Bar Lúa<br>Mesa 04<br><br>Escanea<br>la carta</p></div>
+          <div class="qr2-foot"><span>ES · EN · GL</span><span>Siempre al día</span></div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= D3 DOS CARAS ================= -->
+<section class="dir d3" id="d3">
+  <div class="wrap">
+    <div class="dir-head">
+      <div>
+        <span class="dir-num">DIRECCIÓN C / 04</span>
+        <h2 class="dir-name">Dos caras</h2>
+      </div>
+      <div>
+        <p class="dir-idea">Cada negocio tiene dos caras: la sala, que ve el cliente, y la trastienda, donde se decide todo. OFFMENU vive en las dos: el cliente ve la carta y el hostelero ve el panel. La identidad se construye literalmente con dos caras.</p>
+        <p class="dir-quote">“Delante, tu carta. Detrás, tú.”</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div><h4>Concepto</h4><p>OFF es la trastienda y va en negativo. MENU es la sala y va en positivo. Cada pieza tiene anverso y reverso, y la inversión de color separa siempre "para tu cliente" de "para ti".</p></div>
+      <div><h4>Por qué funciona</h4><p>Explica el producto entero en un gesto: dos interfaces y una sola herramienta. Es muy flexible para nuevos servicios (cualquier cosa que ocurra "detrás"). Y tiene muchísima presencia en redes.</p></div>
+      <div><h4>Dirección visual</h4><p>Gráfica, contundente y fotográfica. Paneles negro y crudo superpuestos a fotografía real de locales.</p><p>Influencias: PSM (anverso y reverso invertidos), Aspect (paneles sobre el backstage), Artica (tarjetas superpuestas), Somma (geométrica extendida).</p></div>
+      <div><h4>Logotipo</h4><p>Archivo Expanded Black. Dos bloques unidos sin separación: OFF en crudo sobre negro y MENU en negro sobre crudo. Sobre fondo crudo, MENU se funde con el papel; sobre negro, se funde OFF. El logo cambia de lectura según dónde está.</p><p>Símbolo secundario: el cuadrado partido.</p></div>
+      <div><h4>Tipografía</h4><ul><li>Principal: Archivo Expanded (wdth 125, 800–900) solo en titulares.</li><li>Secundaria: Archivo de ancho normal, 400–600, para todo lo demás.</li><li>Una sola familia variable, lo que simplifica la implementación.</li></ul></div>
+      <div><h4>Sistema gráfico</h4><ul><li>Paneles que enmarcan y tapan parte de la foto.</li><li>División 50/50, horizontal o vertical.</li><li>Fotografía de backstage en color natural y luz de día: locales vacíos antes de abrir.</li><li>Sin color de acento: el color lo pone la foto.</li></ul></div>
+    </div>
+
+    <div class="logo-board">
+      <div class="lb-main" style="background:#F7F4EE"><span class="lb-cap">Logotipo principal</span><div class="lb-stage"><span class="lg3 line" style="font-size:10cqw"><span class="a">OFF</span><span class="b">MENU</span></span></div><span class="lb-cap">Versión con filete para fondos claros</span></div>
+      <div class="lb-neg"><span class="lb-cap">Sobre negro</span><div class="lb-stage"><span class="lg3" style="font-size:11cqw"><span class="a">OFF</span><span class="b">MENU</span></span></div><span class="lb-cap">OFF se funde con el fondo</span></div>
+      <div class="lb-acc" style="background:#ECE7DC;border:1px solid rgba(0,0,0,.12)"><span class="lb-cap">Símbolo</span><div class="lb-stage"><span class="sym3" style="font-size:40cqw"><i></i><i></i></span></div><span class="lb-cap">Cuadrado partido</span></div>
+    </div>
+
+    <div class="tc">
+      <div class="type-card">
+        <span class="lab">Tipografía</span>
+        <div class="big">SALA / COCINA</div>
+        <div class="type-row"><span style="font-family:var(--fd);font-variation-settings:'wdth' 125;font-weight:900;font-size:18px">ARCHIVO EXPANDED · 900</span><span class="n">Titulares</span></div>
+        <div class="type-row"><span style="font-family:var(--fb);font-size:16px">Archivo 400 / 600 para texto, interfaz y datos.</span><span class="n">Texto</span></div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#111;color:#ECE7DC"><b>Negro trastienda</b>#111111</div>
+        <div class="sw" style="background:#ECE7DC"><b>Crudo sala</b>#ECE7DC</div>
+        <div class="sw" style="background:#B8B1A3"><b>Piedra</b>#B8B1A3 · apoyo</div>
+        <div class="sw" style="background:#F7F4EE"><b>Blanco roto</b>#F7F4EE · superficies</div>
+      </div>
+    </div>
+    <p class="lab" style="margin-top:12px">Justificación del color: el sistema es binario porque el concepto es binario. La riqueza cromática llega de la fotografía de cada local.</p>
+
+    <div class="apps">
+      <div class="app a-web"><span class="cap">Web corporativa</span>
+        <div class="mock m-web"><div class="bar"><i></i><i></i><i></i><span>offmenu.es</span></div>
+          <div class="web3">
+            <div class="photo"></div>
+            <span class="photo-cap" style="right:3cqw;bottom:3cqw">Foto · barra a las 11:40, antes de abrir</span>
+            <div class="nav3"><span class="lg3"><span class="a">OFF</span><span class="b">MENU</span></span><span>Planes · Contacto</span></div>
+            <div class="pan k"><div class="t">Detrás,<br>tú.</div><div class="s">Cambia precios, platos y menú del día desde el móvil.</div></div>
+            <div class="pan c"><div class="t">Delante,<br>tu carta.</div><div class="s">Tu cliente escanea y ve siempre la versión de hoy.</div></div>
+          </div>
+        </div></div>
+      <div class="app a-ig"><span class="cap">Instagram · 4:5</span>
+        <div class="mock m-ig ig3">
+          <div class="ig3a"><span class="k">Para ti</span><div class="t">Pulpo:<br>agotado.</div></div>
+          <div class="ig3b"><div class="t">Tu cliente<br>ya lo sabe.</div><span class="k">offmenu.es</span></div>
+        </div></div>
+      <div class="app a-slide"><span class="cap">Presentación comercial</span>
+        <div class="mock m-slide">
+          <div class="sl3-l"><div class="photo dark"></div><span class="photo-cap" style="left:3cqw;bottom:3cqw">Foto · encargada con el móvil en la barra</span></div>
+          <div class="sl3-r"><span class="k">03 · Cómo funciona</span><div class="t">Un panel.<br>Una carta.<br>El mismo QR.</div><p class="p">Cada cambio que haces en el panel aparece al instante en la carta. El código QR no caduca nunca.</p><span class="lg3 line"><span class="a">OFF</span><span class="b">MENU</span></span></div>
+        </div></div>
+      <div class="app a-menu"><span class="cap">Carta digital</span>
+        <div class="mock m-menu"><div class="menu-in">
+          <div class="menu-head"><h5>Bar Lúa</h5><p>Carta · ES · EN · GL</p></div>
+          <div class="menu-tabs"><b>Picar</b><span>Raciones</span><span>Postres</span></div>
+          <div class="menu-list">
+            <div class="mi"><span class="nm">Croquetas de jamón</span><span class="pr">9,50</span><span class="ds">8 unidades, bechamel de leche fresca.</span><span class="al"><span>1 Gluten</span><span>7 Lácteos</span></span></div>
+            <div class="mi out"><span class="nm">Pulpo á feira</span><span class="pr">Agotado</span></div>
+            <div class="mi"><span class="nm">Tortilla de Betanzos</span><span class="pr">8,00</span><span class="al"><span>3 Huevo</span></span></div>
+            <div class="mi"><span class="nm">Pimientos de Padrón</span><span class="pr">6,50</span></div>
+          </div>
+          <div class="menu-foot"><span class="sym3"><i></i><i></i></span>Carta hecha con OFFMENU</div>
+        </div></div></div>
+      <div class="app a-qr"><span class="cap">Soporte QR de mesa</span>
+        <div class="mock m-qr">
+          <div class="qr3a"><span class="k">Bar Lúa · Mesa 04</span><div class="t">La carta,<br>por aquí.</div></div>
+          <div class="qr3b"><div class="qr" data-seed="37"></div><div class="row"><span>ES · EN · GL</span><span class="lg3"><span class="a">OFF</span><span class="b">MENU</span></span></div></div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= D4 MARCO ================= -->
+<section class="dir d4" id="d4">
+  <div class="wrap">
+    <div class="dir-head">
+      <div>
+        <span class="dir-num">DIRECCIÓN D / 04</span>
+        <h2 class="dir-name">Marco</h2>
+      </div>
+      <div>
+        <p class="dir-idea">Un QR de OFFMENU no caduca: el marco se queda y lo de dentro cambia cuando quieras. La identidad es un contenedor con un centro estable y un anillo que admite cualquier dato: el restaurante, el menú del día, la fecha, el idioma.</p>
+        <p class="dir-quote">“El marco no cambia. Lo de dentro, cuando quieras.”</p>
+      </div>
+    </div>
+
+    <div class="spec">
+      <div><h4>Concepto</h4><p>MENU es lo que va dentro y OFF es el borde, lo que queda fuera. La marca es literalmente un marco que se presta a otros: el restaurante ocupa el anillo y OFFMENU sostiene la estructura.</p></div>
+      <div><h4>Por qué funciona</h4><p>Traduce la promesa técnica más importante (el QR permanente) en una forma. Resuelve el co-branding con cada restaurante de manera natural y crea objetos físicos memorables.</p></div>
+      <div><h4>Dirección visual</h4><p>Cálida, ordenada y algo editorial. Óvalos, anillos de texto y ventanas que enmarcan fotos, precios o QR.</p><p>Influencias: Aēsop (anillo variable), A24 (monograma en óvalo), Bari (troquel), Gaya (ventana), Aspect (visor).</p></div>
+      <div><h4>Logotipo</h4><p>Wordmark "offmenu" en minúsculas, Bricolage Grotesque Bold. La o es un óvalo abierto del mismo grosor que las astas: es el marco, y puede contener algo (un precio, una foto, un punto de estado).</p><p>Sello secundario: óvalo con anillo de texto variable.</p></div>
+      <div><h4>Tipografía</h4><ul><li>Principal: Bricolage Grotesque (700 display, 400–600 texto), con eje óptico.</li><li>Secundaria: DM Mono para anillos, datos y precios.</li></ul></div>
+      <div><h4>Sistema gráfico</h4><ul><li>El óvalo como ventana para fotos, QR y planes.</li><li>Anillos con texto variable para co-branding y fechas.</li><li>Píldoras para estados (agotado, nuevo, del día).</li><li>Fotografía de luz natural siempre recortada en óvalo.</li></ul></div>
+    </div>
+
+    <div class="logo-board">
+      <div class="lb-main"><span class="lb-cap">Logotipo principal</span><div class="lb-stage"><span class="lg4" style="font-size:13cqw"><span class="o"></span>ffmenu</span></div><span class="lb-cap">La o como marco</span></div>
+      <div class="lb-neg" style="background:#2338C4;color:#F8F6F1"><span class="lb-cap">Sello</span><div class="lb-stage"><div class="seal" data-ring="CARTA DIGITAL · BAR LÚA · VIGO · " data-color="#F8F6F1" style="width:92%"></div></div><span class="lb-cap">Anillo variable · co-branding</span></div>
+      <div class="lb-acc" style="background:#EFEBE2;border:1px solid rgba(0,0,0,.12)"><span class="lb-cap">Símbolo</span><div class="lb-stage"><span class="lg4" style="font-size:44cqw;color:#2338C4"><span class="o" style="margin:0"></span></span></div><span class="lb-cap">El marco vacío</span></div>
+    </div>
+
+    <div class="tc">
+      <div class="type-card">
+        <span class="lab">Tipografía</span>
+        <div class="big">Menú del día</div>
+        <div class="type-row"><span style="font-family:var(--fd);font-weight:700;font-size:20px">Bricolage Grotesque · 700 / 500</span><span class="n">Display y texto</span></div>
+        <div class="type-row"><span style="font-family:var(--fm);font-size:15px">MARTES 12 · 14,50 € · ES EN GL</span><span class="n">DM Mono · datos</span></div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#EFEBE2"><b>Crudo</b>#EFEBE2 · fondo</div>
+        <div class="sw" style="background:#2338C4;color:#F8F6F1"><b>Ultramar</b>#2338C4 · marca</div>
+        <div class="sw" style="background:#1A1A1A;color:#EFEBE2"><b>Tinta</b>#1A1A1A · texto</div>
+        <div class="sw" style="background:#CDD3F0"><b>Azul niebla</b>#CDD3F0 · apoyo</div>
+      </div>
+    </div>
+    <p class="lab" style="margin-top:12px">Justificación del color: ultramar plano de tinta de tampón, sin degradados. Se aleja del naranja y rojo gastronómicos y del morado de startup.</p>
+
+    <div class="apps">
+      <div class="app a-web"><span class="cap">Web corporativa</span>
+        <div class="mock m-web"><div class="bar"><i></i><i></i><i></i><span>offmenu.es</span></div>
+          <div class="web4">
+            <div class="nav4"><span class="lg4"><span class="o"></span>ffmenu</span><span>Planes · Cómo funciona · Contacto</span></div>
+            <h3 class="h4w">El marco no cambia.<br><em>Lo de dentro, cuando quieras.</em></h3>
+            <div class="seal-w"><div class="seal" data-ring="TU CARTA · SIEMPRE AL DÍA · QR PERMANENTE · " data-color="#2338C4" data-center="hoy: 14,50 €"></div></div>
+            <div class="foot4"><span>Carta · 190 €</span><span>Carta Pro · 390 €</span><span>Web + Carta · 790 €</span><span>Pago único</span></div>
+          </div>
+        </div></div>
+      <div class="app a-ig"><span class="cap">Instagram · 4:5</span>
+        <div class="mock m-ig">
+          <div class="ig4-k"><span>Menú del día</span><span>Martes 12</span></div>
+          <div class="ig4-oval"><div class="photo"></div><span class="photo-cap">Foto · la pizarra, ya digital</span></div>
+          <div class="ig4-h">Cambia cada día.<br>El QR, nunca.</div>
+        </div></div>
+      <div class="app a-slide"><span class="cap">Presentación comercial</span>
+        <div class="mock m-slide">
+          <div class="sl4-h">Tres marcos, un mismo QR</div>
+          <div class="sl4-o">
+            <div class="ov"><b>Carta</b><span>desde 190 €</span></div>
+            <div class="ov f"><b>Carta Pro</b><span>desde 390 €</span></div>
+            <div class="ov"><b>Web + Carta</b><span>desde 790 €</span></div>
+          </div>
+          <div class="sl4-foot"><span class="lg4"><span class="o"></span>ffmenu</span><span>Pago único · dominio y hosting anuales · 6 meses de soporte</span></div>
+        </div></div>
+      <div class="app a-menu"><span class="cap">Carta digital</span>
+        <div class="mock m-menu"><div class="menu-in">
+          <div class="menu-head"><h5>Bar Lúa</h5><p>Carta · ES · EN · GL</p></div>
+          <div class="menu-tabs"><b>Picar</b><span>Raciones</span><span>Postres</span></div>
+          <div class="menu-list">
+            <div class="mi"><span class="nm">Croquetas de jamón</span><span class="pr">9,50</span><span class="ds">8 unidades, bechamel de leche fresca.</span><span class="al"><span>1 Gluten</span><span>7 Lácteos</span></span></div>
+            <div class="mi out"><span class="nm">Pulpo á feira</span><span class="pr">agotado</span></div>
+            <div class="mi"><span class="nm">Tortilla de Betanzos</span><span class="pr">8,00</span><span class="al"><span>3 Huevo</span></span></div>
+            <div class="mi"><span class="nm">Pimientos de Padrón</span><span class="pr">6,50</span></div>
+          </div>
+          <div class="menu-foot"><span class="lg4"><span class="o"></span>ffmenu</span></div>
+        </div></div></div>
+      <div class="app a-qr"><span class="cap">Soporte QR de mesa</span>
+        <div class="mock m-qr">
+          <div class="qr4-t">Bar Lúa</div>
+          <div class="qr4"><div class="seal" data-ring="ESCANEA · CARTA · ES EN GL · MESA 04 · " data-color="#2338C4" data-center=" "></div><div class="qr" data-seed="41"></div></div>
+          <div class="qr4-f">hecho con offmenu</div>
+        </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTO ================= -->
+<section class="block" id="producto">
+  <div class="wrap">
+    <span class="lab">Adaptación al producto · común a las cuatro direcciones</span>
+    <h2>Esqueleto de OFFMENU, piel del restaurante</h2>
+    <p class="lead">La carta no debe parecer de OFFMENU: debe parecer de cada restaurante y funcionar como OFFMENU. Propongo separar dos capas.</p>
+    <div class="cols2">
+      <div class="panel">
+        <span class="lab">Esqueleto · fijo, lo define OFFMENU</span>
+        <h3>Lo que nunca cambia</h3>
+        <ul>
+          <li>Orden de lectura: nombre, descripción, alérgenos, precio.</li>
+          <li>Texto base de 16 px como mínimo y contraste AA garantizado en cualquier piel.</li>
+          <li>Precios con cifras tabulares, alineados a la derecha.</li>
+          <li>Los 14 alérgenos UE con número y texto, nunca solo icono.</li>
+          <li>Estados con forma, no solo color: agotado, nuevo, del día.</li>
+          <li>Selector de idioma, filtros y navegación por secciones.</li>
+          <li>Firma discreta en el pie.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="lab">Piel · variable, la elige el restaurante</span>
+        <h3>Lo que es suyo</h3>
+        <ul>
+          <li>Logo y nombre.</li>
+          <li>Un color de marca, con contraste validado automáticamente.</li>
+          <li>Un par tipográfico de una biblioteca curada (por ejemplo, 6 combinaciones: mecanográfica, grotesca, condensada, serif clásica, redondeada y neutra).</li>
+          <li>Fondo claro u oscuro.</li>
+          <li>Foto de cabecera opcional, con tratamiento de semitono si la calidad es baja (lección de Smoke).</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:36px">La misma carta con tres pieles. La estructura, el agotado y la firma son idénticos; en este ejemplo usan el comportamiento de la dirección A.</p>
+    <div class="skins">
+      <div>
+        <div class="mock m-menu sk-lua"><div class="menu-in">
+          <div class="menu-head"><h5>Bar Lúa</h5><p>Bar de barrio · Vigo</p></div>
+          <div class="menu-tabs"><b>Picar</b><span>Raciones</span><span>Postres</span></div>
+          <div class="menu-list">
+            <div class="mi"><span class="nm">Croquetas de jamón</span><span class="pr">9,50</span><span class="al"><span>1 Gluten</span><span>7 Lácteos</span></span></div>
+            <div class="mi out"><span class="nm">Pulpo á feira</span><span class="pr">AGOTADO</span></div>
+            <div class="mi"><span class="nm">Tortilla de Betanzos</span><span class="pr">8,00</span></div>
+          </div>
+          <div class="menu-foot"><span class="sym1">O<i></i></span>Carta hecha con OFFMENU</div>
+        </div></div>
+        <p class="skin-cap">Bar de barrio: mecanográfica y papel. Cercano a Bauma.</p>
+      </div>
+      <div>
+        <div class="mock m-menu sk-ferro"><div class="menu-in">
+          <div class="menu-head"><h5>Casa Ferro</h5><p>Asador · brasa de encina</p></div>
+          <div class="menu-tabs"><b>Brasa</b><span>Entrantes</span><span>Vinos</span></div>
+          <div class="menu-list">
+            <div class="mi"><span class="nm">Chuletón de vaca vieja</span><span class="pr">62,00</span><span class="ds">Precio por kilo.</span></div>
+            <div class="mi out"><span class="nm">Rodaballo salvaje</span><span class="pr">AGOTADO</span></div>
+            <div class="mi"><span class="nm">Pimientos asados</span><span class="pr">9,00</span></div>
+          </div>
+          <div class="menu-foot"><span class="sym1">O<i></i></span>Carta hecha con OFFMENU</div>
+        </div></div>
+        <p class="skin-cap">Asador: condensada, fondo oscuro y un acento cálido. Cercano a Gaya.</p>
+      </div>
+      <div>
+        <div class="mock m-menu sk-nomada"><div class="menu-in">
+          <div class="menu-head"><h5>nómada café</h5><p>Café de especialidad</p></div>
+          <div class="menu-tabs"><b>Café</b><span>Brunch</span><span>Dulce</span></div>
+          <div class="menu-list">
+            <div class="mi"><span class="nm">Flat white</span><span class="pr">3,20</span><span class="al"><span>7 Lácteos</span></span></div>
+            <div class="mi out"><span class="nm">Banana bread</span><span class="pr">AGOTADO</span></div>
+            <div class="mi"><span class="nm">Tostada de aguacate</span><span class="pr">7,50</span><span class="al"><span>1 Gluten</span></span></div>
+          </div>
+          <div class="menu-foot"><span class="sym1">O<i></i></span>Carta hecha con OFFMENU</div>
+        </div></div>
+        <p class="skin-cap">Cafetería: redondeada, blanco y verde. Ligera y luminosa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVALUACIÓN ================= -->
+<section class="block" id="evaluacion">
+  <div class="wrap">
+    <span class="lab">Comparativa de direcciones · valoración del estudio</span>
+    <h2>Evaluación y recomendación preliminar</h2>
+    <p class="lead">Valoración cualitativa de 1 a 5 según los criterios del brief. No es una métrica: es mi juicio, para que puedas discutirlo punto por punto.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Criterio</th><th>A · Tachado</th><th>B · Comanda</th><th>C · Dos caras</th><th>D · Marco</th></tr></thead>
+        <tbody id="eval"></tbody>
+      </table>
+    </div>
+
+    <div class="cols2">
+      <div class="panel"><h3>Fortalezas y límites</h3>
+        <ul>
+          <li><b>A · Tachado.</b> La idea más propia y la que mejor pasa al producto. Límite: tachar puede leerse como error si se abusa; el rojo debe ser escaso.</li>
+          <li><b>B · Comanda.</b> La que más complicidad genera con el hostelero. Límite: riesgo de nostalgia y de parecer software de caja; la mono cansa.</li>
+          <li><b>C · Dos caras.</b> La más contundente en redes. Límite: depende de fotografía de calidad (coste continuo) y queda cerca de Aspect y Artica. OFF en negro puede leerse como "apagado".</li>
+          <li><b>D · Marco.</b> La mejor para soportes físicos y co-branding. Límite: el sello circular es un género muy visto, y mal ejecutado cae en el "sello vintage".</li>
+        </ul>
+      </div>
+      <div class="panel"><h3>Mi recomendación</h3>
+        <p><b>Dirección A, Tachado, como base</b>, con dos préstamos concretos:</p>
+        <ul style="margin-top:10px">
+          <li>De <b>B</b>: la mono como voz de datos (precios, alérgenos, etiquetas) y la numeración de planes como recurso verbal.</li>
+          <li>De <b>D</b>: el marco con anillo variable, solo para soportes QR y co-branding con restaurantes, ejecutado limpio y sin aspecto de tampón.</li>
+          <li>De <b>C</b>: únicamente la dirección fotográfica de backstage.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="reco">
+      <div class="panel keep"><h3>Conservaría</h3><ul>
+        <li>La línea que atraviesa OFF y la O tachada.</li>
+        <li>El rojo de corrector como único acento.</li>
+        <li>Grotesca negra con mono para datos.</li>
+        <li>El agotado tachado como firma de producto.</li>
+        <li>El anillo variable en el soporte QR.</li>
+      </ul></div>
+      <div class="panel drop"><h3>Descartaría</h3><ul>
+        <li>El papel rosa y las perforaciones (B), por nostálgicos.</li>
+        <li>El logotipo de dos bloques (C), demasiado cercano a las referencias.</li>
+        <li>El óvalo como logotipo principal (D): mejor como soporte.</li>
+        <li>Cualquier textura de papel o tinta simulada en digital.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEEDBACK ================= -->
+<section class="block q" id="feedback">
+  <div class="wrap">
+    <span class="lab">Antes de la etapa 03</span>
+    <h2>Lo que necesito que me digas</h2>
+    <ol>
+      <li><b>¿Qué dirección te mueve más y cuál descartas sin dudar?</b> No hace falta que coincidas conmigo. Me interesa más saber por qué descartas una.</li>
+      <li><b>¿Estás de acuerdo con separar referencias para la marca y referencias para el producto?</b> Si en realidad querías que la marca OFFMENU tuviera algo de la riqueza de Bauma o Gaya, cambia bastante el planteamiento.</li>
+      <li><b>¿Cuánto color toleras?</b> Las cuatro direcciones son contenidas. Si quieres una marca más cromática, puedo explorarlo en la siguiente vuelta.</li>
+      <li><b>¿Qué tono verbal os representa?</b> El directo de A ("Tacha y listo"), el cómplice de B ("Marchando") o uno más sereno, como D.</li>
+      <li><b>¿Hay planes reales de ampliar servicios?</b> (Reservas, fidelización, TPV…) Afecta a cuánto debe abrirse el concepto.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="doc-foot">
+  <div class="wrap">Propuestas de trabajo. Los restaurantes de los ejemplos (Bar Lúa, Casa Ferro, nómada café) son ficticios y las fotografías son marcadores de posición. Las tipografías son de Google Fonts y sirven para validar la dirección; en la etapa final se valorarán licencias y dibujo a medida del logotipo.</div>
+</footer>
+
+<script>
+(function(){
+  // Tabla comparativa de referencias
+  var D='<span class="dot" aria-label="presente"></span>', H='<span class="half" aria-label="parcial"></span>', N='<span class="none" aria-label="ausente">–</span>';
+  // Orden: Somma, Artica, Aspect, PSM, Bauma, Aesop, Bari, Smoke, Gaya, A24 · 1 presente, h parcial, 0 ausente
+  var rows=[
+    ['Base acromática negro + crudo','1111h1h001'],
+    ['Un único color de acento','0100100000'],
+    ['El wordmark es la marca','1111111h01'],
+    ['Letras intervenidas o dibujadas a medida','11h10h1h11'],
+    ['Mecanográfica / mono como voz de datos','1000111010'],
+    ['Contenedor o forma de soporte (sello, óvalo, troquel)','00h0011h11'],
+    ['Información como material gráfico','1111111h1h'],
+    ['Soporte físico como protagonista','h111101110'],
+    ['Paleta rica / gastronómica','0000h0h110'],
+    ['Códigos hosteleros explícitos (objetos, madera)','0000101110']
+  ];
+  var tb=document.getElementById('cmp'), html='';
+  rows.forEach(function(r){
+    var t=0, cells=r[1].split('').map(function(c){ if(c==='1'){t+=1;return '<td class="c">'+D+'</td>';} if(c==='h'){t+=.5;return '<td class="c">'+H+'</td>';} return '<td class="c">'+N+'</td>';}).join('');
+    html+='<tr><td>'+r[0]+'</td>'+cells+'<td class="c"><b>'+String(t).replace('.',',')+'</b></td></tr>';
+  });
+  tb.innerHTML=html;
+
+  // Tabla de evaluación
+  var ev=[
+    ['Diferenciación',[5,3,3,3]],
+    ['Conexión con el negocio',[5,4,4,5]],
+    ['Traslado al producto sin perder usabilidad',[5,3,3,4]],
+    ['Flexibilidad ante nuevos servicios',[5,3,4,4]],
+    ['Distancia de los clichés del brief',[5,3,4,3]],
+    ['Viabilidad y coste de implementación',[5,5,2,4]]
+  ];
+  var eb=document.getElementById('eval'), eh='';
+  ev.forEach(function(r){
+    eh+='<tr><td>'+r[0]+'</td>'+r[1].map(function(v){var s='<span class="score" aria-label="'+v+' de 5">';for(var i=1;i<=5;i++){s+='<i'+(i<=v?' class="f"':'')+'></i>';}return '<td>'+s+'</span> <span class="lab" style="margin-left:6px">'+v+'</span></td>';}).join('')+'</tr>';
+  });
+  var tot=[0,0,0,0]; ev.forEach(function(r){r[1].forEach(function(v,i){tot[i]+=v;});});
+  eh+='<tr><td><b>Suma orientativa</b></td>'+tot.map(function(v){return '<td><b>'+v+' / 30</b></td>';}).join('')+'</tr>';
+  eb.innerHTML=eh;
+
+  // Logotipo D1: insertar la línea en OFF
+  document.querySelectorAll('.lg1').forEach(function(el){
+    el.innerHTML='<span class="o">OFF<i></i></span>MENU';
+  });
+
+  // QR ficticio determinista (marcador de posición)
+  function rng(seed){var s=seed*9301+49297;return function(){s=(s*9301+49297)%233280;return s/233280;};}
+  document.querySelectorAll('.qr').forEach(function(el){
+    var n=25, r=rng(+el.dataset.seed||7), cells='';
+    function finder(x,y){ return '<rect x="'+x+'" y="'+y+'" width="7" height="7"/><rect x="'+(x+1)+'" y="'+(y+1)+'" width="5" height="5" fill="#fff"/><rect x="'+(x+2)+'" y="'+(y+2)+'" width="3" height="3"/>'; }
+    function inF(x,y){return (x<8&&y<8)||(x>n-9&&y<8)||(x<8&&y>n-9);}
+    for(var y=0;y<n;y++)for(var x=0;x<n;x++){ if(inF(x,y))continue; if(r()>.52) cells+='<rect x="'+x+'" y="'+y+'" width="1" height="1"/>'; }
+    el.innerHTML='<svg viewBox="-1 -1 '+(n+2)+' '+(n+2)+'" role="img" aria-label="Código QR de ejemplo" shape-rendering="crispEdges"><rect x="-1" y="-1" width="'+(n+2)+'" height="'+(n+2)+'" fill="#fff"/><g fill="#111">'+finder(0,0)+finder(n-7,0)+finder(0,n-7)+cells+'</g></svg>';
+  });
+
+  // Sellos D4 con texto en anillo
+  var k=0;
+  document.querySelectorAll('.seal').forEach(function(el){
+    k++;
+    var c=el.dataset.color||'#2338C4', ring=el.dataset.ring||'', center=el.dataset.center;
+    var txt=(ring.length<36?ring+ring:ring).toUpperCase();
+    var mid = center===undefined
+      ? '<g transform="translate(100 74)"><text text-anchor="middle" font-family="Bricolage Grotesque, Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="-1" fill="'+c+'" x="9">ffmenu</text><ellipse cx="-53" cy="-8" rx="10.5" ry="6.5" fill="none" stroke="'+c+'" stroke-width="4"/></g>'
+      : (center.trim()? '<text x="100" y="78" text-anchor="middle" font-family="DM Mono, monospace" font-size="15" fill="'+c+'">'+center+'</text>':'');
+    el.innerHTML='<svg viewBox="0 0 200 140" role="img" aria-label="Sello OFFMENU"><defs><path id="ring'+k+'" d="M100,18 a86,56 0 1,1 -0.1,0"/></defs>'+
+      '<ellipse cx="100" cy="70" rx="97" ry="67" fill="none" stroke="'+c+'" stroke-width="2"/>'+
+      '<ellipse cx="100" cy="70" rx="72" ry="44" fill="none" stroke="'+c+'" stroke-width="1"/>'+
+      '<text font-family="DM Mono, monospace" font-size="10.5" letter-spacing="1.6" fill="'+c+'"><textPath href="#ring'+k+'" textLength="448" lengthAdjust="spacing">'+txt+'</textPath></text>'+mid+'</svg>';
+  });
+})();
+</script>
