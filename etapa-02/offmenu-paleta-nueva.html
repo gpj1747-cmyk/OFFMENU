@@ -1,0 +1,199 @@
+<title>OFFMENU · Paleta nueva</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: muestrario de una familia cromática nueva y cuatro combinaciones aplicadas a las mismas piezas. */
+:root{--bg:#F5F5F2; --fg:#181816; --muted:#6C6B66; --rule:#D9D8D2; --surface:#FFFFFF;
+ --f-ui:'Instrument Sans',Arial,sans-serif; --f-lab:'JetBrains Mono',monospace; --f-d:'Schibsted Grotesk',Arial,sans-serif; --f-m:'IBM Plex Mono',monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--f-ui); line-height:1.5; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+header{padding-block:52px 36px; border-bottom:1px solid var(--rule)}
+.lab{font-family:var(--f-lab); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+h1{font-size:clamp(36px,6vw,76px); letter-spacing:-.035em; line-height:.95; margin:14px 0 0; text-wrap:balance}
+.intro{margin-top:18px; max-width:66ch; font-size:17px}
+.fam{display:grid; grid-template-columns:repeat(6,1fr); height:110px; margin-top:28px}
+.fam div,.strip div{padding:10px 12px; display:flex; flex-direction:column; justify-content:flex-end; font-family:var(--f-m); font-size:11px; line-height:1.35; min-width:0; overflow:hidden}
+.fam b,.strip b{font-weight:600; font-size:12px}
+.used{margin-top:12px; font-size:14px; color:var(--muted); max-width:80ch}
+.pal{padding-block:56px; border-bottom:1px solid var(--rule)}
+.head{display:grid; grid-template-columns:1fr 1.4fr; gap:32px; align-items:end}
+.head>*{min-width:0}
+.name{font-family:var(--f-d); font-weight:800; font-size:clamp(34px,5vw,60px); letter-spacing:-.04em; line-height:.95; margin:10px 0 0; text-wrap:balance}
+.why p{font-size:16px}
+.why .risk{font-family:var(--f-m); font-size:12.5px; color:var(--muted); margin-top:10px}
+.strip{display:grid; grid-template-columns:3fr 2fr 1fr; height:72px; margin-top:24px}
+.apps{display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:14px}
+.app{container-type:inline-size; min-width:0; display:flex; flex-direction:column; gap:8px}
+.cap{font-family:var(--f-lab); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+.w4{grid-column:span 4} .w8{grid-column:span 8} .w6{grid-column:span 6}
+.mock{position:relative; overflow:hidden; width:100%}
+.lg{font-family:var(--f-d); font-weight:900; text-transform:uppercase; letter-spacing:-.05em; line-height:.8; white-space:nowrap; display:inline-block}
+.lg .o{position:relative; display:inline-block}
+.lg .o i{position:absolute; left:-.1em; right:0; top:.46em; height:.105em}
+.x{position:relative; opacity:.55}
+.x::after{content:""; position:absolute; left:-.04em; right:-.04em; top:54%; height:.09em; background:currentColor}
+.poster{aspect-ratio:4/5; display:grid; grid-template-rows:3fr 1fr .55fr}
+.poster .p1{padding:7cqw; display:flex; flex-direction:column; justify-content:space-between}
+.poster .lg{font-size:13cqw}
+.h{font-family:var(--f-d); font-weight:800; font-size:11cqw; letter-spacing:-.04em; line-height:.95}
+.p2{padding:0 7cqw; display:flex; justify-content:space-between; align-items:center; font-family:var(--f-m); font-size:4cqw}
+.sm{font-family:var(--f-d); font-weight:900; font-size:8cqw; letter-spacing:-.05em}
+.p3{padding:0 7cqw; display:flex; align-items:center; font-family:var(--f-m); font-size:3.6cqw}
+.web{aspect-ratio:16/10; display:grid; grid-template-columns:1.35fr 1fr}
+.wl{padding:4.5cqw; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start}
+.nav{display:flex; justify-content:space-between; align-items:center; width:100%; font-family:var(--f-m); font-size:1.45cqw}
+.nav .lg{font-size:3cqw}
+.hero{font-family:var(--f-d); font-weight:900; font-size:6cqw; letter-spacing:-.045em; line-height:.92; margin:0}
+.cta{font-family:var(--f-m); font-size:1.6cqw; padding:1.1cqw 2cqw}
+.wr{padding:4.5cqw; display:flex; flex-direction:column; justify-content:center; gap:1.4cqw}
+.plan{display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid currentColor; padding-bottom:1.2cqw; font-family:var(--f-m); font-size:1.6cqw}
+.plan b{font-family:var(--f-d); font-weight:800; font-size:2.6cqw; letter-spacing:-.02em}
+.plan.muted{opacity:.7}
+.card{aspect-ratio:85/55; padding:7cqw; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; box-shadow:0 10px 24px -14px rgba(0,0,0,.35)}
+.card .lg{font-size:10cqw}
+.card .sa{font-size:24cqw}
+.row{display:flex; justify-content:space-between; align-items:flex-end; gap:4cqw; width:100%; font-family:var(--f-m); font-size:3cqw; line-height:1.45}
+.cn{font-family:var(--f-d); font-weight:800; font-size:5cqw; letter-spacing:-.02em; line-height:1.1}
+.end{padding-block:44px 64px}
+.end h2{font-size:clamp(24px,3vw,34px); letter-spacing:-.025em; margin:8px 0 12px}
+.end p{max-width:66ch; font-size:16px}
+@media (max-width:900px){.head{grid-template-columns:1fr} .w4,.w8,.w6{grid-column:1/-1} .w4{max-width:440px; width:100%; margin:0 auto} .fam{grid-template-columns:repeat(3,1fr); height:auto} .fam div{min-height:70px}}
+</style>
+<header><div class="wrap">
+  <span class="lab">OFFMENU · Etapa 02g · Paleta nueva</span>
+  <h1>Colores nuevos,<br>y el rojo y el amarillo<br>de otra forma</h1>
+  <p class="intro">Una familia cromática nueva de seis colores, todos vivos y ninguno usado antes. Con ella, cuatro combinaciones aplicadas a Instagram, la web y la tarjeta, y tres más que recuperan el rojo y el amarillo combinados de otra forma. El logotipo, la tipografía y el sistema son los mismos de siempre; solo cambia el color.</p>
+  <div class="fam"><div style="background:#E8338C;color:#141518"><b>Fucsia</b>#E8338C</div><div style="background:#6C4CF0;color:#FFFFFF"><b>Violeta</b>#6C4CF0</div><div style="background:#3A1747;color:#FFFFFF"><b>Ciruela</b>#3A1747</div><div style="background:#FFB47A;color:#141518"><b>Albaricoque</b>#FFB47A</div><div style="background:#D9A21B;color:#141518"><b>Ocre</b>#D9A21B</div><div style="background:#B9A8F2;color:#141518"><b>Lavanda</b>#B9A8F2</div></div>
+  <p class="used">Ya descartados o usados: azul tinta, verde, rosa pastel, hielo, lila gris, pizarra, granate, chocolate, naranja y cian. El rojo y el amarillo vuelven al final (E, F y G), pero sin el blanco y negro con que los vimos. Una regla: rojo y amarillo nunca juntos, porque es la combinación de la comida rápida.</p>
+</div></header>
+
+<section class="pal">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Propuesta A / 7</span><h2 class="name">Fucsia y ciruela</h2></div><div class="why"><p>La más atrevida. Un magenta encendido con un ciruela casi negro que lo sostiene. No pertenece a la hostelería ni a la tecnología, así que es muy reconocible.</p><p class="risk">Riesgo: Puede leerse como moda o cosmética si se usa sin el ciruela.</p></div></div>
+    <div class="strip"><div style="background:#E8338C;color:#141518;"><b>Principal</b>#E8338C</div><div style="background:#3A1747;color:#FFFFFF;"><b>Secundario</b>#3A1747</div><div style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6;"><b>Apoyo</b>#FFFFFF</div></div>
+    <div class="apps">
+      <div class="app w4"><span class="cap">Instagram · 4:5</span>
+        <div class="mock poster"><div class="p1" style="background:#E8338C;color:#141518"><span class="lg"><span class="o">OFF<i style="background:#3A1747"></i></span>MENU</span><span class="h">Un pago.<br><span class="x">Cuotas.</span></span></div><div class="p2" style="background:#3A1747;color:#FFFFFF"><span>Desde 190 €</span><span class="sm">OFF</span></div><div class="p3" style="background:#FFFFFF;color:#141518">offmenu.es</div></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span>
+        <div class="mock web"><div class="wl" style="background:#E8338C;color:#141518"><div class="nav"><span class="lg"><span class="o">OFF<i style="background:#3A1747"></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><span class="cta" style="background:#141518;color:#E8338C">Pide propuesta</span></div>
+        <div class="wr" style="background:#3A1747;color:#FFFFFF"><div class="plan"><b>Carta</b><span>desde 190 €</span></div><div class="plan"><b>Carta Pro</b><span>desde 390 €</span></div><div class="plan"><b>Web + Carta</b><span>desde 790 €</span></div><div class="plan muted"><b>Pago único</b><span>sin cuotas</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock card" style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6, 0 10px 24px -14px rgba(0,0,0,.35)"><span class="lg"><span class="o">OFF<i style="background:#E8338C"></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock card" style="background:#3A1747;color:#FFFFFF"><span class="lg sa"><span class="o">OFF<i style="background:#E8338C"></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="pal">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Propuesta B / 7</span><h2 class="name">Violeta y albaricoque</h2></div><div class="why"><p>Un violeta vivo y plano frente a un albaricoque cálido. El contraste de temperatura de Nestra, en colores que no hemos usado. Moderna y luminosa.</p><p class="risk">Riesgo: El violeta solo recuerda a startups. Siempre debe ir con el albaricoque y nunca en degradado.</p></div></div>
+    <div class="strip"><div style="background:#6C4CF0;color:#FFFFFF;"><b>Principal</b>#6C4CF0</div><div style="background:#FFB47A;color:#141518;"><b>Secundario</b>#FFB47A</div><div style="background:#141518;color:#FFFFFF;"><b>Apoyo</b>#141518</div></div>
+    <div class="apps">
+      <div class="app w4"><span class="cap">Instagram · 4:5</span>
+        <div class="mock poster"><div class="p1" style="background:#6C4CF0;color:#FFFFFF"><span class="lg"><span class="o">OFF<i style="background:#FFB47A"></i></span>MENU</span><span class="h">Un pago.<br><span class="x">Cuotas.</span></span></div><div class="p2" style="background:#FFB47A;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div><div class="p3" style="background:#141518;color:#FFFFFF">offmenu.es</div></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span>
+        <div class="mock web"><div class="wl" style="background:#6C4CF0;color:#FFFFFF"><div class="nav"><span class="lg"><span class="o">OFF<i style="background:#FFB47A"></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><span class="cta" style="background:#FFFFFF;color:#6C4CF0">Pide propuesta</span></div>
+        <div class="wr" style="background:#FFB47A;color:#141518"><div class="plan"><b>Carta</b><span>desde 190 €</span></div><div class="plan"><b>Carta Pro</b><span>desde 390 €</span></div><div class="plan"><b>Web + Carta</b><span>desde 790 €</span></div><div class="plan muted"><b>Pago único</b><span>sin cuotas</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock card" style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6, 0 10px 24px -14px rgba(0,0,0,.35)"><span class="lg"><span class="o">OFF<i style="background:#6C4CF0"></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock card" style="background:#FFB47A;color:#141518"><span class="lg sa"><span class="o">OFF<i style="background:#6C4CF0"></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="pal">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Propuesta C / 7</span><h2 class="name">Ocre y lavanda</h2></div><div class="why"><p>Una pareja inesperada, entre lo editorial de los setenta y lo contemporáneo. Cálida y fresca a la vez, con mucho carácter y nada de estridencia.</p><p class="risk">Riesgo: El ocre solo puede acercarse a la mostaza. La lavanda lo aleja de lo gastronómico.</p></div></div>
+    <div class="strip"><div style="background:#D9A21B;color:#141518;"><b>Principal</b>#D9A21B</div><div style="background:#B9A8F2;color:#141518;"><b>Secundario</b>#B9A8F2</div><div style="background:#141518;color:#FFFFFF;"><b>Apoyo</b>#141518</div></div>
+    <div class="apps">
+      <div class="app w4"><span class="cap">Instagram · 4:5</span>
+        <div class="mock poster"><div class="p1" style="background:#D9A21B;color:#141518"><span class="lg"><span class="o">OFF<i style="background:#141518"></i></span>MENU</span><span class="h">Un pago.<br><span class="x">Cuotas.</span></span></div><div class="p2" style="background:#B9A8F2;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div><div class="p3" style="background:#141518;color:#FFFFFF">offmenu.es</div></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span>
+        <div class="mock web"><div class="wl" style="background:#D9A21B;color:#141518"><div class="nav"><span class="lg"><span class="o">OFF<i style="background:#141518"></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><span class="cta" style="background:#141518;color:#D9A21B">Pide propuesta</span></div>
+        <div class="wr" style="background:#B9A8F2;color:#141518"><div class="plan"><b>Carta</b><span>desde 190 €</span></div><div class="plan"><b>Carta Pro</b><span>desde 390 €</span></div><div class="plan"><b>Web + Carta</b><span>desde 790 €</span></div><div class="plan muted"><b>Pago único</b><span>sin cuotas</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock card" style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6, 0 10px 24px -14px rgba(0,0,0,.35)"><span class="lg"><span class="o">OFF<i style="background:#141518"></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock card" style="background:#B9A8F2;color:#141518"><span class="lg sa"><span class="o">OFF<i style="background:#141518"></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="pal">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Propuesta D / 7</span><h2 class="name">Ciruela y albaricoque</h2></div><div class="why"><p>La versión más madura: un oscuro con color en lugar de negro y un claro cálido muy vivo. Sería la más fácil de aplicar en documentos y producto.</p><p class="risk">Riesgo: Menos explosiva que A o B.</p></div></div>
+    <div class="strip"><div style="background:#3A1747;color:#FFFFFF;"><b>Principal</b>#3A1747</div><div style="background:#FFB47A;color:#141518;"><b>Secundario</b>#FFB47A</div><div style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6;"><b>Apoyo</b>#FFFFFF</div></div>
+    <div class="apps">
+      <div class="app w4"><span class="cap">Instagram · 4:5</span>
+        <div class="mock poster"><div class="p1" style="background:#3A1747;color:#FFFFFF"><span class="lg"><span class="o">OFF<i style="background:#FFB47A"></i></span>MENU</span><span class="h">Un pago.<br><span class="x">Cuotas.</span></span></div><div class="p2" style="background:#FFB47A;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div><div class="p3" style="background:#FFFFFF;color:#141518">offmenu.es</div></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span>
+        <div class="mock web"><div class="wl" style="background:#3A1747;color:#FFFFFF"><div class="nav"><span class="lg"><span class="o">OFF<i style="background:#FFB47A"></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><span class="cta" style="background:#FFFFFF;color:#3A1747">Pide propuesta</span></div>
+        <div class="wr" style="background:#FFB47A;color:#141518"><div class="plan"><b>Carta</b><span>desde 190 €</span></div><div class="plan"><b>Carta Pro</b><span>desde 390 €</span></div><div class="plan"><b>Web + Carta</b><span>desde 790 €</span></div><div class="plan muted"><b>Pago único</b><span>sin cuotas</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock card" style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6, 0 10px 24px -14px rgba(0,0,0,.35)"><span class="lg"><span class="o">OFF<i style="background:#3A1747"></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock card" style="background:#FFB47A;color:#141518"><span class="lg sa"><span class="o">OFF<i style="background:#3A1747"></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pal">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Propuesta E / 7 · rojo y amarillo, de otra forma</span><h2 class="name">Rojo y lavanda</h2></div><div class="why"><p>El rojo deja de ser el acento del blanco y negro y pasa a ser un plano entero, junto a una lavanda fría y un ciruela de apoyo. Conserva la energía del rojo, pero ya no recuerda a la plantilla editorial de siempre.</p><p class="risk">Riesgo: En planos muy grandes el rojo cansa. Conviene que la lavanda ocupe tanta superficie como él.</p></div></div>
+    <div class="strip"><div style="background:#E23B2E;color:#FFFFFF"><b>Principal</b>#E23B2E</div><div style="background:#B9A8F2;color:#141518"><b>Secundario</b>#B9A8F2</div><div style="background:#3A1747;color:#FFFFFF"><b>Apoyo</b>#3A1747</div></div>
+    <div class="apps">
+      <div class="app w4"><span class="cap">Instagram · 4:5</span>
+        <div class="mock poster"><div class="p1" style="background:#E23B2E;color:#FFFFFF"><span class="lg"><span class="o">OFF<i style="background:#FFFFFF"></i></span>MENU</span><span class="h">Un pago.<br><span class="x">Cuotas.</span></span></div><div class="p2" style="background:#B9A8F2;color:#141518"><span>Desde 190 €</span><span class="sm">OFF</span></div><div class="p3" style="background:#3A1747;color:#FFFFFF">offmenu.es</div></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span>
+        <div class="mock web"><div class="wl" style="background:#E23B2E;color:#FFFFFF"><div class="nav"><span class="lg"><span class="o">OFF<i style="background:#FFFFFF"></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><span class="cta" style="background:#FFFFFF;color:#E23B2E">Pide propuesta</span></div>
+        <div class="wr" style="background:#B9A8F2;color:#141518"><div class="plan"><b>Carta</b><span>desde 190 €</span></div><div class="plan"><b>Carta Pro</b><span>desde 390 €</span></div><div class="plan"><b>Web + Carta</b><span>desde 790 €</span></div><div class="plan muted"><b>Pago único</b><span>sin cuotas</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock card" style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6, 0 10px 24px -14px rgba(0,0,0,.35)"><span class="lg"><span class="o">OFF<i style="background:#E23B2E"></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock card" style="background:#B9A8F2;color:#141518"><span class="lg sa"><span class="o">OFF<i style="background:#141518"></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="pal">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Propuesta F / 7 · rojo y amarillo, de otra forma</span><h2 class="name">Amarillo y violeta</h2></div><div class="why"><p>Complementarios puros: la combinación más luminosa de todas. El amarillo es más cálido y menos ácido que el fluorescente que descartaste, y el violeta le da profundidad.</p><p class="risk">Riesgo: Es muy llamativa. Exige disciplina: un color de fondo por pieza, nunca los dos al mismo peso en pequeño.</p></div></div>
+    <div class="strip"><div style="background:#F5D547;color:#141518"><b>Principal</b>#F5D547</div><div style="background:#6C4CF0;color:#FFFFFF"><b>Secundario</b>#6C4CF0</div><div style="background:#141518;color:#FFFFFF"><b>Apoyo</b>#141518</div></div>
+    <div class="apps">
+      <div class="app w4"><span class="cap">Instagram · 4:5</span>
+        <div class="mock poster"><div class="p1" style="background:#F5D547;color:#141518"><span class="lg"><span class="o">OFF<i style="background:#6C4CF0"></i></span>MENU</span><span class="h">Un pago.<br><span class="x">Cuotas.</span></span></div><div class="p2" style="background:#6C4CF0;color:#FFFFFF"><span>Desde 190 €</span><span class="sm">OFF</span></div><div class="p3" style="background:#141518;color:#FFFFFF">offmenu.es</div></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span>
+        <div class="mock web"><div class="wl" style="background:#F5D547;color:#141518"><div class="nav"><span class="lg"><span class="o">OFF<i style="background:#6C4CF0"></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><span class="cta" style="background:#141518;color:#F5D547">Pide propuesta</span></div>
+        <div class="wr" style="background:#6C4CF0;color:#FFFFFF"><div class="plan"><b>Carta</b><span>desde 190 €</span></div><div class="plan"><b>Carta Pro</b><span>desde 390 €</span></div><div class="plan"><b>Web + Carta</b><span>desde 790 €</span></div><div class="plan muted"><b>Pago único</b><span>sin cuotas</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock card" style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6, 0 10px 24px -14px rgba(0,0,0,.35)"><span class="lg"><span class="o">OFF<i style="background:#6C4CF0"></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock card" style="background:#6C4CF0;color:#FFFFFF"><span class="lg sa"><span class="o">OFF<i style="background:#F5D547"></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="pal">
+  <div class="wrap">
+    <div class="head"><div><span class="lab">Propuesta G / 7 · rojo y amarillo, de otra forma</span><h2 class="name">Amarillo y ciruela</h2></div><div class="why"><p>El amarillo sobre un oscuro con color en lugar de negro. Mantiene la luz del amarillo con un tono más adulto, y la lavanda suaviza el conjunto.</p><p class="risk">Riesgo: Menos explosiva que F. El amarillo nunca puede ir como texto sobre blanco.</p></div></div>
+    <div class="strip"><div style="background:#F5D547;color:#141518"><b>Principal</b>#F5D547</div><div style="background:#3A1747;color:#FFFFFF"><b>Secundario</b>#3A1747</div><div style="background:#B9A8F2;color:#141518"><b>Apoyo</b>#B9A8F2</div></div>
+    <div class="apps">
+      <div class="app w4"><span class="cap">Instagram · 4:5</span>
+        <div class="mock poster"><div class="p1" style="background:#F5D547;color:#141518"><span class="lg"><span class="o">OFF<i style="background:#3A1747"></i></span>MENU</span><span class="h">Un pago.<br><span class="x">Cuotas.</span></span></div><div class="p2" style="background:#3A1747;color:#FFFFFF"><span>Desde 190 €</span><span class="sm">OFF</span></div><div class="p3" style="background:#B9A8F2;color:#141518">offmenu.es</div></div></div>
+      <div class="app w8"><span class="cap">Web corporativa</span>
+        <div class="mock web"><div class="wl" style="background:#F5D547;color:#141518"><div class="nav"><span class="lg"><span class="o">OFF<i style="background:#3A1747"></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div><h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3><span class="cta" style="background:#141518;color:#F5D547">Pide propuesta</span></div>
+        <div class="wr" style="background:#3A1747;color:#FFFFFF"><div class="plan"><b>Carta</b><span>desde 190 €</span></div><div class="plan"><b>Carta Pro</b><span>desde 390 €</span></div><div class="plan"><b>Web + Carta</b><span>desde 790 €</span></div><div class="plan muted"><b>Pago único</b><span>sin cuotas</span></div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock card" style="background:#FFFFFF;color:#141518;box-shadow:inset 0 0 0 1px #dedcd6, 0 10px 24px -14px rgba(0,0,0,.35)"><span class="lg"><span class="o">OFF<i style="background:#3A1747"></i></span>MENU</span><div class="row"><div><div class="cn">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div></div>
+      <div class="app w6"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock card" style="background:#3A1747;color:#FFFFFF"><span class="lg sa"><span class="o">OFF<i style="background:#F5D547"></i></span></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="end"><div class="wrap">
+  <span class="lab">Siguiente paso</span>
+  <h2>¿Alguna te despierta algo?</h2>
+  <p>Mis dos preferidas: la <b>B · Violeta y albaricoque</b>, por vivacidad y facilidad de aplicación, y la <b>E · Rojo y lavanda</b>, que recupera el rojo del concepto del tachado sin la combinación gastada. La <b>F</b> es la más luminosa y la <b>A</b> la más atrevida. Si te gusta un color concreto pero no su pareja, dímelo y lo combino con otro.</p>
+</div></section>
