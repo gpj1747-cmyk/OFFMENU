@@ -7,4 +7,5 @@ Desarrollo por etapas de la identidad visual de OFFMENU.
 - **Etapa 02b** · `etapa-02/offmenu-sintesis.html`: dirección A (logotipo con la línea que tacha OFF) con tres paletas alternativas aplicadas a piezas de empresa.
 - **Etapa 02c** · `etapa-02/offmenu-hielo.html`: paleta Hielo a partir de la referencia CRUDO, con reglas de contraste.
 - **Etapa 02c (ajuste)** · `etapa-02/offmenu-hielo-contraste.html`: más contraste por croma y por rango tonal.
+- **Etapa 02d** · `etapa-02/offmenu-simbolos.html`: corrección de la línea del logotipo y comparación de los dos símbolos (OFF tachado / en dos líneas).
 - **Etapa 03** · Desarrollo de la identidad seleccionada (pendiente de feedback).

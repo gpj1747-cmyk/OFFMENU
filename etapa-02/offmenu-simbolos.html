@@ -1,0 +1,172 @@
+<title>OFFMENU · Símbolos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: hoja de prueba de símbolo. Primero el logotipo corregido, después cada
+   símbolo grande y a tamaño real, en los tres colores de la paleta. */
+:root{
+  --bg:#F5F5F2; --fg:#181816; --muted:#6C6B66; --rule:#D9D8D2; --surface:#FFFFFF;
+  --hielo:#9FC2E4; --negro:#141518; --blanco:#FFFFFF; --pizarra:#2B3743;
+  --f-ui:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --f-lab:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --f-d:'Schibsted Grotesk',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--f-ui); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0; line-height:1.1; text-wrap:balance}
+p{margin:0}
+.lab{font-family:var(--f-lab); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+header{padding-block:56px 40px; border-bottom:1px solid var(--rule)}
+header h1{font-size:clamp(38px,6.5vw,80px); font-weight:700; letter-spacing:-.035em; line-height:.95; margin-top:18px}
+header .intro{margin-top:24px; max-width:64ch; font-size:18px}
+section{padding-block:56px; border-bottom:1px solid var(--rule)}
+section h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px 0 16px}
+.lead{font-size:17px; max-width:66ch}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:28px}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px}
+.grid2>*,.grid3>*{min-width:0}
+.panel{background:var(--surface); border:1px solid var(--rule); padding:22px}
+.panel h3{font-size:18px; margin-bottom:8px}
+.panel p,.panel li{font-size:15px}
+.panel ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:6px}
+.cap{font-family:var(--f-lab); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+
+/* Logotipo: línea recolocada por debajo del brazo de la F y terminada al final de OFF */
+.lg{font-family:var(--f-d); font-weight:900; text-transform:uppercase; letter-spacing:-.05em; line-height:.8; white-space:nowrap; display:inline-block}
+.lg .o{position:relative; display:inline-block}
+.lg .o i{position:absolute; left:-.1em; right:0; top:.46em; height:.105em; background:var(--line,currentColor)}
+.lg.old .o i{top:50%; right:.03em; transform:translateY(-55%)}
+.lg.stack{line-height:.82}
+.lg.stack span{display:block}
+.lg.stack .o{display:inline-block}
+
+.tile{container-type:inline-size; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden}
+.t-hielo{background:var(--hielo); color:var(--negro); --line:var(--negro)}
+.t-negro{background:var(--negro); color:var(--blanco); --line:var(--hielo)}
+.t-blanco{background:var(--blanco); color:var(--negro); --line:var(--negro); box-shadow:inset 0 0 0 1px #d9d8d2}
+.t-pizarra{background:var(--pizarra); color:var(--hielo); --line:var(--hielo)}
+.sa{font-size:33cqw}
+.sb{font-size:22.5cqw}
+.wide{container-type:inline-size; padding:7cqw 6cqw; display:flex; align-items:center; justify-content:center; min-height:180px}
+.wide .lg{font-size:12cqw}
+.tile .note{position:absolute; left:12px; bottom:10px; font-family:var(--f-lab); font-size:10px; letter-spacing:.06em; text-transform:uppercase; opacity:.7}
+
+/* Pruebas a tamaño real */
+.real{display:flex; flex-wrap:wrap; gap:28px; align-items:flex-end; margin-top:16px; padding:24px; background:var(--surface); border:1px solid var(--rule)}
+.real figure{margin:0; display:flex; flex-direction:column; align-items:center; gap:8px}
+.real figcaption{font-family:var(--f-lab); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); text-align:center}
+.av{border-radius:50%}
+.app{border-radius:22%}
+.s110{width:110px} .s64{width:64px} .s40{width:40px} .s32{width:32px} .s16{width:16px}
+.fav{border-radius:3px}
+/* Perfil de Instagram simulado */
+.ig{display:flex; gap:16px; align-items:center; padding:16px; background:#fff; color:#111; border:1px solid #e3e3e3; max-width:420px}
+.ig .meta b{display:block; font-size:15px}
+.ig .meta span{font-size:13px; color:#666}
+.tabbar{display:flex; gap:6px; align-items:center; background:#E9E9E7; border-radius:8px 8px 0 0; padding:8px 10px 0; max-width:420px}
+.tab{display:flex; align-items:center; gap:8px; background:#fff; border-radius:7px 7px 0 0; padding:7px 12px; font-size:12px; color:#333}
+
+.verdict{margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.verdict>div{min-width:0}
+@media (max-width:860px){
+  .grid2,.grid3,.verdict{grid-template-columns:1fr}
+}
+</style>
+
+<header>
+  <div class="wrap">
+    <span class="lab">OFFMENU · Etapa 02d · Símbolo</span>
+    <h1>Dos símbolos<br>para elegir</h1>
+    <p class="intro">Primero, la corrección del logotipo: la línea ya no se funde con el brazo de las F. Después, los dos candidatos a símbolo: OFF tachado y el logotipo en dos líneas. Cada uno aparece en grande y a los tamaños reales en que se usa: avatar de Instagram, icono de app, pestaña del navegador y favicon. La paleta es la cerrada: hielo, negro y blanco, con pizarra como secundario.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="lab">Corrección previa</span>
+    <h2>La línea, por debajo del brazo de la F</h2>
+    <p class="lead">Antes, la línea caía a la altura del brazo central de las F y se fundía con ellas: OFF se leía como letras unidas, no como una palabra tachada. Ahora baja hasta un 57 % de la altura de la mayúscula, deja aire bajo el brazo y termina exactamente al final de OFF, marcando el paso a MENU.</p>
+    <div class="grid2">
+      <div><div class="wide t-blanco" style="--line:#C9332B"><span class="lg old"><span class="o">OFF<i></i></span>MENU</span></div><p class="cap" style="margin-top:8px">Antes · la línea se funde con las F (en rojo para verlo)</p></div>
+      <div><div class="wide t-blanco" style="--line:#C9332B"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div><p class="cap" style="margin-top:8px">Ahora · línea independiente que acaba al final de OFF</p></div>
+    </div>
+    <div class="grid3">
+      <div class="wide t-hielo"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div>
+      <div class="wide t-negro"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div>
+      <div class="wide t-blanco"><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="lab">Símbolo A</span>
+    <h2>OFF tachado</h2>
+    <p class="lead">Solo la primera palabra, con su línea. Es la idea completa de la marca reducida al mínimo: lo que está fuera de fecha se tacha. No se parece a otros símbolos y es más legible a tamaño pequeño, porque tiene tres letras en lugar de siete.</p>
+    <div class="grid3">
+      <div class="tile t-hielo"><span class="lg sa"><span class="o">OFF<i></i></span></span><span class="note">Hielo</span></div>
+      <div class="tile t-negro"><span class="lg sa"><span class="o">OFF<i></i></span></span><span class="note">Negro · línea hielo</span></div>
+      <div class="tile t-blanco"><span class="lg sa"><span class="o">OFF<i></i></span></span><span class="note">Blanco</span></div>
+    </div>
+    <div class="real">
+      <figure><div class="tile t-hielo av s110"><span class="lg sa"><span class="o">OFF<i></i></span></span></div><figcaption>Avatar 110 px</figcaption></figure>
+      <figure><div class="tile t-negro av s40"><span class="lg sa"><span class="o">OFF<i></i></span></span></div><figcaption>Avatar 40 px</figcaption></figure>
+      <figure><div class="tile t-negro app s64"><span class="lg sa"><span class="o">OFF<i></i></span></span></div><figcaption>Icono app 64</figcaption></figure>
+      <figure><div class="tile t-hielo fav s32"><span class="lg sa"><span class="o">OFF<i></i></span></span></div><figcaption>Favicon 32</figcaption></figure>
+      <figure><div class="tile t-hielo fav s16"><span class="lg sa"><span class="o">OFF<i></i></span></span></div><figcaption>Favicon 16</figcaption></figure>
+    </div>
+    <div class="grid2">
+      <div><div class="ig"><div class="tile t-hielo av" style="width:64px;flex:none"><span class="lg sa"><span class="o">OFF<i></i></span></span></div><div class="meta"><b>offmenu.es</b><span>Cartas digitales para hostelería · Pago único</span></div></div></div>
+      <div><div class="tabbar"><div class="tab"><div class="tile t-hielo fav s16"><span class="lg sa"><span class="o">OFF<i></i></span></span></div>OFFMENU · Cartas digitales</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="lab">Símbolo B</span>
+    <h2>OFFMENU en dos líneas</h2>
+    <p class="lead">El logotipo completo apilado para encajar en un cuadrado. Mantiene el nombre entero, así que no hace falta aprender un símbolo nuevo. A cambio, a tamaños pequeños las letras se vuelven diminutas.</p>
+    <div class="grid3">
+      <div class="tile t-hielo"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span><span class="note">Hielo</span></div>
+      <div class="tile t-negro"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span><span class="note">Negro · línea hielo</span></div>
+      <div class="tile t-blanco"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span><span class="note">Blanco</span></div>
+    </div>
+    <div class="real">
+      <figure><div class="tile t-hielo av s110"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span></div><figcaption>Avatar 110 px</figcaption></figure>
+      <figure><div class="tile t-negro av s40"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span></div><figcaption>Avatar 40 px</figcaption></figure>
+      <figure><div class="tile t-negro app s64"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span></div><figcaption>Icono app 64</figcaption></figure>
+      <figure><div class="tile t-hielo fav s32"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span></div><figcaption>Favicon 32</figcaption></figure>
+      <figure><div class="tile t-hielo fav s16"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span></div><figcaption>Favicon 16</figcaption></figure>
+    </div>
+    <div class="grid2">
+      <div><div class="ig"><div class="tile t-hielo av" style="width:64px;flex:none"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span></div><div class="meta"><b>offmenu.es</b><span>Cartas digitales para hostelería · Pago único</span></div></div></div>
+      <div><div class="tabbar"><div class="tab"><div class="tile t-hielo fav s16"><span class="lg stack sb"><span><span class="o">OFF<i></i></span></span><span>MENU</span></span></div>OFFMENU · Cartas digitales</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="lab">Comparación</span>
+    <h2>Mi lectura</h2>
+    <div class="verdict">
+      <div class="panel"><h3>A · OFF tachado</h3><ul>
+        <li>Se lee hasta en 32 px. En 16 px queda como una mancha con una línea, que sigue siendo reconocible.</li>
+        <li>Es la tachadura misma: el gesto de la marca, sin explicación.</li>
+        <li>Riesgo: fuera de contexto, "OFF" solo puede leerse como "apagado". Por eso siempre debe acompañar al nombre completo (perfil, web, firma) y nunca usarse aislado para presentar la marca.</li>
+      </ul></div>
+      <div class="panel"><h3>B · En dos líneas</h3><ul>
+        <li>Mantiene el nombre completo y no necesita contexto.</li>
+        <li>Funciona bien en avatar grande y en tarjetas o papelería cuadrada.</li>
+        <li>Por debajo de 40 px las letras pierden legibilidad, y en favicon es ilegible.</li>
+      </ul></div>
+    </div>
+    <div class="panel" style="margin-top:16px"><h3>Recomendación</h3><p>No son excluyentes. <b>B como versión cuadrada del logotipo</b> (avatar de redes, papelería, presentaciones) y <b>A como símbolo para tamaños pequeños</b> (favicon, icono de app, avatar en comentarios, sello en el pie de la carta). Si tuviera que quedarme con uno solo, elegiría A: es el único que funciona en todos los tamaños.</p></div>
+  </div>
+</section>
