@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>OFFMENU · Manual de identidad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+__CSS__
+/* ===== Maquetación de impresión: A4 apaisado ===== */
+@page{size:297mm 210mm; margin:0}
+html,body{margin:0; background:#fff}
+body{font-size:10.5pt; line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+.pg{width:297mm; height:210mm; position:relative; overflow:hidden; page-break-after:always; break-after:page; padding:24mm 16mm 16mm; box-sizing:border-box; background:#fff; color:var(--negro)}
+.pg:last-child{page-break-after:auto; break-after:auto}
+.pg.dark{background:var(--granate); color:#fff; --line:var(--rojo)}
+.run{position:absolute; top:9mm; left:16mm; right:16mm; display:flex; justify-content:space-between; align-items:center; font-family:var(--f-m); font-size:7.5pt; letter-spacing:.06em; text-transform:uppercase; color:var(--gris); border-bottom:.3mm solid var(--negro); padding-bottom:2.5mm}
+.run .lgv{color:var(--granate)} .run .lgv svg{height:3.2mm}
+.pg.dark .run{color:#FFB9B5; border-color:rgba(255,255,255,.4)} .pg.dark .run .lgv{color:#fff}
+.two{display:grid; grid-template-columns:72mm minmax(0,1fr); gap:12mm; height:100%}
+.side .num{font-family:var(--f-m); font-size:9pt; color:var(--rojo-texto); display:block; margin-bottom:4mm}
+.side h2{font-size:30pt; font-weight:900; letter-spacing:-.045em; line-height:.95; color:var(--granate)}
+.side p{margin-top:5mm; font-size:11pt; line-height:1.45}
+.side .small{font-size:9pt; color:var(--gris); margin-top:4mm}
+.body{min-width:0; display:flex; flex-direction:column; gap:5mm}
+.body h3{font-size:13pt; margin:0 0 2mm; color:var(--granate)}
+.body h4{margin:0 0 1.5mm; font-size:10.5pt}
+.body .box{padding:4mm}
+.body .box p,.body .box li{font-size:9pt; line-height:1.45}
+.body .g2,.body .g3,.body .g4{gap:4mm}
+table{min-width:0; font-size:8.6pt}
+th,td{padding:2mm 2.6mm}
+thead th{font-size:7pt}
+td.m{font-size:8pt}
+.tw{margin-top:0}
+.note{font-size:9pt}
+.cap{font-size:7pt; margin-top:1.5mm}
+.lab{font-size:7.5pt}
+.tile{min-height:0; padding:3.5mm}
+.tile .tc{font-size:6.5pt}
+.tile .st{padding:4mm 0}
+.prose{gap:2mm} .prose p,.prose li{font-size:9.5pt}
+.code pre{font-size:7.6pt; padding:4mm; white-space:pre-wrap}
+.code button{display:none}
+/* portada */
+.cov{display:flex; flex-direction:column; justify-content:space-between; padding:18mm 18mm 16mm}
+.cov .lgv{display:block} .cov .lgv svg{width:100%; height:auto}
+.cov-row{display:flex; justify-content:space-between; align-items:flex-end}
+.cov h1{font-size:30pt; font-weight:800; letter-spacing:-.035em; line-height:1.02; color:#fff; margin:0}
+.cov .meta{font-family:var(--f-m); font-size:8.5pt; letter-spacing:.06em; text-transform:uppercase; color:#FFB9B5; line-height:1.8; text-align:right}
+.toc-p{display:grid; grid-template-columns:repeat(2,1fr); gap:0 14mm; margin-top:4mm}
+.toc-p div{display:grid; grid-template-columns:12mm 1fr auto; padding:2.6mm 0; border-bottom:.25mm solid var(--borde); font-size:11pt}
+.toc-p span{font-family:var(--f-m); font-size:8.5pt; color:var(--rojo-texto); padding-top:.6mm}
+.toc-p i{font-style:normal; font-family:var(--f-m); font-size:8.5pt; color:var(--gris)}
+.dont{min-height:0; padding:3mm} .dont .st{padding:3mm 0} .dont p{font-size:7.5pt}
+.pal .pc .chip{height:34mm; font-size:15pt}
+.pc dl{padding:3mm; font-size:8pt} .pc dd{font-size:8pt}
+.ui div span{height:10mm} .ui div p{font-size:7pt; padding:2mm}
+.spec{padding:5mm} .spec .big{font-size:52pt} .spec .glyphs{font-size:11pt}
+.scale-row{grid-template-columns:42mm minmax(0,1fr); padding:2mm 0; gap:5mm}
+.scale-row .meta{font-size:7pt}
+.pattern{height:auto; padding:6mm; gap:2mm 8mm}
+.gridv{height:28mm}
+.ph{aspect-ratio:4/3}
+.ph span{font-size:6.5pt}
+.icons figure{width:20mm} .icons figcaption{font-size:6.5pt}
+.check li{padding:2mm 0; font-size:9pt; grid-template-columns:7mm 1fr}
+.check li::before{width:3.2mm; height:3.2mm}
+.tree{font-size:7.6pt; padding:4mm; line-height:1.6}
+.demo{padding:5mm; gap:4mm}
+.field{min-width:0}
+.mail{padding:4mm; font-size:9pt}
+.share{height:12mm} .share div{font-size:7.5pt; padding:2mm}
+.build{padding:12mm 10mm 14mm}
+.build .lgv{max-width:none}
+.build .lgv svg{height:15mm; max-width:none}
+.glab{font-size:7pt}
+.clear{--h:13mm !important}
+.cqw{container-type:inline-size; min-width:0}
+.pnum{position:absolute; bottom:8mm; right:16mm; font-family:var(--f-m); font-size:7.5pt; color:var(--gris)}
+.pg.dark .pnum{color:#FFB9B5}
+</style>
+</head>
+<body>
+
+<!-- 1 Portada -->
+<section class="pg dark cov" data-nohead="1">
+  <span class="lab" style="color:#FFB9B5">Manual de identidad de marca</span>
+  <span class="lg" data-k="logotipo"></span>
+  <div class="cov-row"><h1>Cambia la carta,<br>no el QR.</h1><p class="meta">Versión 1.0 · noviembre 2026<br>Diseño, desarrollo web y comunicación</p></div>
+</section>
+
+<!-- 2 Índice -->
+<section class="pg" data-sec="Índice">
+  <div class="two">
+    <div class="side"><span class="num">00</span><h2>Índice</h2><p>Este manual reúne todo lo necesario para aplicar la identidad de OFFMENU con valores exactos: logotipo, color, tipografía, recursos, componentes web y aplicaciones.</p><p class="small">El producto (panel de gestión y cartas digitales) y el soporte QR de mesa tendrán su propia guía más adelante.</p></div>
+    <div class="body"><div class="toc-p" id="tocp"></div></div>
+  </div>
+</section>
+
+<!-- La marca -->
+<section class="pg" data-sec="La marca" data-toc="La marca">
+  <div class="two">
+    <div class="side"><span class="num">01</span><h2>La marca</h2><p>OFFMENU ayuda a bares y restaurantes a digitalizar su carta y a mantenerla al día desde el móvil, con un pago único y sin cuotas.</p></div>
+    <div class="body">
+      <h3>La idea</h3>
+      <div class="prose"><p>En una carta de papel, lo que se acaba se tacha y lo que cambia de precio se tacha y se reescribe. Tachar es el gesto más antiguo de gestionar una carta. OFFMENU convierte ese gesto en una herramienta: <b>mantener al día la información de un negocio</b>.</p><p>La línea que tacha OFF en el logotipo resume la idea y tiene una segunda lectura: con OFFMENU, nada se queda fuera de fecha. Esa misma línea es el recurso principal de la comunicación.</p></div>
+      <h3 style="margin-top:3mm">Personalidad</h3>
+      <div class="tw"><table><thead><tr><th>Somos</th><th>Lo que significa</th><th>No somos</th></tr></thead><tbody>
+        <tr><td><b>Directos</b></td><td>Decimos lo que hacemos y cuánto cuesta, sin letra pequeña.</td><td>Ambiguos ni comerciales agresivos</td></tr>
+        <tr><td><b>Claros</b></td><td>Todo se entiende a la primera, tanto el diseño como el texto.</td><td>Técnicos ni complicados</td></tr>
+        <tr><td><b>Cercanos</b></td><td>Hablamos como alguien que conoce un bar por dentro.</td><td>Informales en exceso ni colegas</td></tr>
+        <tr><td><b>Con criterio</b></td><td>Cuidamos la tipografía, el espacio y cada detalle.</td><td>Decorativos ni de moda pasajera</td></tr>
+        <tr><td><b>Resolutivos</b></td><td>Hacemos fácil lo que antes era un problema.</td><td>Una startup que presume de tecnología</td></tr>
+      </tbody></table></div>
+      <div class="g2">
+        <div class="box"><h4>Ni una marca de restauración</h4><ul><li>Sin cubiertos, platos, gorros de chef ni ilustraciones de comida.</li><li>Sin kraft, madera, sellos vintage ni texturas artesanales.</li></ul></div>
+        <div class="box"><h4>Ni una empresa tecnológica</h4><ul><li>Sin circuitos, nodos, hexágonos, nubes ni degradados azules y morados.</li><li>Sin el código QR como logotipo o decoración.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Logotipo principal -->
+<section class="pg" data-sec="Logotipo" data-toc="Logotipo">
+  <div class="two">
+    <div class="side"><span class="num">02</span><h2>Logotipo</h2><p>OFFMENU en Schibsted Grotesk Black con la palabra OFF tachada. La línea no está puesta encima: es la prolongación de los brazos centrales de las dos F.</p><p class="small">Usar siempre los archivos vectoriales de logo/svg. El logotipo no se reconstruye escribiendo el texto con la fuente.</p></div>
+    <div class="body" style="justify-content:center">
+      <div class="tile on-w" style="height:62mm"><span class="tc">Logotipo principal · fondos claros</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:24mm"></span></div></div>
+      <div class="tile on-g" style="height:62mm"><span class="tc">Logotipo principal · fondos oscuros</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:24mm"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Construcción -->
+<section class="pg" data-sec="Logotipo · construcción">
+  <div class="two">
+    <div class="side"><span class="num">02</span><h2>Construcción</h2><p>La línea ocupa exactamente la altura del brazo central de la F, sobresale una décima de cuerpo a la izquierda de la O y termina donde acaba el brazo de la segunda F.</p></div>
+    <div class="body">
+      <div class="build"><div class="build-wrap" id="build"><span class="lg" data-k="logotipo"></span></div></div>
+      <div class="tw"><table><thead><tr><th>Elemento</th><th>Valor</th><th>Descripción</th></tr></thead><tbody>
+        <tr><td>Tipografía</td><td class="m">Schibsted Grotesk 900</td><td>Caja alta, espaciado −0,05 em, con el kerning de la fuente.</td></tr>
+        <tr><td>Altura de la línea</td><td class="m">535 → 885 / 2048 u</td><td>La altura del brazo central de la F (37 %–61 % de la mayúscula).</td></tr>
+        <tr><td>Grosor</td><td class="m">350 u · 0,171 em</td><td>El mismo que el brazo de la F.</td></tr>
+        <tr><td>Inicio</td><td class="m">−0,10 em</td><td>Sobresale a la izquierda de la O.</td></tr>
+        <tr><td>Final</td><td class="m">fin del brazo de la 2.ª F</td><td>No sobresale por la derecha y no toca la M.</td></tr>
+        <tr><td>Color</td><td class="m">#F5302A</td><td>Siempre rojo, salvo en las versiones a una tinta.</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- Protección y tamaño -->
+<section class="pg" data-sec="Logotipo · protección y tamaño">
+  <div class="two">
+    <div class="side"><span class="num">02</span><h2>Protección y tamaño mínimo</h2><p>Alrededor del logotipo se deja libre, como mínimo, la mitad de la altura de la mayúscula por cada lado. En esa zona no puede haber textos, imágenes, bordes ni otros logotipos.</p></div>
+    <div class="body">
+      <div class="box" style="display:flex;align-items:center;justify-content:center;padding:12mm;background:var(--papel)"><span class="clear" style="--h:13mm"><span class="inner"><span class="lg" data-k="logotipo" style="font-size:13mm;color:var(--granate)"></span></span></span></div>
+      <div class="tw"><table><thead><tr><th>Versión</th><th>Digital (ancho)</th><th>Impresión (ancho)</th><th>Si hace falta menos</th></tr></thead><tbody>
+        <tr><td>Logotipo horizontal</td><td class="m">96 px</td><td class="m">25 mm</td><td>Usar el símbolo OFF</td></tr>
+        <tr><td>Logotipo apilado</td><td class="m">56 px</td><td class="m">15 mm</td><td>Usar el símbolo OFF</td></tr>
+        <tr><td>Símbolo OFF</td><td class="m">16 px</td><td class="m">6 mm</td><td>No usar por debajo</td></tr>
+      </tbody></table></div>
+      <p class="note">El logotipo va siempre sobre un color plano de la marca. Si la pieza lleva fotografía, se coloca en un bloque granate, blanco o negro, nunca directamente sobre la imagen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Formas -->
+<section class="pg" data-sec="Versiones y símbolo" data-toc="Versiones y símbolo">
+  <div class="two">
+    <div class="side"><span class="num">03</span><h2>Versiones y símbolo</h2><p>Tres formas del logotipo, cada una con su uso.</p><p class="small">El símbolo OFF nunca presenta la marca por sí solo: fuera de contexto puede leerse como "apagado". Debe convivir con el nombre completo en la misma pieza.</p></div>
+    <div class="body">
+      <div class="g3">
+        <div class="tile on-g" style="height:46mm"><span class="tc">Horizontal · principal</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:9mm"></span></div></div>
+        <div class="tile on-g" style="height:46mm"><span class="tc">Apilado</span><div class="st"><span class="lg" data-k="apilado" style="font-size:9mm"></span></div></div>
+        <div class="tile on-g" style="height:46mm"><span class="tc">Símbolo OFF</span><div class="st"><span class="lg" data-k="simbolo-off" style="font-size:13mm"></span></div></div>
+      </div>
+      <div class="tw"><table><thead><tr><th>Forma</th><th>Cuándo usarla</th><th>Ejemplos</th></tr></thead><tbody>
+        <tr><td><b>Horizontal</b></td><td>Siempre que haya espacio. Es la versión por defecto.</td><td>Cabecera web, presentaciones, documentos, firma de email, tarjeta</td></tr>
+        <tr><td><b>Apilado</b></td><td>Formatos cuadrados o verticales.</td><td>Avatar de redes, papelería cuadrada, cartelería vertical, merchandising</td></tr>
+        <tr><td><b>Símbolo OFF</b></td><td>Tamaños pequeños, con el nombre completo cerca.</td><td>Favicon, avatar en comentarios, reverso de la tarjeta</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- Color del logotipo -->
+<section class="pg" data-sec="Versiones de color">
+  <div class="two">
+    <div class="side"><span class="num">03</span><h2>Versiones de color</h2><p>La línea es <b>siempre roja</b>. Las letras <b>nunca son rojas</b>: granate sobre blanco; blanco sobre granate o negro.</p><p class="small">Sobre fondo rojo, el logotipo va entero en granate. Las versiones a una tinta se reservan para técnicas que no admiten dos colores.</p></div>
+    <div class="body">
+      <div class="g2">
+        <div class="tile on-g" style="height:38mm"><span class="tc">Blanco · línea roja · sobre granate</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:9mm"></span></div></div>
+        <div class="tile on-w" style="height:38mm"><span class="tc">Granate · línea roja · sobre blanco</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:9mm"></span></div></div>
+        <div class="tile on-k" style="height:38mm"><span class="tc">Blanco · línea roja · sobre negro</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:9mm"></span></div></div>
+        <div class="tile on-r" style="height:38mm"><span class="tc">Todo granate · sobre rojo</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:9mm"></span></div></div>
+        <div class="tile" style="height:30mm;background:#fff;color:#141518;--line:#141518;box-shadow:inset 0 0 0 1px var(--borde)"><span class="tc">Una tinta negra</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:7mm"></span></div></div>
+        <div class="tile" style="height:30mm;background:#141518;color:#fff;--line:#fff"><span class="tc">Una tinta blanca</span><div class="st"><span class="lg" data-k="logotipo" style="font-size:7mm"></span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Incorrectos -->
+<section class="pg" data-sec="Usos incorrectos" data-toc="Usos incorrectos">
+  <div class="two">
+    <div class="side"><span class="num">04</span><h2>Usos incorrectos</h2><p>El logotipo no se modifica. Estos son los errores más habituales.</p></div>
+    <div class="body"><div class="g4" id="donts"></div></div>
+  </div>
+</section>
+
+<!-- Color -->
+<section class="pg" data-sec="Color" data-toc="Color">
+  <div class="two">
+    <div class="side"><span class="num">05</span><h2>Color</h2><p>Un rojo vivo sobre su propio granate, con el blanco como base y el negro como color de lectura.</p><p class="small">* CMYK convertido matemáticamente. Antes de la primera tirada, ajustar con prueba de color en imprenta y fijar las referencias Pantone.</p></div>
+    <div class="body">
+      <div class="pal">
+        <div class="pc"><div class="chip" style="background:#42000E;color:#fff">Granate</div><dl><dt>HEX</dt><dd>#42000E</dd><dt>RGB</dt><dd>66 0 14</dd><dt>CMYK</dt><dd>0 100 79 74*</dd><dt>Uso</dt><dd>Logotipo, titulares, fondos</dd></dl></div>
+        <div class="pc"><div class="chip" style="background:#F5302A;color:#42000E">Rojo</div><dl><dt>HEX</dt><dd>#F5302A</dd><dt>RGB</dt><dd>245 48 42</dd><dt>CMYK</dt><dd>0 80 83 4*</dd><dt>Uso</dt><dd>La línea, tachaduras</dd></dl></div>
+        <div class="pc"><div class="chip" style="background:#fff;color:#42000E;box-shadow:inset 0 -1px 0 var(--borde)">Blanco</div><dl><dt>HEX</dt><dd>#FFFFFF</dd><dt>RGB</dt><dd>255 255 255</dd><dt>CMYK</dt><dd>0 0 0 0</dd><dt>Uso</dt><dd>Fondo de lectura</dd></dl></div>
+        <div class="pc"><div class="chip" style="background:#141518;color:#fff">Negro</div><dl><dt>HEX</dt><dd>#141518</dd><dt>RGB</dt><dd>20 21 24</dd><dt>CMYK</dt><dd>17 12 0 91*</dd><dt>Uso</dt><dd>Texto, datos, filetes</dd></dl></div>
+      </div>
+      <h3 style="margin-top:2mm">Proporción</h3>
+      <div class="share"><div style="background:#fff;color:#42000E">Blanco 50 %</div><div style="background:#42000E;color:#fff">Granate 20 %</div><div style="background:#F5302A;color:#42000E">Rojo 15 %</div><div style="background:#141518;color:#fff">Negro 15 %</div></div>
+      <p class="prose" style="font-size:9pt">La proporción es para el conjunto de la comunicación, no para cada pieza: una publicación de impacto puede ser casi toda granate y una página web casi toda blanca.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contraste -->
+<section class="pg" data-sec="Color · interfaz y contraste">
+  <div class="two">
+    <div class="side"><span class="num">05</span><h2>Interfaz y contraste</h2><p>Colores de apoyo solo para la web, y las combinaciones permitidas con su contraste según WCAG.</p></div>
+    <div class="body">
+      <div class="ui">
+        <div><span style="background:#F6F4F1"></span><p><b>Papel</b> #F6F4F1<br>Fondo alterno</p></div>
+        <div><span style="background:#E2DFDA"></span><p><b>Borde</b> #E2DFDA<br>Separadores</p></div>
+        <div><span style="background:#5F5B59"></span><p><b>Gris</b> #5F5B59<br>Texto secundario</p></div>
+        <div><span style="background:#D8241E"></span><p><b>Rojo texto</b> #D8241E<br>Errores · rojo pequeño</p></div>
+      </div>
+      <div class="tw"><table><thead><tr><th>Texto sobre fondo</th><th>Contraste</th><th>Normal (4,5)</th><th>Grande (3)</th><th>Uso</th></tr></thead><tbody>
+        <tr><td>Negro sobre blanco</td><td class="m">18,3 : 1</td><td class="ok">Sí</td><td class="ok">Sí</td><td>Texto corrido</td></tr>
+        <tr><td>Granate sobre blanco</td><td class="m">17,0 : 1</td><td class="ok">Sí</td><td class="ok">Sí</td><td>Titulares, logotipo, botones</td></tr>
+        <tr><td>Blanco sobre granate</td><td class="m">17,0 : 1</td><td class="ok">Sí</td><td class="ok">Sí</td><td>Texto sobre bandas granate</td></tr>
+        <tr><td>Gris sobre blanco</td><td class="m">6,7 : 1</td><td class="ok">Sí</td><td class="ok">Sí</td><td>Texto secundario</td></tr>
+        <tr><td>Rojo texto sobre blanco</td><td class="m">5,0 : 1</td><td class="ok">Sí</td><td class="ok">Sí</td><td>Mensajes de error</td></tr>
+        <tr><td>Rojo sobre granate</td><td class="m">4,3 : 1</td><td class="ko">No</td><td class="ok">Sí</td><td>Solo titulares de 24 px o más</td></tr>
+        <tr><td>Rojo sobre blanco</td><td class="m">3,9 : 1</td><td class="ko">No</td><td class="ok">Sí</td><td>Titulares grandes, la línea, tachaduras</td></tr>
+        <tr><td>Negro sobre granate</td><td class="m">1,1 : 1</td><td class="ko">No</td><td class="ko">No</td><td><b>Prohibido</b></td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- Tipografía -->
+<section class="pg" data-sec="Tipografía" data-toc="Tipografía">
+  <div class="two">
+    <div class="side"><span class="num">06</span><h2>Tipografía</h2><p>Dos familias gratuitas de Google Fonts con licencia SIL Open Font: Schibsted Grotesk para todo lo que se lee e IBM Plex Mono para datos, precios y etiquetas.</p></div>
+    <div class="body">
+      <div class="g2">
+        <div class="spec"><span class="lab">Principal</span><div class="big">Aa</div><h4 style="margin-top:3mm">Schibsted Grotesk</h4><p style="font-size:8.5pt;color:var(--gris)">400 · 500 · 700 · 800 · 900</p><p class="glyphs">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>abcdefghijklmnñopqrstuvwxyz<br>0123456789 € ¿? ¡! áéíóú</p></div>
+        <div class="spec"><span class="lab">Datos</span><div class="big" style="font-family:var(--f-m);font-weight:500;letter-spacing:-.03em">Aa</div><h4 style="margin-top:3mm">IBM Plex Mono</h4><p style="font-size:8.5pt;color:var(--gris)">400 · 500</p><p class="glyphs" style="font-family:var(--f-m);font-size:10pt">ABCDEFGHIJKLMNÑOPQRSTUVWXYZ<br>0123456789 · 9,50 € · 14:30</p></div>
+      </div>
+      <div class="g2">
+        <div class="box"><h4>Sí</h4><ul><li>Titulares en 800–900 con espaciado negativo.</li><li>Texto a 17 px, peso 400, interlineado 1,55.</li><li>Mono para precios, fechas y etiquetas en mayúsculas, con cifras tabulares.</li></ul></div>
+        <div class="box"><h4>No</h4><ul><li>Cursivas, subrayados decorativos ni sombras.</li><li>Mono en párrafos largos.</li><li>Titulares en mayúsculas ni otras tipografías.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Escala -->
+<section class="pg" data-sec="Tipografía · escala">
+  <div class="two">
+    <div class="side"><span class="num">06</span><h2>Escala tipográfica</h2><p>Tamaños fluidos entre móvil (375 px) y escritorio (1280 px), con su peso, espaciado e interlineado.</p></div>
+    <div class="body" id="scale" style="gap:0"></div>
+  </div>
+</section>
+
+<!-- Tachadura -->
+<section class="pg" data-sec="La tachadura" data-toc="La tachadura">
+  <div class="two">
+    <div class="side"><span class="num">07</span><h2>La tachadura</h2><p>El gesto de la marca fuera del logotipo: en titulares, enfrenta lo que deja de existir con lo que lo sustituye.</p></div>
+    <div class="body">
+      <div class="g2">
+        <div class="box" style="padding:7mm"><span class="lab">Correcto</span><p style="font-size:22pt;font-weight:900;letter-spacing:-.045em;line-height:.95;margin-top:4mm"><span class="tach">Imprimir otra carta.</span><br><span style="color:var(--granate)">Cambiarla desde el móvil.</span></p></div>
+        <div class="box" style="padding:7mm"><span class="lab">Correcto</span><p style="font-size:22pt;font-weight:900;letter-spacing:-.045em;line-height:.95;margin-top:4mm">Un pago.<br><span class="tach">Cuotas.</span></p></div>
+      </div>
+      <div class="prose"><ol>
+        <li>La línea es siempre roja (#F5302A) y el texto tachado pasa a gris (#5F5B59).</li>
+        <li>Como máximo, una tachadura por pieza.</li>
+        <li>Siempre con sentido: lo viejo tachado frente a lo nuevo. Nunca para decorar.</li>
+        <li>Solo en titulares y mensajes cortos, nunca en texto corrido.</li>
+        <li>No se tacha nunca la palabra MENU ni el nombre de un cliente.</li>
+      </ol></div>
+      <div class="g3">
+        <div class="box"><p style="font-size:13pt;font-weight:900;letter-spacing:-.04em;line-height:1.05"><span class="tach">Croquetas</span> <span class="tach">Pulpo</span> <span class="tach">Tortilla</span></p><span class="cap">✕ Varias tachaduras</span></div>
+        <div class="box"><p style="font-size:13pt;font-weight:900;letter-spacing:-.04em;line-height:1.05"><span style="background:linear-gradient(#2338C4,#2338C4) 0 56%/100% .09em no-repeat">Tu carta digital</span></p><span class="cap">✕ Otro color</span></div>
+        <div class="box"><p style="font-size:9pt">Creamos la carta digital de tu negocio y <span class="tach">tú</span> la gestionas desde el móvil.</p><span class="cap">✕ Dentro de un párrafo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Patrón -->
+<section class="pg" data-sec="Logotipo repetido" data-toc="Logotipo repetido">
+  <div class="two">
+    <div class="side"><span class="num">08</span><h2>Logotipo repetido</h2><p>El logotipo en una retícula desplazada funciona como textura de marca: muestra el nombre y la tachadura a la vez.</p></div>
+    <div class="body">
+      <div class="pattern" id="pattern"></div>
+      <div class="g2">
+        <div class="box"><h4>Cuándo</h4><ul><li>Portadas de presentaciones y documentos.</li><li>Publicaciones de marca (máximo 1 de cada 6).</li><li>Packaging, merchandising, stands y lonas.</li></ul></div>
+        <div class="box"><h4>Cómo</h4><ul><li>Solo sobre granate, letras blancas y línea roja.</li><li>Tres columnas, la central desplazada; al menos tres logotipos completos.</li><li>Nunca con texto encima ni detrás de contenido web.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Retícula -->
+<section class="pg" data-sec="Retícula, espacio y forma" data-toc="Retícula, espacio y forma">
+  <div class="two">
+    <div class="side"><span class="num">09</span><h2>Retícula, espacio y forma</h2><p>Mucho blanco, filetes finos y esquinas rectas. La estructura se nota por el orden, no por cajas ni sombras.</p></div>
+    <div class="body">
+      <div class="gridv"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="tw"><table><thead><tr><th>Breakpoint</th><th>Ancho</th><th>Columnas</th><th>Margen</th><th>Medianil</th></tr></thead><tbody>
+        <tr><td>Móvil</td><td class="m">0 – 767 px</td><td class="m">4</td><td class="m">16 – 24 px</td><td class="m">16 px</td></tr>
+        <tr><td>Tablet</td><td class="m">768 – 1023 px</td><td class="m">8</td><td class="m">32 px</td><td class="m">20 px</td></tr>
+        <tr><td>Escritorio</td><td class="m">1024 – 1279 px</td><td class="m">12</td><td class="m">48 px</td><td class="m">24 px</td></tr>
+        <tr><td>Ancho</td><td class="m">≥ 1280 px</td><td class="m">12</td><td class="m">64 px · máx. 1280 px</td><td class="m">24 px</td></tr>
+      </tbody></table></div>
+      <div class="spacing" id="spacing"></div>
+      <div class="g3">
+        <div class="box"><h4>Esquinas rectas</h4><p>Radio 0 en botones, campos, tarjetas e imágenes.</p></div>
+        <div class="box"><h4>Filetes</h4><p>1 px negro para estructurar; #E2DFDA para separaciones suaves.</p></div>
+        <div class="box"><h4>Sin efectos</h4><p>Sin sombras, degradados ni desenfoques.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Fotografía -->
+<section class="pg" data-sec="Fotografía" data-toc="Fotografía">
+  <div class="two">
+    <div class="side"><span class="num">10</span><h2>Fotografía</h2><p>Blanco y negro de alto contraste, siempre de la trastienda: lo que pasa detrás del servicio, no el plato.</p><p class="small">Las imágenes de esta página son muestras de tratamiento. Las fotografías reales deben producirse siguiendo estas indicaciones.</p></div>
+    <div class="body">
+      <div class="g3"><div class="ph"><span>Barra antes de abrir</span></div><div class="ph b"><span>Manos con el móvil</span></div><div class="ph"><span>El pase de cocina</span></div></div>
+      <div class="g2">
+        <div class="box"><h4>Qué fotografiar</h4><ul><li>Locales vacíos antes o después del servicio.</li><li>Manos actualizando la carta, pizarras borradas, la libreta de pedidos.</li><li>Personas trabajando, sin posar.</li></ul></div>
+        <div class="box"><h4>Tratamiento</h4><ul><li>Blanco y negro, contraste alto, grano fino.</li><li>Sin filtros, virados ni duotonos.</li><li>Espacio para colocar texto en un bloque de color al lado.</li></ul></div>
+      </div>
+      <p class="note">Nunca platos en primer plano, bancos de imágenes, degradados ni el QR como imagen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Iconos -->
+<section class="pg" data-sec="Iconos" data-toc="Iconos">
+  <div class="two">
+    <div class="side"><span class="num">11</span><h2>Iconos</h2><p>Iconos lineales sencillos para la interfaz, nunca como ilustración.</p></div>
+    <div class="body">
+      <div class="prose"><p>Familia <b>Lucide</b> (licencia ISC): trazo de 2 px, extremos cuadrados, sin rellenos, a 20 o 24 px, en el color del texto que acompañan.</p></div>
+      <div class="icons" style="gap:8mm">
+        <figure><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg><figcaption>Menú</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><figcaption>Siguiente</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5l4 4L8 20H4v-4z"/></svg><figcaption>Editar</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><figcaption>Hecho</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg><figcaption>Cerrar</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><figcaption>Idioma</figcaption></figure>
+        <figure><svg viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><figcaption>Filtrar</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Voz -->
+<section class="pg" data-sec="Tono de voz" data-toc="Tono de voz">
+  <div class="two">
+    <div class="side"><span class="num">12</span><h2>Tono de voz</h2><p>Hablamos como alguien que conoce un bar por dentro y sabe resolver: directo, claro y sin tecnicismos.</p></div>
+    <div class="body">
+      <div class="g2">
+        <div class="box"><h4>Lo que hace, no cómo funciona</h4><p>"Cambia el precio desde el móvil", no "gestión de contenidos en tiempo real".</p></div>
+        <div class="box"><h4>Frases cortas</h4><p>Una idea por frase.</p></div>
+        <div class="box"><h4>Tuteo</h4><p>Siempre de tú, también en propuestas. Cercano, nunca familiar.</p></div>
+        <div class="box"><h4>Precios claros</h4><p>"Desde 190 €, pago único". Sin "consúltanos" ni asteriscos.</p></div>
+      </div>
+      <div class="tw"><table><thead><tr><th>El nombre · correcto</th><th>Incorrecto</th></tr></thead><tbody><tr><td><b>OFFMENU</b>, en mayúsculas y en una palabra, también en un texto</td><td class="ko">Offmenu · OffMenu · Off Menu · OFF-MENU</td></tr></tbody></table></div>
+      <div class="tw"><table><thead><tr><th>Decimos</th><th>Evitamos</th></tr></thead><tbody>
+        <tr><td>carta, carta digital</td><td>menú digital, solución QR, app de menús</td></tr>
+        <tr><td>panel, desde el móvil</td><td>backoffice, CMS, dashboard</td></tr>
+        <tr><td>cambiar, actualizar, tachar</td><td>gestionar contenidos, sincronizar, optimizar</td></tr>
+        <tr><td>pago único, sin cuotas</td><td>licencia perpetua, sin suscripción recurrente</td></tr>
+        <tr><td>tu bar, tu restaurante, tu cliente</td><td>tu establecimiento hostelero, el usuario final</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- Mensajes -->
+<section class="pg" data-sec="Tono de voz · mensajes">
+  <div class="two">
+    <div class="side"><span class="num">12</span><h2>Mensajes y microtextos</h2><p>Los mensajes de marca y los textos más habituales de la web.</p></div>
+    <div class="body">
+      <div class="g3">
+        <div class="box"><span class="lab">Claim principal</span><p style="font-size:15pt;font-weight:900;letter-spacing:-.035em;line-height:1.05;margin-top:3mm;color:var(--granate)">Cambia la carta, no el QR.</p></div>
+        <div class="box"><span class="lab">Modelo</span><p style="font-size:15pt;font-weight:900;letter-spacing:-.035em;line-height:1.05;margin-top:3mm;color:var(--granate)">Un pago. <span class="tach">Cuotas.</span></p></div>
+        <div class="box"><span class="lab">Servicio</span><p style="font-size:15pt;font-weight:900;letter-spacing:-.035em;line-height:1.05;margin-top:3mm;color:var(--granate)">Se acaba. Se tacha. Listo.</p></div>
+      </div>
+      <div class="tw"><table><thead><tr><th>Situación</th><th>Texto</th></tr></thead><tbody>
+        <tr><td>Botón principal</td><td>Pide propuesta</td></tr>
+        <tr><td>Botón secundario</td><td>Ver planes · Cómo funciona</td></tr>
+        <tr><td>Formulario enviado</td><td>Recibido. Te escribimos en menos de 24 horas laborables.</td></tr>
+        <tr><td>Error de email</td><td>Revisa el email: falta la @ o el dominio.</td></tr>
+        <tr><td>Campo obligatorio</td><td>Escribe el nombre de tu negocio.</td></tr>
+        <tr><td>Página no encontrada</td><td><span class="tach">Esta página.</span> Vuelve al inicio.</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<!-- Componentes -->
+<section class="pg" data-sec="Componentes web" data-toc="Componentes web">
+  <div class="two">
+    <div class="side"><span class="num">13</span><h2>Componentes web</h2><p>Los componentes básicos de la web corporativa. El código está en kit/offmenu-tokens.css con el prefijo om-.</p></div>
+    <div class="body">
+      <div class="demo"><span class="btn btn-p">Pide propuesta</span><span class="btn btn-s">Ver planes</span><span class="lnk">Cómo funciona</span></div>
+      <div class="demo dark"><span class="btn btn-c">Pide propuesta</span><span class="btn" style="color:#fff;border-color:#fff">Ver planes</span></div>
+      <p class="cap" style="margin-top:0">Botones: 48 px de alto, 24 px de padding, IBM Plex Mono 500 14 px en mayúsculas, esquinas rectas. Primario granate (hover #5C0A1B), secundario con borde negro, claro sobre granate. Foco: contorno rojo de 2 px. Nunca botones rojos con texto blanco.</p>
+      <div class="demo" style="align-items:flex-start"><div class="field"><label>Nombre del negocio</label><input type="text" placeholder="Bar Lúa"></div><div class="field err"><label>Email</label><input type="email" value="hola@barlua"><span class="e">Revisa el email: falta el dominio.</span></div></div>
+      <div class="g3">
+        <div class="plan"><span class="n">01</span><b style="font-size:17pt">Carta</b><span class="pr">desde 190 €</span><p style="font-size:8.5pt">Carta digital con código QR y panel de gestión.</p></div>
+        <div class="plan hot"><span class="n">02</span><b style="font-size:17pt">Carta Pro</b><span class="pr">desde 390 €</span><p style="font-size:8.5pt">Idiomas, fotografías, filtros y dominio propio.</p></div>
+        <div class="plan"><span class="n">03</span><b style="font-size:17pt">Web + Carta</b><span class="pr">desde 790 €</span><p style="font-size:8.5pt">La carta digital y la página web de tu negocio.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Web -->
+<section class="pg" data-sec="Web corporativa" data-toc="Web corporativa">
+  <div class="two">
+    <div class="side"><span class="num">14</span><h2>Web corporativa</h2><p>Fondo blanco por defecto, una sola banda granate por página, una tachadura en el titular principal y pie negro.</p><p class="small">Páginas: inicio, planes, cómo funciona, clientes, contacto y legal.</p></div>
+    <div class="body">
+      <div class="cqw"><div class="mock web bord">
+        <div class="w-nav"><span class="lg" data-k="logotipo"></span><ul><li>Servicios</li><li>Planes</li><li>Clientes</li><li>Contacto</li></ul><span class="cta">Pide propuesta</span></div>
+        <div class="w-hero"><h5><span class="tach">Imprimir otra carta.</span><br><em>Cambiarla desde el móvil.</em></h5><div><p>Creamos la carta digital de tu bar o restaurante. Tú cambias precios, platos, menú del día y alérgenos cuando quieras, desde el móvil. El QR no caduca nunca.</p><p class="mm">Pago único · sin cuotas mensuales</p></div></div>
+        <div class="w-plans"><div><span class="n">01</span><b>Carta</b><span class="pr">desde 190 €</span><span class="ds">Carta digital con código QR y panel de gestión.</span></div><div class="hot"><span class="n">02</span><b>Carta Pro</b><span class="pr">desde 390 €</span><span class="ds">Idiomas, fotografías, filtros y dominio propio.</span></div><div><span class="n">03</span><b>Web + Carta</b><span class="pr">desde 790 €</span><span class="ds">La carta digital y la página web de tu negocio.</span></div></div>
+        <div class="w-band"><h6>Cómo<br>funciona</h6><div class="steps"><div><b>01 · DIGITALIZAMOS</b>Pasamos tu carta actual a formato digital.</div><div><b>02 · LA GESTIONAS</b>Desde el panel cambias lo que quieras en segundos.</div><div><b>03 · SIEMPRE AL DÍA</b>Tu cliente escanea el mismo QR y ve la versión de hoy.</div></div></div>
+        <div class="w-foot"><span class="lg" data-k="logotipo"></span><span>hola@offmenu.es · Cartas digitales para hostelería</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram -->
+<section class="pg" data-sec="Aplicaciones · Instagram" data-toc="Aplicaciones">
+  <div class="two">
+    <div class="side"><span class="num">15</span><h2>Instagram</h2><p>Publicaciones en 4:5 (1080 × 1350 px) e historias en 9:16. Avatar: logotipo apilado, blanco sobre granate.</p><p class="small">Por cada seis publicaciones: cuatro blancas, una granate y una roja o con fotografía.</p></div>
+    <div class="body">
+      <div class="g3">
+        <div class="cqw"><div class="mock ig bord"><div class="ig-w"><div class="ig-k"><span>El modelo</span><span>01 / 03</span></div><div class="ig-h">Un pago.<br><span class="tach">Cuotas.</span></div><div class="ig-f"><span>Desde 190 €<br>Pago único</span><span class="lg" data-k="logotipo" style="color:var(--granate)"></span></div></div></div><span class="cap">Editorial blanco</span></div>
+        <div class="cqw"><div class="mock ig on-g"><div class="ig-pat"><span class="lg" data-k="simbolo-off"></span><span class="mn">MENU</span><span class="lg" data-k="simbolo-off"></span><span class="mn">MENU</span><span class="lg" data-k="simbolo-off"></span></div></div><span class="cap">Logotipo repetido</span></div>
+        <div class="cqw"><div class="mock ig bord"><div class="ig-w"><div class="ig-k"><span>Panel OFFMENU</span><span>02 / 03</span></div><ul class="ig-list"><li><span>Croquetas</span><span>9,50</span></li><li><span><span class="tach">Tarta de queso</span></span><span>agotado</span></li><li><span>Menú del día</span><span>14,50</span></li></ul><div class="ig-h" style="font-size:10cqw;color:var(--granate)">Se tacha<br>en un toque.</div></div></div><span class="cap">Servicio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Presentación -->
+<section class="pg" data-sec="Aplicaciones · presentación">
+  <div class="two">
+    <div class="side"><span class="num">15</span><h2>Presentación comercial</h2><p>16:9. Portada y cierre en granate; interiores en blanco con titular granate y datos separados por un filete negro.</p></div>
+    <div class="body" style="justify-content:center">
+      <div class="cqw" style="width:78%"><div class="mock deck on-g"><div class="dk-c"><span class="lg" data-k="logotipo"></span><div class="row"><span>Propuesta comercial · Bar Lúa</span><span>2026</span></div></div></div><span class="cap">Portada</span></div>
+      <div class="cqw" style="width:78%;align-self:flex-end"><div class="mock deck bord"><div class="dk-i"><div class="dk-l"><span class="k">02 · El modelo</span><div class="h">Pagas una vez.<br>La carta es tuya.</div><span class="lg" data-k="logotipo"></span></div><div class="dk-r"><div><span class="n">00</span><span><span class="tach">Cuota mensual</span></span><span class="v">0 €</span></div><div><span class="n">01</span><span>Carta digital con QR</span><span class="v">desde 190 €</span></div><div><span class="n">02</span><span>Dominio y hosting</span><span class="v">anual</span></div><div><span class="n">03</span><span>Soporte de errores</span><span class="v">6 meses</span></div></div></div></div><span class="cap">Interior</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Documentos -->
+<section class="pg" data-sec="Aplicaciones · papelería">
+  <div class="two">
+    <div class="side"><span class="num">15</span><h2>Documentos y papelería</h2><p>Propuesta en A4, tarjeta de 85 × 55 mm en papel blanco de 350 g sin estucar y firma de email.</p><p class="small">Favicon: símbolo OFF blanco con línea roja sobre granate, al 74 % del ancho.</p></div>
+    <div class="body">
+      <div class="g3" style="align-items:start">
+        <div class="cqw"><div class="mock doc bord"><div class="doc-top"><span class="lg" data-k="logotipo"></span><span>Propuesta nº 026<br>12 · 11 · 2026</span></div><div class="doc-h">Tu carta,<br>siempre al día.</div><p class="doc-p">Esta propuesta incluye la digitalización de la carta actual, el panel de gestión y la carta digital con código QR permanente.</p><table class="doc-t"><tr><td>Carta Pro</td><td>390,00 €</td></tr><tr><td>Traducción ES · EN</td><td>60,00 €</td></tr><tr><td>Impresión de QR (10 uds.)</td><td>45,00 €</td></tr><tr class="tot"><td>Total · pago único</td><td>495,00 €</td></tr></table><div class="doc-f"><span>offmenu.es</span><span>hola@offmenu.es</span></div></div></div>
+        <div class="cqw" style="display:flex;flex-direction:column;gap:4mm">
+          <div class="mock card on-w bord"><span class="lg" data-k="logotipo"></span><div class="row"><div><div class="cn" style="color:var(--granate)">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@offmenu.es<br>offmenu.es</div></div></div>
+          <div class="mock card on-g"><span class="lg sym" data-k="simbolo-off"></span><div class="row"><span>Cartas digitales para hostelería</span><span>Pago único</span></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5mm">
+          <div class="mail"><p>Un saludo,</p><p style="margin-top:3mm"><b>Tu nombre</b><br>Proyectos</p><p style="margin-top:2mm"><span class="lg" data-k="logotipo"></span></p><p style="margin-top:2mm;font-size:8pt;color:#5F5B59">hola@offmenu.es · offmenu.es</p></div>
+          <div style="display:flex;gap:4mm;align-items:center">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:22mm;height:22mm;background:var(--granate);color:#fff;--line:var(--rojo)"><span class="lg" data-k="simbolo-off" style="font-size:6mm"></span></span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:16mm;height:16mm;border-radius:50%;background:var(--granate);color:#fff;--line:var(--rojo)"><span class="lg" data-k="apilado" style="font-size:3.2mm"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accesibilidad -->
+<section class="pg" data-sec="Accesibilidad" data-toc="Accesibilidad">
+  <div class="two">
+    <div class="side"><span class="num">16</span><h2>Accesibilidad</h2><p>Objetivo: WCAG 2.2 nivel AA en toda la web.</p></div>
+    <div class="body">
+      <div class="g2">
+        <div class="box"><h4>Color y texto</h4><ul><li>Texto normal con contraste mínimo 4,5:1; texto grande 3:1.</li><li>El rojo #F5302A nunca en texto de menos de 24 px; usar #D8241E.</li><li>Ningún estado solo con color: los errores llevan mensaje.</li><li>Texto base mínimo 16 px; nunca bloquear el zoom.</li></ul></div>
+        <div class="box"><h4>Interacción</h4><ul><li>Foco visible: contorno de 2 px #F5302A.</li><li>Objetivos táctiles de 44 × 44 px como mínimo.</li><li>Formularios con etiqueta visible y errores asociados.</li><li>Respetar la preferencia de movimiento reducido.</li></ul></div>
+        <div class="box"><h4>Logotipo e imágenes</h4><ul><li>Logotipo SVG con role="img" y aria-label="OFFMENU".</li><li>Texto alternativo en cada fotografía; vacío si es decorativa.</li></ul></div>
+        <div class="box"><h4>Estructura</h4><ul><li>Un solo h1 por página y encabezados sin saltos.</li><li>Idioma declarado en el documento.</li><li>Tablas de precios con encabezados reales.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Entrega -->
+<section class="pg" data-sec="Archivos y entrega" data-toc="Archivos y entrega">
+  <div class="two">
+    <div class="side"><span class="num">17</span><h2>Archivos y entrega</h2><p>Todo el material está en el repositorio del proyecto.</p><p class="small">Antes de imprimir: ajustar CMYK con prueba de color y fijar Pantone. Sustituir el email y el dominio de ejemplo por los reales.</p></div>
+    <div class="body">
+      <div class="tree">logo/svg/        logotipo, apilado y símbolo OFF en 4 combinaciones de color, con fondo y transparentes
+logo/build_logo.py              regenera todos los SVG
+kit/offmenu-tokens.css          variables, base y componentes (prefijo om-)
+kit/offmenu-tokens.json         los mismos valores para otras herramientas
+kit/favicon/                    favicon.svg, PNG 16–512 y apple-touch-icon
+kit/og-image.png                imagen para compartir · 1200 × 630
+manual/offmenu-manual.html      manual web con código para copiar</div>
+      <ul class="check">
+        <li>Importar offmenu-tokens.css y cargar las dos tipografías.</li>
+        <li>Usar el logotipo desde logo/svg, nunca escribiéndolo con la fuente.</li>
+        <li>Línea siempre roja, letras nunca rojas.</li>
+        <li>Fondo blanco, una banda granate por página, pie negro.</li>
+        <li>Una tachadura por página, en el titular principal.</li>
+        <li>Esquinas rectas, filetes de 1 px, sin sombras ni degradados.</li>
+        <li>Precios en mono con cifras tabulares.</li>
+        <li>Favicon, theme-color e imagen OG instalados.</li>
+        <li>Contraste AA, foco visible y navegación con teclado.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Contraportada -->
+<section class="pg dark cov" data-nohead="1" style="justify-content:center;align-items:flex-start;gap:10mm">
+  <span class="lg" data-k="logotipo" style="width:150mm"></span>
+  <p class="meta" style="text-align:left">Manual de identidad · versión 1.0 · noviembre 2026<br>offmenu.es</p>
+</section>
+
+<script>
+(function(){
+  var T=__LOGOS__;
+  function put(el){ var k=el.dataset.k; if(!T[k]) return; el.innerHTML=T[k]; el.classList.add('lgv'); if(k==='apilado') el.querySelector('svg').style.height=(1.523/0.703)+'em'; }
+  // Índice y cabeceras
+  var pages=[].slice.call(document.querySelectorAll('.pg')), toc=[];
+  pages.forEach(function(pg,i){
+    var n=i+1;
+    if(!pg.dataset.nohead){
+      var r=document.createElement('div'); r.className='run'; r.innerHTML='<span class="lg" data-k="logotipo"></span><span>'+(pg.dataset.sec||'')+'</span><span>'+String(n).padStart(2,'0')+'</span>'; pg.appendChild(r);
+    }
+    if(pg.dataset.toc) toc.push([pg.querySelector('.num')?pg.querySelector('.num').textContent:'', pg.dataset.toc, n]);
+  });
+  document.getElementById('tocp').innerHTML=toc.map(function(t){return '<div><span>'+t[0]+'</span>'+t[1]+'<i>'+String(t[2]).padStart(2,'0')+'</i></div>';}).join('');
+  // Usos incorrectos
+  var D=[['logotipo','on-w','color:#F5302A;--line:#F5302A','','Letras en rojo'],['logotipo','on-w','--line:#141518','','Línea de otro color'],['logotipo','on-w','','transform:scaleX(1.3)','Deformar o estirar'],['logotipo','on-w','','transform:rotate(-8deg)','Girar'],['logotipo','on-w','','filter:drop-shadow(2px 3px 0 rgba(0,0,0,.35))','Sombras o efectos'],['logotipo','on-k','color:#42000E','','Fondo sin contraste'],['fake','on-w','','','Otra tipografía'],['logotipo','on-w','','','Sobre fotografía o textura','photo'],['menu','on-w','','','Tachar MENU'],['logotipo','on-w','','','Solo contorno','outline'],['logotipo','on-g','color:#F5302A;--line:#FFFFFF','','Invertir letras y línea'],['logotipo','on-w','','','Separar OFF y MENU','split']];
+  document.getElementById('donts').innerHTML=D.map(function(d){
+    var inner;
+    if(d[0]==='fake') inner='<span class="fake" style="font-size:20px">OFFMENU<i style="position:absolute;left:-3px;width:40px;top:47%;height:3px;background:#F5302A"></i></span>';
+    else if(d[0]==='menu') inner='<span class="fake" style="font-family:var(--f-d);font-weight:900;letter-spacing:-.05em;font-size:20px">OFF<span style="position:relative">MENU<i style="position:absolute;left:-2px;right:-2px;top:44%;height:3px;background:#F5302A"></i></span></span>';
+    else if(d[5]==='split') inner='<span style="display:flex;gap:16px;align-items:center"><span class="lg" data-k="simbolo-off" style="font-size:20px;color:var(--granate)"></span><span class="fake" style="font-family:var(--f-d);font-weight:900;letter-spacing:-.05em;font-size:20px;line-height:.8">MENU</span></span>';
+    else inner='<span class="lg" data-k="'+d[0]+'" style="font-size:20px;'+d[2]+'"></span>';
+    var bg=d[5]==='photo'?'background:repeating-linear-gradient(45deg,#7d7d7d 0 6px,#bdbdbd 6px 12px)':'';
+    return '<div class="dont '+d[1]+'" data-o="'+(d[5]||'')+'" style="height:38mm;'+bg+';'+(d[1]==='on-w'&&!bg?'box-shadow:inset 0 0 0 1px var(--borde)':'')+'"><span class="x">✕</span><div class="st" style="'+d[3]+'">'+inner+'</div><p>'+d[4]+'</p></div>';
+  }).join('');
+  // Patrón
+  var ph=''; for(var i=0;i<3;i++){ ph+='<div class="'+(i===1?'p2':(i===2?'p3':''))+'">'; for(var j=0;j<3;j++) ph+='<div class="cell"><span class="lg" data-k="logotipo"></span></div>'; ph+='</div>'; }
+  document.getElementById('pattern').innerHTML=ph;
+  // Escala
+  var S=[['Display','48 → 104 px · 900 · −0,05 em','font-size:40pt;font-weight:900;letter-spacing:-.05em;line-height:.9;color:var(--granate)','Al día.'],['H1','40 → 72 px · 900 · −0,045 em','font-size:28pt;font-weight:900;letter-spacing:-.045em;line-height:.95;color:var(--granate)','Tu carta, siempre al día.'],['H2','32 → 48 px · 800 · −0,035 em','font-size:20pt;font-weight:800;letter-spacing:-.035em;line-height:1;color:var(--granate)','Cómo funciona'],['H3','24 → 32 px · 800 · −0,025 em','font-size:15pt;font-weight:800;letter-spacing:-.025em;color:var(--granate)','Carta Pro'],['H4','20 px · 700','font-size:12pt;font-weight:700','Servicios adicionales'],['Texto','17 px · 400 · 1,55','font-size:10pt;line-height:1.5','Tú cambias precios, platos, menú del día y alérgenos cuando quieras, desde el móvil.'],['Pequeño','15 px · 400','font-size:9pt;color:var(--gris)','El dominio y el hosting tienen un coste anual.'],['Etiqueta','Plex Mono 13 px · 500 · mayúsculas','font-family:var(--f-m);font-size:8pt;font-weight:500;letter-spacing:.06em;text-transform:uppercase','Pago único · sin cuotas'],['Precio','Plex Mono · cifras tabulares','font-family:var(--f-m);font-size:12pt','desde 190 €']];
+  document.getElementById('scale').innerHTML=S.map(function(s){return '<div class="scale-row"><div class="meta"><b style="color:var(--negro);font-family:var(--f-d);font-size:9pt">'+s[0]+'</b><br>'+s[1]+'</div><div class="ex" style="'+s[2]+'">'+s[3]+'</div></div>';}).join('');
+  document.getElementById('spacing').innerHTML=[4,8,12,16,24,32,48,64,96,128].map(function(v,i){return '<div><b style="width:'+(v*0.6)+'px"></b>'+v+'</div>';}).join('');
+  document.querySelectorAll('.lg[data-k]').forEach(put);
+  document.querySelectorAll('.dont[data-o="outline"] svg path').forEach(function(x){x.setAttribute('fill','none');x.style.fill='none';x.setAttribute('stroke','#42000E');x.setAttribute('stroke-width','30');});
+  // Guías de construcción
+  var b=document.getElementById('build'); var svg=b.querySelector('svg'); var vb=svg.viewBox.baseVal; var hpx=svg.getBoundingClientRect().height; var k=hpx/vb.height; var cap=-vb.y;
+  [[cap,'Mayúscula · 1440'],[885,'Brazo F · 885'],[535,'Brazo F · 535'],[0,'Base · 0']].forEach(function(g){
+    var d=document.createElement('div'); d.className='guide gh'; d.style.top=((cap-g[0])*k)+'px'; d.style.right='-150px'; b.appendChild(d);
+    var l=document.createElement('span'); l.className='glab'; l.textContent=g[1]; l.style.top=((cap-g[0])*k-13)+'px'; l.style.left=(svg.getBoundingClientRect().width+24)+'px'; b.appendChild(l);
+  });
+  b.style.marginRight='150px';
+  // Números de página
+  document.fonts.ready.then(function(){ document.body.setAttribute('data-ready','1'); });
+})();
+</script>
+</body>
+</html>

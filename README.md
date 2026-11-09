@@ -17,4 +17,5 @@ Desarrollo por etapas de la identidad visual de OFFMENU.
 - **Etapa 03** · Identidad definitiva:
   - `manual/offmenu-manual.html`: manual de marca completo (fuente en `manual/manual-src.html`, se genera con `python3 manual/build_manual.py`).
   - `logo/`: logotipo vectorial construido a partir de los contornos de la tipografía (`python3 logo/build_logo.py`).
+  - `manual/OFFMENU-manual-de-identidad.pdf`: versión PDF del manual en A4 apaisado (se genera con `python3 manual/build_pdf.py && node manual/render_pdf.js`).
   - `kit/`: tokens CSS/JSON, favicons e imagen para compartir, con instrucciones para desarrollo en `kit/README.md`.
