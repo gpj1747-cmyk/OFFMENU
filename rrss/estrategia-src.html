@@ -21,7 +21,9 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--rojo); outline-offset:2px}
 .wrap{max-width:1160px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
 .lab{font-family:var(--f-m); font-size:11.5px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--gris)}
-.x{color:var(--gris); padding:0 .04em; margin:0 -.04em; background:linear-gradient(var(--rojo),var(--rojo)) 0 56%/100% max(.09em,2px) no-repeat; -webkit-box-decoration-break:clone; box-decoration-break:clone}
+.x{color:var(--gris)}
+.sw{position:relative}
+.sw::after{content:""; position:absolute; left:-.04em; right:-.04em; top:56%; height:.09em; min-height:2px; background:var(--rojo); transform:translateY(-50%) scaleX(var(--p,1)); transform-origin:0 50%; pointer-events:none}
 
 .cover{background:var(--granate); color:var(--blanco); padding-block:64px 52px}
 .cover .lab{color:#FFB9B5}
@@ -112,6 +114,20 @@ td.m{font-family:var(--f-m); font-size:13px; white-space:nowrap}
 .cal .wk{font-family:var(--f-m); font-size:12px; color:var(--rojo-texto)}
 .cal small{display:block; font-family:var(--f-m); font-size:11px; color:var(--gris); margin-top:3px; letter-spacing:.03em}
 
+.print-only{display:none}
+@page{size:A4; margin:14mm 12mm}
+@media print{
+  body{font-size:11pt; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .toc,video,.piece video{display:none!important}
+  .print-only{display:block; width:100%; height:auto; aspect-ratio:9/16; object-fit:cover}
+  .cover{padding-block:36px 30px}
+  section.ch{padding-block:30px}
+  .box,.reel,.piece,tr,.idea,.profile,.copy{break-inside:avoid}
+  h2,h3{break-after:avoid}
+  .carousel{flex-wrap:wrap; overflow:visible}
+  .carousel img{width:23%}
+  .wrap{max-width:none}
+}
 @media (max-width:900px){
   .g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .pillars{grid-template-columns:1fr 1fr}
@@ -127,13 +143,25 @@ td.m{font-family:var(--f-m); font-size:13px; white-space:nowrap}
   .cal{grid-template-columns:80px repeat(3,minmax(0,1fr))}
   .cal>div{padding:8px; font-size:13px}
 }
+@media print{
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .pillars{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .pillars>div{border-bottom:0}
+  .ideas{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .reel{grid-template-columns:170px minmax(0,1fr); break-inside:avoid}
+  .reel .piece{max-width:170px}
+  .ch-head{grid-template-columns:56px minmax(0,1fr)}
+  .cal{grid-template-columns:90px repeat(3,minmax(0,1fr))}
+}
 </style>
 
 <header class="cover">
   <div class="wrap">
     <span class="lab">OFFMENU · Estrategia de redes sociales · v1</span>
     <h1>Hablar del problema,<br><span class="x">no del producto.</span></h1>
-    <p>Cómo va a estar OFFMENU en Instagram (y después en TikTok y LinkedIn): de qué hablamos, con qué tono, en qué formatos y con qué frecuencia. Incluye el primer lote de contenido ya producido: tres reels, un carrusel y ocho publicaciones, con sus textos.</p>
+    <p>Cómo va a estar OFFMENU en Instagram (y después en TikTok y LinkedIn): de qué hablamos, con qué tono, en qué formatos y con qué frecuencia. Incluye el contenido ya producido: diez reels, un carrusel y ocho publicaciones, con sus textos.</p>
     <nav class="toc" aria-label="Índice">
       <a href="#base">Punto de partida</a><a href="#tono">Tono</a><a href="#pilares">Pilares</a><a href="#temas">Temas clave</a><a href="#reels">Reels</a><a href="#posts">Publicaciones</a><a href="#perfil">Perfil</a><a href="#ideas">Banco de ideas</a><a href="#calendario">Calendario</a><a href="#medir">Medición</a>
     </nav>
@@ -204,7 +232,7 @@ td.m{font-family:var(--f-m); font-size:13px; white-space:nowrap}
 </div></section>
 
 <section class="ch" id="reels"><div class="wrap">
-  <div class="ch-head"><span class="ch-num">05</span><div><h2>Reels producidos</h2><p>Tres reels de tipografía cinética a partir del arranque del vídeo de referencia: corte seco, listas que crecen y la tachadura como desenlace. Formato 9:16, 1080 × 1920, 30 fps, sin voz. El texto está dentro de las zonas seguras de Instagram.</p></div></div>
+  <div class="ch-head"><span class="ch-num">05</span><div><h2>Reels producidos</h2><p>Diez reels de tipografía cinética a partir del arranque del vídeo de referencia: corte seco, listas que crecen y la tachadura como desenlace. Formato 9:16, 1080 × 1920, 30 fps, sin voz. El texto está dentro de las zonas seguras de Instagram.</p></div></div>
 
   <div class="reel">
     <div class="piece"><video src="reels/reel-cafe.mp4" poster="reels/reel-cafe-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="meta">15 s · pilar La escena</span></div>
@@ -251,6 +279,25 @@ Etiqueta a tu compañero de sala.</div>
 Hacemos cartas digitales que el propio bar cambia desde el móvil. Sin cuotas.
 Te lo iremos contando por aquí.</div>
     </div>
+  </div>
+
+  <h3>Segunda tanda: los temas clave</h3>
+  <div class="prose"><p>Siete reels más, uno por cada tema clave. Mantienen la base (tipografía enorme, corte seco, la tachadura y la firma en granate) y añaden cuatro dinámicas para que la serie no se repita: zoom, texto que cambia en el sitio, contadores y máquina de escribir.</p></div>
+  <div class="g4 mt" style="align-items:start">
+    <div class="piece"><video src="reels/reel-pdf.mp4" poster="reels/reel-pdf-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="t">Una carta digital no es un PDF</span><span class="meta">14,5 s · Mito</span><p style="font-size:14px">Zoom: la carta en PDF crece hasta salirse de la pantalla mientras se acumula "Zoom. Zoom. Zoom.".</p><div class="copy"><b>Texto</b>Si tu cliente tiene que hacer zoom, no es una carta digital.
+¿Cuántas cartas QR has tenido que ampliar este mes?</div></div>
+    <div class="piece"><video src="reels/reel-idiomas.mp4" poster="reels/reel-idiomas-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="t">¿Tienen la carta en inglés?</span><span class="meta">15 s · La escena</span><p style="font-size:14px">La misma pregunta cambia de idioma en el sitio, cada vez más rápido. Después, la descripción del plato se escribe letra a letra en tres idiomas.</p><div class="copy"><b>Texto</b>La pregunta que se repite cada día en cualquier zona turística.
+¿En cuántos idiomas te la hacen a ti?</div></div>
+    <div class="piece"><video src="reels/reel-alergenos.mp4" poster="reels/reel-alergenos-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="t">¿Esto lleva gluten?</span><span class="meta">16 s · Carta bien hecha</span><p style="font-size:14px">Las preguntas de una noche se acumulan; un contador sube hasta 14 y la lista de alérgenos aparece uno a uno.</p><div class="copy"><b>Texto</b>Son 14 y hay que informarlos. Mejor escritos en la carta que de memoria en la cocina.
+Guárdalo para repasar los tuyos.</div></div>
+    <div class="piece"><video src="reels/reel-menudia.mp4" poster="reels/reel-menudia-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="t">Lunes, pizarra</span><span class="meta">15,5 s · La escena</span><p style="font-size:14px">La semana en pizarra frente al menú que cambia solo en la carta: día y plato se sustituyen en el sitio.</p><div class="copy"><b>Texto</b>La pizarra de la puerta no llega a la mesa 12.
+¿Dónde anuncias tu menú del día?</div></div>
+    <div class="piece"><video src="reels/reel-cuotas.mp4" poster="reels/reel-cuotas-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="t">Las cuotas</span><span class="meta">14,5 s · El modelo</span><p style="font-size:14px">Contador: mes a mes, la cuota va sumando hasta 36 meses. El total se tacha.</p><div class="copy"><b>Texto</b>Una cuota pequeña, durante mucho tiempo, deja de ser pequeña.
+Pagas una vez y la carta es tuya. Desde 190 €.</div></div>
+    <div class="piece"><video src="reels/reel-tiempo.mp4" poster="reels/reel-tiempo-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="t">"No tengo tiempo para esto"</span><span class="meta">15 s · Detrás de OFFMENU</span><p style="font-size:14px">Lista de tareas que crece y se tacha entera. La respuesta: lo hacemos nosotros. Solo hace falta una foto de la carta.</p><div class="copy"><b>Texto</b>La digitalización la hacemos nosotros. Tú solo nos mandas una foto de tu carta.
+Aunque tenga manchas.</div></div>
+    <div class="piece"><video src="reels/reel-sala.mp4" poster="reels/reel-sala-portada.jpg" controls muted loop playsinline preload="metadata"></video><span class="t">Camarero, sábado noche</span><span class="meta">15 s · La escena</span><p style="font-size:14px">Punto de vista del camarero: un contador de preguntas repetidas sube mientras las preguntas se sustituyen en el centro.</p><div class="copy"><b>Texto</b>Para quien contesta lo mismo cuarenta veces por servicio.
+Etiqueta a tu compañero de sala.</div></div>
   </div>
   <p class="note mt">Audio: ninguno de los reels lleva voz. Al publicar, añadir en Instagram un audio en tendencia o un ritmo seco y sincronizar los cortes. Los vídeos funcionan también sin sonido.</p>
 </div></section>
@@ -318,9 +365,9 @@ Guárdalo para la próxima vez que toques la tuya. ¿Cuál de las cinco te falta
     <div class="wk">Semana 1</div><div>Presentación<small>Reel · producido</small></div><div>Lanzamiento<small>Post · producido</small></div><div>Imprimir otra carta<small>Post · producido</small></div>
     <div class="wk">Semana 2</div><div>Subir el café<small>Reel · producido</small></div><div>5 cosas que tu carta debería decir<small>Carrusel · producido</small></div><div>No es un PDF<small>Post · producido</small></div>
     <div class="wk">Semana 3</div><div>¿Queda pulpo?<small>Reel · producido</small></div><div>¿Qué te cuesta actualizar?<small>Post · producido</small></div><div>Un pago<small>Post · producido</small></div>
-    <div class="wk">Semana 4</div><div>Menú del día: lunes, pizarra…<small>Reel · por producir (idea 01)</small></div><div>Los 14 alérgenos, sin miedo<small>Carrusel · por producir (idea 09)</small></div><div>Se acaba. Se tacha. Listo.<small>Post · producido</small></div>
+    <div class="wk">Semana 4</div><div>Lunes, pizarra<small>Reel · producido</small></div><div>Los 14 alérgenos, sin miedo<small>Carrusel · por producir (idea 09)</small></div><div>Se acaba. Se tacha. Listo.<small>Post · producido</small></div>
   </div>
-  <p class="note mt">El mes 1 tiene doce publicaciones y diez ya están producidas. En la semana 4 hay que producir dos piezas nuevas del banco de ideas.</p>
+  <p class="note mt">El mes 1 tiene doce publicaciones y once ya están producidas; solo falta el carrusel de alérgenos (idea 09). Los otros seis reels de los temas clave abren el mes 2.</p>
 </div></section>
 
 <section class="ch" id="medir"><div class="wrap">
@@ -344,6 +391,11 @@ Guárdalo para la próxima vez que toques la tuya. ¿Cuál de las cinco te falta
 </div></section>
 
 <script>
+function strikeWords(root,sel){ (root||document).querySelectorAll(sel).forEach(function(el){ if(el.dataset.sw) return; el.dataset.sw='1'; var parts=el.textContent.split(/(\s+)/), last=null; el.textContent='';
+  parts.forEach(function(p){ if(!p) return; if(/^\s+$/.test(p)){ if(last) last.textContent+=p; return; } var s=document.createElement('span'); s.className='sw'; s.textContent=p; el.appendChild(s); last=s; }); }); }
+strikeWords(document,'.x');
+document.querySelectorAll('video[poster]').forEach(function(v){ var i=document.createElement('img'); i.className='print-only'; i.src=v.getAttribute('poster'); i.alt=''; v.parentNode.insertBefore(i,v.nextSibling); });
+
 (function(){
   var T=__LOGOS__;
   document.querySelectorAll('.lg[data-k]').forEach(function(el){ el.innerHTML=T[el.dataset.k]; el.classList.add('lgv'); });

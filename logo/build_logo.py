@@ -137,10 +137,11 @@ if __name__ == "__main__":
 
 
 def plantilla(filas):
-    """SVG sin márgenes para usar en línea: letras en currentColor y línea en var(--line)."""
+    """SVG sin márgenes para usar en línea: letras en currentColor y línea en var(--line).
+    La caja se ajusta a los contornos reales, incluidos los excesos ópticos de la O y la U."""
     letras, barra, x0, ancho, n = construir(filas)
-    alto = CAP + (n - 1) * INTERLINEA * UPM
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{x0:.0f} {-CAP:.0f} {ancho - x0:.0f} {alto:.0f}" role="img" aria-label="OFFMENU">'
+    xmin, ymin, xmax, ymax = pathops.op(letras, barra, pathops.PathOp.UNION).bounds
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{xmin:.0f} {-ymax:.0f} {xmax - xmin:.0f} {ymax - ymin:.0f}" role="img" aria-label="OFFMENU">'
             f'<g transform="scale(1,-1)"><path fill="currentColor" d="{d(letras)}"/>'
             f'<path style="fill:var(--line,{ROJO})" d="{d(barra)}"/></g></svg>')
 

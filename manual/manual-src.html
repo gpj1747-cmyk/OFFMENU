@@ -140,7 +140,9 @@ td.m{font-family:var(--f-m); font-size:13px; font-variant-numeric:tabular-nums; 
 .scale-row .ex{min-width:0; overflow-wrap:anywhere; color:var(--negro)}
 
 /* Tachadura en texto */
-.tach{color:var(--gris); padding:0 .04em; margin:0 -.04em; background:linear-gradient(var(--rojo),var(--rojo)) 0 56% / 100% max(.09em,2px) no-repeat; -webkit-box-decoration-break:clone; box-decoration-break:clone}
+.tach{color:var(--gris)}
+.sw{position:relative}
+.sw::after{content:""; position:absolute; left:-.04em; right:-.04em; top:56%; height:.09em; min-height:2px; background:var(--rojo); transform:translateY(-50%) scaleX(var(--p,1)); transform-origin:0 50%; pointer-events:none}
 
 /* Patrón */
 .pattern{background:var(--granate); color:var(--blanco); --line:var(--rojo); padding:28px; display:grid; grid-template-columns:repeat(3,1fr); gap:6px 24px; overflow:hidden; height:340px; align-content:start}
@@ -597,25 +599,26 @@ td.m{font-family:var(--f-m); font-size:13px; font-variant-numeric:tabular-nums; 
     <li>Como máximo, <b>una tachadura por pieza</b>.</li>
     <li>Siempre con sentido: lo viejo tachado frente a lo nuevo. Nunca para decorar ni para destacar.</li>
     <li>Solo en titulares y mensajes cortos (una o dos palabras, o una frase breve). Nunca en texto corrido.</li>
-    <li>Siempre que se pueda, la frase tachada ocupa una sola línea. Si en móvil se parte, la línea sigue a cada renglón.</li>
+    <li>La línea va siempre por encima de las letras, nunca por detrás. Si la frase puede partirse en dos líneas, cada palabra lleva su propia tachadura.</li>
     <li>No se tacha nunca la palabra MENU ni el nombre de un cliente.</li>
   </ol></div>
   <h3>Código</h3>
   <div class="code"><button type="button">Copiar</button><pre>&lt;h2&gt;&lt;span class="om-tachado"&gt;Imprimir otra carta.&lt;/span&gt;&lt;br&gt;Cambiarla desde el móvil.&lt;/h2&gt;
 
-/* La línea se pinta como fondo del texto: funciona aunque la frase se parta en dos líneas */
-.om-tachado {
-  color: var(--om-gris);
-  padding: 0 .04em; margin: 0 -.04em;
-  background: linear-gradient(var(--om-rojo), var(--om-rojo)) 0 56% / 100% max(.09em, 2px) no-repeat;
-  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+/* La línea va SIEMPRE por encima de las letras, como en el logotipo */
+.om-tachado { position: relative; color: var(--om-gris); white-space: nowrap; }
+.om-tachado::after {
+  content: ""; position: absolute; left: -.04em; right: -.04em; top: 56%;
+  height: .09em; min-height: 2px; background: var(--om-rojo); transform: translateY(-50%);
 }
+/* Frases que pueden partirse en dos líneas: una etiqueta por palabra, con su espacio:
+   &lt;span class="om-tachado"&gt;Imprimir &lt;/span&gt;&lt;span class="om-tachado"&gt;otra &lt;/span&gt;&lt;span class="om-tachado"&gt;carta.&lt;/span&gt; */
 /* Para lectores de pantalla, el texto tachado se lee con normalidad.
    Si el significado depende de la tachadura, añadir: &lt;span class="sr-only"&gt;(antes)&lt;/span&gt; */</pre></div>
   <h3>Incorrecto</h3>
   <div class="g3">
     <div class="box"><p style="font-size:26px;font-weight:900;letter-spacing:-.04em;line-height:1"><span class="tach">Croquetas</span> <span class="tach">Pulpo</span> <span class="tach">Tortilla</span></p><span class="cap">✕ Varias tachaduras en la misma pieza</span></div>
-    <div class="box"><p style="font-size:26px;font-weight:900;letter-spacing:-.04em;line-height:1"><span style="position:relative;display:inline">Tu carta digital<span style="position:absolute;left:0;right:0;top:54%;height:.09em;background:#2338C4"></span></span></p><span class="cap">✕ La línea en otro color</span></div>
+    <div class="box"><p style="font-size:26px;font-weight:900;letter-spacing:-.04em;line-height:1"><span class="tach" style="--rojo:#2338C4;color:inherit">Tu carta digital</span></p><span class="cap">✕ La línea en otro color</span></div>
     <div class="box"><p style="font-size:15px;line-height:1.55">Creamos la carta digital de tu negocio y <span class="tach">tú</span> la gestionas desde el móvil cuando quieras.</p><span class="cap">✕ Dentro de un párrafo</span></div>
   </div>
 </div></section>
@@ -972,9 +975,13 @@ td.m{font-family:var(--f-m); font-size:13px; font-variant-numeric:tabular-nums; 
 </div>
 
 <script>
+function strikeWords(root,sel){ (root||document).querySelectorAll(sel).forEach(function(el){ if(el.dataset.sw) return; el.dataset.sw='1'; var parts=el.textContent.split(/(\s+)/), last=null; el.textContent='';
+  parts.forEach(function(p){ if(!p) return; if(/^\s+$/.test(p)){ if(last) last.textContent+=p; return; } var s=document.createElement('span'); s.className='sw'; s.textContent=p; el.appendChild(s); last=s; }); }); }
+strikeWords(document,'.tach');
+
 (function(){
   var T=__LOGOS__;
-  var H={'logotipo':1,'apilado':1.523/0.703,'simbolo-off':1};
+  var H={'logotipo':1,'apilado':3175/1496,'simbolo-off':1};
   function put(el){ var k=el.dataset.k; if(!T[k]) return; el.innerHTML=T[k]; el.classList.add('lgv');
     var svg=el.querySelector('svg'); if(k==='apilado') svg.style.height=(H[k])+'em'; }
   // Construcción

@@ -297,7 +297,7 @@ td.m{font-size:8pt}
       </ol></div>
       <div class="g3">
         <div class="box"><p style="font-size:13pt;font-weight:900;letter-spacing:-.04em;line-height:1.05"><span class="tach">Croquetas</span> <span class="tach">Pulpo</span> <span class="tach">Tortilla</span></p><span class="cap">✕ Varias tachaduras</span></div>
-        <div class="box"><p style="font-size:13pt;font-weight:900;letter-spacing:-.04em;line-height:1.05"><span style="background:linear-gradient(#2338C4,#2338C4) 0 56%/100% .09em no-repeat">Tu carta digital</span></p><span class="cap">✕ Otro color</span></div>
+        <div class="box"><p style="font-size:13pt;font-weight:900;letter-spacing:-.04em;line-height:1.05"><span class="tach" style="--rojo:#2338C4;color:inherit">Tu carta digital</span></p><span class="cap">✕ Otro color</span></div>
         <div class="box"><p style="font-size:9pt">Creamos la carta digital de tu negocio y <span class="tach">tú</span> la gestionas desde el móvil.</p><span class="cap">✕ Dentro de un párrafo</span></div>
       </div>
     </div>
@@ -550,9 +550,12 @@ manual/offmenu-manual.html      manual web con código para copiar</div>
 </section>
 
 <script>
+function strikeWords(root,sel){ (root||document).querySelectorAll(sel).forEach(function(el){ if(el.dataset.sw) return; el.dataset.sw='1'; var parts=el.textContent.split(/(\s+)/), last=null; el.textContent='';
+  parts.forEach(function(p){ if(!p) return; if(/^\s+$/.test(p)){ if(last) last.textContent+=p; return; } var s=document.createElement('span'); s.className='sw'; s.textContent=p; el.appendChild(s); last=s; }); }); }
+strikeWords(document,'.tach');
 (function(){
   var T=__LOGOS__;
-  function put(el){ var k=el.dataset.k; if(!T[k]) return; el.innerHTML=T[k]; el.classList.add('lgv'); if(k==='apilado') el.querySelector('svg').style.height=(1.523/0.703)+'em'; }
+  function put(el){ var k=el.dataset.k; if(!T[k]) return; el.innerHTML=T[k]; el.classList.add('lgv'); if(k==='apilado') el.querySelector('svg').style.height=(3175/1496)+'em'; }
   // Índice y cabeceras
   var pages=[].slice.call(document.querySelectorAll('.pg')), toc=[];
   pages.forEach(function(pg,i){

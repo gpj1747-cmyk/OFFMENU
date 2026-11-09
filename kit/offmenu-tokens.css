@@ -72,12 +72,12 @@ p { margin: 0; max-width: 68ch; }
 .om-etiqueta { font-family: var(--om-font-datos); font-size: var(--om-fs-etiqueta); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
 .om-datos, .om-precio { font-family: var(--om-font-datos); font-variant-numeric: tabular-nums; }
 
-/* La tachadura: siempre roja, una por pieza. Se pinta como fondo para que funcione en varias líneas. */
-.om-tachado {
-  color: var(--om-gris);
-  padding: 0 .04em; margin: 0 -.04em;
-  background: linear-gradient(var(--om-rojo), var(--om-rojo)) 0 56% / 100% max(.09em, 2px) no-repeat;
-  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+/* La tachadura: siempre roja, una por pieza, SIEMPRE por encima de las letras.
+   Para frases que pueden partirse en dos líneas, envolver cada palabra (con su espacio) en .om-tachado. */
+.om-tachado { position: relative; color: var(--om-gris); white-space: nowrap; }
+.om-tachado::after {
+  content: ""; position: absolute; left: -.04em; right: -.04em; top: 56%;
+  height: .09em; min-height: 2px; background: var(--om-rojo); transform: translateY(-50%); pointer-events: none;
 }
 
 /* Botones */
