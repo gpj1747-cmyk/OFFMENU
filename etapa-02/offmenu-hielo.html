@@ -1,0 +1,267 @@
+<title>OFFMENU · Paleta Hielo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: documento de revisión. Lectura de la referencia, principio de color,
+   tres tonos comparados con las mismas piezas y un set completo del tono recomendado. */
+:root{
+  --bg:#F5F5F2; --fg:#181816; --muted:#6C6B66; --rule:#D9D8D2; --surface:#FFFFFF;
+  --f-ui:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --f-lab:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --f-d:'Schibsted Grotesk',Arial,sans-serif;
+  --f-m:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121211; --fg:#ECEBE6; --muted:#9D9B95; --rule:#2D2C29; --surface:#1B1B19; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--fg); font-family:var(--f-ui); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0; line-height:1.1; text-wrap:balance}
+p{margin:0}
+.lab{font-family:var(--f-lab); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+header{padding-block:56px 40px; border-bottom:1px solid var(--rule)}
+header h1{font-size:clamp(38px,6.5vw,80px); font-weight:700; letter-spacing:-.035em; line-height:.95; margin-top:18px}
+header .intro{margin-top:24px; max-width:64ch; font-size:18px}
+section.block{padding-block:56px; border-bottom:1px solid var(--rule)}
+section.block h2{font-size:clamp(26px,3.6vw,40px); letter-spacing:-.025em; margin:10px 0 18px}
+.lead{font-size:18px; max-width:66ch}
+.cols3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px}
+.cols2{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px}
+.cols3>*,.cols2>*{min-width:0}
+.panel{background:var(--surface); border:1px solid var(--rule); padding:22px}
+.panel h3{font-size:18px; margin-bottom:8px}
+.panel p{font-size:15px}
+.panel ul{margin:0; padding-left:18px; font-size:15px; display:flex; flex-direction:column; gap:6px}
+.tbl-wrap{overflow-x:auto; margin-top:28px; border:1px solid var(--rule); background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:620px}
+th,td{padding:10px 12px; border-bottom:1px solid var(--rule); text-align:left; vertical-align:middle}
+thead th{font-family:var(--f-lab); font-weight:500; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); background:var(--bg)}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:var(--f-m); font-variant-numeric:tabular-nums}
+.chip{display:inline-flex; align-items:center; justify-content:center; width:84px; height:30px; font-family:var(--f-d); font-weight:800; font-size:13px; border:1px solid rgba(0,0,0,.12)}
+.ok{font-family:var(--f-lab); font-size:11px; letter-spacing:.06em; text-transform:uppercase}
+.bad{font-family:var(--f-lab); font-size:11px; letter-spacing:.06em; text-transform:uppercase; text-decoration:line-through; color:var(--muted)}
+
+/* Logotipo A */
+.lg{font-family:var(--f-d); font-weight:900; text-transform:uppercase; letter-spacing:-.05em; line-height:.8; white-space:nowrap; display:inline-block}
+.lg .o{position:relative; display:inline-block}
+.lg .o i{position:absolute; left:-.1em; right:.03em; top:50%; height:.105em; transform:translateY(-55%); background:var(--line,currentColor)}
+.sym{font-family:var(--f-d); font-weight:900; line-height:.8; position:relative; display:inline-block}
+.sym i{position:absolute; left:-.12em; right:-.12em; top:50%; height:.11em; transform:translateY(-55%); background:var(--line,currentColor)}
+.x{position:relative; display:inline}
+.x::after{content:""; position:absolute; left:-.04em; right:-.04em; top:54%; height:.09em; background:currentColor}
+
+/* Textura fotográfica: alto contraste, grano de fotocopia (marcador de posición) */
+.tex{position:absolute; inset:0; background-color:#fff; background-size:cover; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='t' x='0' y='0'><feTurbulence type='fractalNoise' baseFrequency='0.022' numOctaves='4' seed='7'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='discrete' tableValues='0 0 0 1 1'/><feFuncG type='discrete' tableValues='0 0 0 1 1'/><feFuncB type='discrete' tableValues='0 0 0 1 1'/><feFuncA type='linear' slope='0' intercept='1'/></feComponentTransfer></filter><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' seed='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.4 -0.55'/></filter><rect width='600' height='600' filter='url(%23t)'/><rect width='600' height='600' filter='url(%23g)'/></svg>")}
+.tex.b{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='t' x='0' y='0'><feTurbulence type='turbulence' baseFrequency='0.012 0.05' numOctaves='3' seed='11'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='discrete' tableValues='1 1 0 0'/><feFuncG type='discrete' tableValues='1 1 0 0'/><feFuncB type='discrete' tableValues='1 1 0 0'/><feFuncA type='linear' slope='0' intercept='1'/></feComponentTransfer></filter><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.4 -0.55'/></filter><rect width='600' height='600' filter='url(%23t)'/><rect width='600' height='600' filter='url(%23g)'/></svg>")}
+.tex-cap{position:absolute; left:4cqw; top:4cqw; font-family:var(--f-lab); font-size:max(9px,2.6cqw); letter-spacing:.05em; text-transform:uppercase; background:#fff; color:#141518; padding:.3em .5em}
+
+/* Tonos */
+.tone{padding-block:56px; border-bottom:1px solid var(--rule); background:var(--bg)}
+.t1{--tone:#BFCBD6; --ink:#141518; --pap:#F7F7F5}
+.t2{--tone:#A9B8C6; --ink:#141518; --pap:#F7F7F5}
+.t3{--tone:#C9C5D6; --ink:#141518; --pap:#F7F7F5}
+.tone-head{display:grid; grid-template-columns:1fr 1.4fr; gap:32px; align-items:end}
+.tone-head>*{min-width:0}
+.tone-name{font-family:var(--f-d); font-weight:800; font-size:clamp(36px,5.5vw,64px); letter-spacing:-.04em; line-height:.95; margin-top:10px}
+.tone-why{font-size:16px}
+.tone-why .num{font-family:var(--f-m); font-size:12.5px; color:var(--muted); margin-top:10px; display:block}
+.sws{display:grid; grid-template-columns:3fr 2fr 1fr; height:76px; margin-top:28px; border:1px solid var(--rule)}
+.sws div{padding:10px 12px; display:flex; flex-direction:column; justify-content:flex-end; font-family:var(--f-m); font-size:11px; line-height:1.35; min-width:0; overflow:hidden}
+.sws b{font-weight:600}
+.row3{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:14px; margin-top:14px}
+.row3>*{min-width:0}
+.app{container-type:inline-size; min-width:0; display:flex; flex-direction:column; gap:8px}
+.app>.cap{font-family:var(--f-lab); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+.mock{position:relative; overflow:hidden; width:100%; max-width:100%}
+.on-tone{background:var(--tone); color:var(--ink)}
+.on-ink{background:var(--ink); color:var(--tone)}
+.on-pap{background:var(--pap); color:var(--ink); border:1px solid var(--rule)}
+
+.m-logo{aspect-ratio:4/3; display:flex; flex-direction:column; justify-content:space-between; padding:6cqw}
+.m-logo .lg{font-size:14cqw; align-self:center; margin-block:auto}
+.mcap{font-family:var(--f-lab); font-size:max(9px,2.6cqw); letter-spacing:.07em; text-transform:uppercase; opacity:.7}
+
+.m-ig{aspect-ratio:4/5; display:grid; grid-template-rows:1.15fr 1fr}
+.m-ig .top{position:relative; overflow:hidden; container-type:inline-size}
+.m-ig .bot{padding:6cqw 7cqw; display:flex; flex-direction:column; justify-content:space-between}
+.ig-h{font-family:var(--f-d); font-weight:800; font-size:10cqw; letter-spacing:-.04em; line-height:.95}
+.ig-f{display:flex; justify-content:space-between; align-items:flex-end; font-family:var(--f-m); font-size:3.2cqw; line-height:1.4}
+.ig-f .lg{font-size:6.4cqw}
+
+.m-card{aspect-ratio:85/55; padding:7cqw; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 1px 0 rgba(0,0,0,.08), 0 10px 24px -14px rgba(0,0,0,.35)}
+.m-card .sym{font-size:22cqw; align-self:flex-start}
+.m-card .lg{align-self:flex-start}
+.card-row{display:flex; justify-content:space-between; align-items:flex-end; gap:4cqw; font-family:var(--f-m); font-size:3cqw; line-height:1.45}
+.card-name{font-family:var(--f-d); font-weight:800; font-size:5cqw; letter-spacing:-.02em; line-height:1.1}
+.m-card .lg{font-size:10cqw}
+
+/* Set completo */
+.set{display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:28px}
+.s-web{grid-column:span 8} .s-ig{grid-column:span 4} .s-deck{grid-column:span 6} .s-card{grid-column:span 3}
+.m-web{aspect-ratio:16/10; border:1px solid var(--rule)}
+.bar{height:5.5cqw; max-height:26px; display:flex; align-items:center; gap:1.2cqw; padding:0 2cqw; background:#ECECEA; border-bottom:1px solid #d6d6d2}
+.bar i{width:1.1cqw; height:1.1cqw; border-radius:50%; background:#c4c4bf}
+.bar span{margin-left:2cqw; font-family:var(--f-lab); font-size:1.4cqw; color:#77756f}
+.web{height:calc(100% - 5.5cqw); display:grid; grid-template-columns:1.25fr 1fr}
+.web-l{background:var(--tone); color:var(--ink); padding:4.5cqw; display:flex; flex-direction:column; justify-content:space-between}
+.web-r{position:relative; overflow:hidden}
+.nav{display:flex; justify-content:space-between; align-items:center; font-family:var(--f-m); font-size:1.45cqw; letter-spacing:.04em}
+.nav .lg{font-size:3cqw}
+.hero{font-family:var(--f-d); font-weight:900; font-size:6.4cqw; letter-spacing:-.045em; line-height:.92}
+.hero .x{opacity:.5}
+.web-foot{display:grid; grid-template-columns:repeat(3,1fr); gap:1.6cqw; border-top:1px solid var(--ink); padding-top:1.6cqw; font-family:var(--f-m); font-size:1.35cqw; line-height:1.4}
+.web-foot b{display:block; font-family:var(--f-d); font-weight:800; font-size:2cqw; letter-spacing:-.02em}
+.web-r .cta{position:absolute; right:3cqw; bottom:3cqw; background:var(--ink); color:var(--tone); font-family:var(--f-m); font-size:1.5cqw; padding:1cqw 1.8cqw}
+.m-deck{aspect-ratio:16/9; display:grid; grid-template-columns:1fr 1.1fr}
+.deck-l{background:var(--ink); color:var(--tone); padding:4.5cqw; display:flex; flex-direction:column; justify-content:space-between}
+.deck-l .k{font-family:var(--f-m); font-size:1.5cqw; letter-spacing:.06em; text-transform:uppercase; opacity:.75}
+.deck-l .h{font-family:var(--f-d); font-weight:800; font-size:4.4cqw; letter-spacing:-.035em; line-height:.98}
+.deck-l .lg{font-size:2.4cqw; --line:currentColor}
+.deck-r{background:var(--tone); color:var(--ink); padding:4.5cqw; display:flex; flex-direction:column; justify-content:center; gap:1.6cqw; font-family:var(--f-m); font-size:1.7cqw}
+.deck-r div{display:flex; justify-content:space-between; border-bottom:1px solid var(--ink); padding-bottom:1cqw}
+.deck-r .gone{opacity:.5}
+.deck-r .gone span:first-child{text-decoration:line-through; text-decoration-thickness:.18cqw}
+
+@media (max-width:900px){
+  .cols3,.cols2,.tone-head,.row3{grid-template-columns:1fr}
+  .s-web,.s-ig,.s-deck,.s-card{grid-column:1/-1}
+  .s-ig,.row3 .app:nth-child(2){max-width:440px; width:100%; margin:0 auto}
+}
+</style>
+
+<header>
+  <div class="wrap">
+    <span class="lab">OFFMENU · Etapa 02c · Paleta</span>
+    <h1>Hielo:<br>el color como superficie</h1>
+    <p class="intro">Fuera el verde, el azul tinta y el amarillo. Parto de la referencia de CRUDO: qué funciona, por qué le falta contraste y cómo resolverlo. Después comparo tres tonos fríos y pálidos con el logotipo de A y monto un set de piezas de empresa con el que recomiendo.</p>
+  </div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <span class="lab">Ref 11 · CRUDO</span>
+    <h2>Qué te atrae y qué falla</h2>
+    <div class="cols3">
+      <div class="panel"><h3>El color no es un acento</h3><p>El azul grisáceo pálido no señala nada: funciona como un papel más. Es un color de superficie, frío y casi neutro. Por eso no se siente de moda como el amarillo fluorescente o el azul tinta: no grita.</p></div>
+      <div class="panel"><h3>La fuerza viene de la imagen</h3><p>Lo expresivo es la fotografía en blanco y negro de alto contraste, con grano de fotocopia. El color se puede permitir ser tranquilo porque la imagen pone la tensión.</p></div>
+      <div class="panel"><h3>Por qué le falta contraste</h3><p>Las tres tarjetas (textura, azul y blanca) tienen luminosidades parecidas. El azul pálido contra el blanco da un contraste de 1,6:1, así que se leen como tres grises. El negro solo aparece en la letra pequeña.</p></div>
+    </div>
+    <div class="cols2">
+      <div class="panel"><span class="lab">Lo que trasladaría</span><ul><li>Un tono pálido y frío como color de marca, usado en superficie.</li><li>Blanco y negro de alto contraste en la imagen.</li><li>La sobriedad: un color, el negro y nada más.</li></ul></div>
+      <div class="panel"><span class="lab">Lo que no</span><ul><li>Poner el tono pálido junto al blanco como diferencia principal.</li><li>La textura de producto (las escamas): en OFFMENU, la imagen sale de la trastienda.</li><li>Es otro restaurante: tomo la estrategia de color, no su lenguaje.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <span class="lab">Principio de color</span>
+    <h2>El contraste lo pone siempre el negro</h2>
+    <p class="lead">La solución no es solo oscurecer el tono. Es estructural: <b>el tono siempre va en contacto con el negro, nunca con el blanco como única diferencia.</b> El sistema es de dos planos, tono y negro. El blanco queda para documentos largos y para el producto, donde manda la legibilidad. La línea del logotipo deja de tener color propio: va en negro sobre el tono y en el tono sobre negro. Su fuerza es la forma, no el color.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Combinación</th><th>Muestra</th><th>Contraste</th><th>Uso</th></tr></thead>
+        <tbody>
+          <tr><td>Negro sobre Hielo</td><td><span class="chip" style="background:#BFCBD6;color:#141518">OFFMENU</span></td><td class="num">11,1 : 1</td><td class="ok">Principal · cualquier tamaño</td></tr>
+          <tr><td>Hielo sobre negro</td><td><span class="chip" style="background:#141518;color:#BFCBD6">OFFMENU</span></td><td class="num">11,1 : 1</td><td class="ok">Principal · cualquier tamaño</td></tr>
+          <tr><td>Negro sobre papel</td><td><span class="chip" style="background:#F7F7F5;color:#141518">OFFMENU</span></td><td class="num">18 : 1</td><td class="ok">Documentos, producto</td></tr>
+          <tr><td>Hielo junto a papel</td><td><span class="chip" style="background:#F7F7F5;color:#BFCBD6">OFFMENU</span></td><td class="num">1,5 : 1</td><td class="bad">Prohibido · es el error de CRUDO</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TONO 1 ============ -->
+<section class="tone t1">
+  <div class="wrap">
+    <div class="tone-head">
+      <div><span class="lab">Tono 1 / 3</span><h2 class="tone-name">Hielo</h2></div>
+      <div class="tone-why"><p>El más cercano a CRUDO: un azul grisáceo muy pálido, casi un papel. Es el más elegante y silencioso.</p><span class="num">#BFCBD6 · 11,1:1 con negro · 1,54:1 con papel</span></div>
+    </div>
+    <div class="sws"><div style="background:#BFCBD6"><b>Hielo</b>#BFCBD6</div><div style="background:#141518;color:#BFCBD6"><b>Negro</b>#141518</div><div style="background:#F7F7F5"><b>Papel</b>#F7F7F5</div></div>
+    <div class="row3">
+      <div class="app"><span class="cap">Logotipo</span><div class="mock m-logo on-tone"><span class="mcap">Negro sobre hielo</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span class="mcap">offmenu.es</span></div></div>
+      <div class="app"><span class="cap">Instagram · 4:5</span><div class="mock m-ig"><div class="top"><div class="tex"></div><span class="tex-cap">Foto · trastienda, alto contraste</span></div><div class="bot on-tone"><div class="ig-h"><span class="x" style="opacity:.5">Cuotas.</span><br>Un pago.</div><div class="ig-f"><span>Desde 190 €</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div></div></div>
+      <div class="app"><span class="cap">Tarjeta · reverso</span><div class="mock m-card on-ink"><span class="sym">O<i></i></span><div class="card-row"><span>Cartas digitales para hostelería</span><span>offmenu.es</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TONO 2 ============ -->
+<section class="tone t2">
+  <div class="wrap">
+    <div class="tone-head">
+      <div><span class="lab">Tono 2 / 3</span><h2 class="tone-name">Hielo profundo</h2></div>
+      <div class="tone-why"><p>El mismo color con un punto más de cuerpo. Se separa mejor del blanco cuando conviven (en una web, en un documento) y sigue dando un contraste altísimo con negro. Es menos etéreo, pero más útil.</p><span class="num">#A9B8C6 · 9:1 con negro · 1,89:1 con papel</span></div>
+    </div>
+    <div class="sws"><div style="background:#A9B8C6"><b>Hielo profundo</b>#A9B8C6</div><div style="background:#141518;color:#A9B8C6"><b>Negro</b>#141518</div><div style="background:#F7F7F5"><b>Papel</b>#F7F7F5</div></div>
+    <div class="row3">
+      <div class="app"><span class="cap">Logotipo</span><div class="mock m-logo on-tone"><span class="mcap">Negro sobre hielo profundo</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span class="mcap">offmenu.es</span></div></div>
+      <div class="app"><span class="cap">Instagram · 4:5</span><div class="mock m-ig"><div class="top"><div class="tex b"></div><span class="tex-cap">Foto · trastienda, alto contraste</span></div><div class="bot on-tone"><div class="ig-h"><span class="x" style="opacity:.5">Cuotas.</span><br>Un pago.</div><div class="ig-f"><span>Desde 190 €</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div></div></div>
+      <div class="app"><span class="cap">Tarjeta · reverso</span><div class="mock m-card on-ink"><span class="sym">O<i></i></span><div class="card-row"><span>Cartas digitales para hostelería</span><span>offmenu.es</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TONO 3 ============ -->
+<section class="tone t3">
+  <div class="wrap">
+    <div class="tone-head">
+      <div><span class="lab">Tono 3 / 3</span><h2 class="tone-name">Lila gris</h2></div>
+      <div class="tone-why"><p>Un desplazamiento hacia el violeta, muy apagado. Es más propio, porque casi nadie lo usa en el sector y no se parece a CRUDO, pero también es más arriesgado: con poca luz o en pantallas frías puede leerse como gris sin intención.</p><span class="num">#C9C5D6 · 10,8:1 con negro · 1,57:1 con papel</span></div>
+    </div>
+    <div class="sws"><div style="background:#C9C5D6"><b>Lila gris</b>#C9C5D6</div><div style="background:#141518;color:#C9C5D6"><b>Negro</b>#141518</div><div style="background:#F7F7F5"><b>Papel</b>#F7F7F5</div></div>
+    <div class="row3">
+      <div class="app"><span class="cap">Logotipo</span><div class="mock m-logo on-tone"><span class="mcap">Negro sobre lila gris</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span class="mcap">offmenu.es</span></div></div>
+      <div class="app"><span class="cap">Instagram · 4:5</span><div class="mock m-ig"><div class="top"><div class="tex"></div><span class="tex-cap">Foto · trastienda, alto contraste</span></div><div class="bot on-tone"><div class="ig-h"><span class="x" style="opacity:.5">Cuotas.</span><br>Un pago.</div><div class="ig-f"><span>Desde 190 €</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div></div></div>
+      <div class="app"><span class="cap">Tarjeta · reverso</span><div class="mock m-card on-ink"><span class="sym">O<i></i></span><div class="card-row"><span>Cartas digitales para hostelería</span><span>offmenu.es</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SET COMPLETO ============ -->
+<section class="block t2" style="--tone:#A9B8C6; --ink:#141518; --pap:#F7F7F5">
+  <div class="wrap">
+    <span class="lab">Set de empresa · tono recomendado: Hielo profundo</span>
+    <h2>Cómo se vería la marca</h2>
+    <p class="lead">Tono y negro como planos principales, imagen en blanco y negro de alto contraste como elemento expresivo y la línea del logotipo como único gesto gráfico. Las texturas son marcadores de posición: en la versión real serían fotografías de trastienda (manos, móviles, pase de cocina, barras antes de abrir) tratadas con este contraste.</p>
+    <div class="set">
+      <div class="app s-web"><span class="cap">Web corporativa</span>
+        <div class="mock m-web"><div class="bar"><i></i><i></i><i></i><span>offmenu.es</span></div><div class="web">
+          <div class="web-l">
+            <div class="nav"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><span>Servicios · Planes · Clientes</span></div>
+            <h3 class="hero"><span class="x">Imprimir otra carta.</span><br>Cambiarla desde el móvil.</h3>
+            <div class="web-foot"><div><b>Carta</b>desde 190 €</div><div><b>Carta Pro</b>desde 390 €</div><div><b>Web + Carta</b>desde 790 €</div></div>
+          </div>
+          <div class="web-r"><div class="tex b"></div><span class="tex-cap">Foto · trastienda</span><span class="cta">Pide propuesta</span></div>
+        </div></div></div>
+      <div class="app s-ig"><span class="cap">Instagram · 4:5</span>
+        <div class="mock m-ig"><div class="top"><div class="tex"></div><span class="tex-cap">Foto · trastienda</span></div><div class="bot on-ink"><div class="ig-h">El QR no caduca.<br>La carta, cuando quieras.</div><div class="ig-f"><span>Pago único</span><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div></div></div></div>
+      <div class="app s-deck"><span class="cap">Presentación comercial</span>
+        <div class="mock m-deck">
+          <div class="deck-l"><span class="k">02 · El modelo</span><div class="h">Pagas una vez. La carta es tuya.</div><span class="lg"><span class="o">OFF<i></i></span>MENU</span></div>
+          <div class="deck-r"><div class="gone"><span>Cuota mensual</span><span>0 €</span></div><div><span>Carta digital con QR</span><span>desde 190 €</span></div><div><span>Dominio y hosting</span><span>anual</span></div><div><span>Soporte de errores</span><span>6 meses</span></div></div>
+        </div></div>
+      <div class="app s-card"><span class="cap">Tarjeta · anverso</span>
+        <div class="mock m-card on-tone"><span class="lg"><span class="o">OFF<i></i></span>MENU</span><div class="card-row"><div><div class="card-name">Tu nombre</div>Proyectos</div><div style="text-align:right">hola@<br>offmenu.es</div></div></div></div>
+      <div class="app s-card"><span class="cap">Tarjeta · reverso</span>
+        <div class="mock m-card on-ink"><span class="sym">O<i></i></span><div class="card-row"><span>Cartas digitales</span><span>offmenu.es</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <span class="lab">Para cerrar la paleta</span>
+    <h2>Lo que necesito saber</h2>
+    <div class="cols3">
+      <div class="panel"><h3>1 · Tono</h3><p>Hielo, Hielo profundo o Lila gris. Recomiendo <b>Hielo profundo</b>: conserva lo que te atrae de CRUDO y resuelve su problema de contraste cuando el color tiene que convivir con blanco.</p></div>
+      <div class="panel"><h3>2 · La imagen como elemento expresivo</h3><p>Con un color tan tranquilo, la fotografía de alto contraste pasa a ser la parte con más carácter de la marca. ¿Te convence ese reparto?</p></div>
+      <div class="panel"><h3>3 · La línea sin color</h3><p>La línea del logotipo pasa a ir en negro, o en el tono sobre negro. Pierde el acento cromático, pero gana sobriedad. ¿De acuerdo?</p></div>
+    </div>
+  </div>
+</section>
